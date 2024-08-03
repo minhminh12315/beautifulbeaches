@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('role');
+            $table->string('status');
+            $table->string('otp')->nullable();
+            $table->timestamp('otp_expiration')->nullable();
             $table->foreignId('city_id')->nullable()->constrained('cities')->nullOnDelete();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
