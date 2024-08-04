@@ -14,9 +14,11 @@
         <div class="userbox col-12">
             <select wire:model.live="city_id" id="inputGroupSelect01">
                 <option value="" selected>Please choose your city</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                @if($cities)
+                    @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                @endif
             </select>
             <label for="username">City</label>
         </div>

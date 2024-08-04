@@ -14,20 +14,19 @@
                                 <button class="btn btn-warning btn-block" type="button" wire:click="resetOtp">Send New OTP</button>
                                 <button class="btn btn-success btn-block" type="submit">Verify</button>
                             </div>
-
-                            @error('otp')
-                            <div class="alert alert-danger mt-3" role="alert">
-                                {{ $message }}
-                            </div>
-                            @enderror
-
-                            @if ($notification)
-                            <div class="alert alert-primary mt-3" role="alert">
-                                {{ $notification }}
-                            </div>
-                            @endif
                         </div>
                     </form>
+                    @error('otp')
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
+                    @if ($notification)
+                    <div class="alert alert-primary mt-3" role="alert">
+                        {{ $notification }}
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

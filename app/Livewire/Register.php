@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Mail\SendOtp;
+use App\Models\Cities;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -21,6 +22,7 @@ class Register extends Component
     public $otp;
     public $otp_expiration;
     public $verification_code;
+    public $cities;
 
     protected $rules = [
         'username' => 'required|unique:users',
@@ -41,6 +43,9 @@ class Register extends Component
         'password_confirmation.min' => 'Confirm Password must be at least 6 characters long',
         'password_confirmation.same' => 'Password and Confirm Password does not match'
     ];
+    public function mount(){
+        $this->cities = Cities::all();
+    }
 
     public function register(){
 
