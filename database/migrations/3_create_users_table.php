@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('role');
-            $table->string('status');
+            $table->string('role')->default('customer');
+            $table->string('status')->default('inactive');
             $table->string('otp')->nullable();
             $table->timestamp('otp_expiration')->nullable();
             $table->foreignId('city_id')->nullable()->constrained('cities')->nullOnDelete();
