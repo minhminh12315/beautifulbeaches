@@ -12,6 +12,9 @@ use App\Livewire\Admin\Index;
 use App\Livewire\Admin\Regions;
 use App\Livewire\Admin\Sidebar;
 use App\Livewire\Admin\Video;
+use App\Livewire\Login;
+use App\Livewire\Register;
+use App\Livewire\VerifyEmail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,3 +31,8 @@ Route::get('/admin/comments', Comments::class)->name('admin.comments');
 Route::get('/admin/image', Image::class)->name('admin.image');
 Route::get('/admin/video', Video::class)->name('admin.video');
 Route::get('/admin/content', Content::class)->name('admin.content');
+Route::get('/login', Login::class)->name('login');
+
+Route::get('/register', Register::class)->name('register');
+
+Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');

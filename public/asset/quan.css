@@ -1,0 +1,173 @@
+.login-form,
+.register-form {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.login-box a,
+.register-box a {
+    color: #000;
+}
+
+.login-box a:hover,
+.register-box a:hover {
+    color: #65a7d3;
+}
+
+.login-box,
+.register-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    padding: 5px 40px;
+    height: 100%;
+    font-size: 14px;
+}
+
+.userbox {
+    position: relative;
+}
+
+.userbox input,
+.userbox select {
+    background-color: #fff;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #000;
+}
+
+.input-group {
+    border-radius: 8px;
+    outline: none;
+    box-shadow: none;
+    border: #000;
+    font-size: 13px;
+}
+
+.userbox label {
+    position: absolute;
+    top: -2px;
+    left: 10px;
+    font-size: 12px;
+    color: #000;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #fff;
+}
+
+.userbox input:focus,
+.userbox select:focus {
+    border: 1px solid #65a7d3;
+    color: #65a7d3;
+}
+
+.userbox input:focus~label,
+.userbox select:focus~label {
+    color: #65a7d3;
+}
+
+.userbox input:focus::placeholder {
+    opacity: 0;
+}
+
+.userbox input::placeholder{  
+    width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-eye,
+.icon-eye-2 {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    right: 0.75rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: all 0.6s ease-in-out;
+}
+
+.btn-login {
+    background-color: #fff;
+    color: #242649;
+    font-size: 14px;
+    padding: 10px 45px;
+    border: 1.5px solid #242649;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 10px 0 256px 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-register {
+    background-color: #fff;
+    color: #242649;
+    font-size: 14px;
+    padding: 10px 45px;
+    border: 1.5px solid #242649;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 12px 0 176px 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+    background-color: #242649;
+    color: #fff;
+}
+
+.login-container,
+.register-container {
+    background-image: url(https://i.pinimg.com/originals/2d/5d/51/2d5d5117871209b09a3c17a28905e294.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.login-banner,
+.register-banner {
+    background-color: #212121;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.login-text,
+.register-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+}
