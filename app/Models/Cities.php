@@ -15,4 +15,8 @@ class Cities extends Model
     {
         return $this->belongsTo(Regions::class);
     }
+
+    public function beaches(){
+        return $this->hasMany(Beaches::class);
+    }
 }

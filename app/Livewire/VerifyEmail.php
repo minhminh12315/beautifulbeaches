@@ -27,6 +27,7 @@ class VerifyEmail extends Component
 
     public function verifyEmail()
     {
+        $this->notification = null;
         try {
             $user = User::find($this->userId);
 
@@ -44,6 +45,7 @@ class VerifyEmail extends Component
                     return;
                 } else {
                     $user->status = 'active';
+                    $user->email_verified_at = Carbon::now();
                     $user->save();
                     Auth::login($user);
                     return redirect()->route('admin.dashboard');
@@ -79,7 +81,7 @@ class VerifyEmail extends Component
             }
 
             $this->newOtp = Str::random(6);
-            $this->otp_new_expiration = now()->addMinutes(10);
+            $this->otp_new_expiration = now()->addMinutes(2);
 
             $user->otp = $this->newOtp;
             $user->otp_expiration = $this->otp_new_expiration;

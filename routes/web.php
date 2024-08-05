@@ -16,10 +16,8 @@ use App\Livewire\Login;
 use App\Livewire\Register;
 use App\Livewire\VerifyEmail;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Livewire\User\Beaches as BeachesUser;
+use App\Livewire\User\Home;
 
 Route::get('/admin', Dashboard::class)->name('admin.dashboard');
 Route::get('/admin/beaches', Beaches::class)->name('admin.beaches');
@@ -36,3 +34,7 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 
 Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
+
+
+Route::get('/', Home::class)->name('user.home');
+Route::get('/beaches', BeachesUser::class)->name('user.beaches');

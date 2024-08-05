@@ -17,7 +17,7 @@
                         </div>
                     </form>
                     @error('otp')
-                    <div class="alert alert-danger mt-3" role="alert">
+                    <div class="alert alert-danger mt-3 {{$notification ? 'd-none' : ''}}" role="alert">
                         {{ $message }}
                     </div>
                     @enderror
@@ -31,3 +31,4 @@
             </div>
         </div>
     </div>
+</div>

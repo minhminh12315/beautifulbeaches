@@ -1,0 +1,1355 @@
+/* Header */
+#user_header.isHomePage {
+    background-color: transparent;
+    padding-block: 6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    transition: 0.3s ease-in;
+}
+
+#user_header {
+    background-color: #FFFFFF;
+    padding-block: 6px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    transition: 0.3s ease-in;
+}
+
+#user_header.headerFixed {
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 0.5px solid #dee2e6;
+}
+
+#user_header .logo_header {
+    width: 8.25rem;
+    height: auto;
+}
+
+#user_header.headerFixed .header_action_user li span,
+#user_header.headerFixed .main_navhome_user ul li a {
+    color: #242b47 !important;
+}
+
+#user_header .main_navhome_user ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#user_header .main_navhome_user ul li {
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: 0.2s ease-in;
+}
+
+#user_header .header_action_user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+#user_header .header_action_user li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+#user_header.isHomePage .main_navhome_user ul li a {
+    font-size: 1.5rem;
+    color: #f8f8f8;
+    opacity: 0.9;
+}
+
+#user_header .main_navhome_user ul li a {
+    font-size: 1.5rem;
+    color: #242649;
+}
+
+#user_header.isHomePage .header_action_user li>span {
+    font-size: 1.5rem;
+    color: #f8f8f8;
+    opacity: 0.9;
+}
+
+#user_header .header_action_user li>span {
+    font-size: 1.5rem;
+    color: #242649;
+}
+
+#user_header .header_action_user li {
+    cursor: pointer;
+}
+
+#user_header .header_action_user .btn_navbar_toggler {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 16px;
+    border-left: 1px solid #f8f8f8;
+}
+
+#user_header .header_action_user .btn_navbar_toggler span {
+    color: #f8f8f8;
+}
+
+#user_header .main_navhome_user ul li:hover {
+    background-color: #242649;
+    box-shadow: 3px 3px 30px 10px rgba(0, 0, 0, 0.2);
+}
+
+#user_header .main_navhome_user ul li:hover a {
+    color: #FFFFFF !important;
+}
+
+#user_header .search_user_container {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 4rem;
+    padding: 0.5rem 8rem;
+    background-color: rgba(255, 255, 255);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+#user_header .search_user_container .btn_close_search {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+#user_header .search_user_container .btn_close_search:hover {
+    color: #707072;
+}
+
+#user_header .search_user_container .inp_search_home {
+    width: 50%;
+    outline: none;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#user_header .search_user_container .clear_search_home {
+    position: absolute;
+    top: 8px;
+    right: 25%;
+    cursor: pointer;
+}
+
+
+#user_header .search_user_container .search_result {
+    flex: 1;
+    max-height: 100%;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.search_result .search_result_item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    height: 150px;
+}
+
+#user_header .search_user_container .search_result .beach_img_result {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 150px;
+    height: auto;
+}
+
+#user_header .search_user_container .search_result .beach_result_description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+#user_header .search_backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+#user_header .search_user_container.show {
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+#user_header .search_backdrop.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn_account_user .account_user_toggle {
+    position: absolute;
+    top: 130%;
+    right: -10px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    height: auto;
+    width: 12vw;
+    padding: 0.5rem;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+
+.btn_account_user .account_user_toggle li:hover * {
+    color: #65a7d3 !important;
+}
+
+.btn_account_user .account_user_toggle li button {
+    background-color: transparent;
+    border: none;
+}
+
+.btn_account_user .account_user_toggle li button i {
+    color: #282828 !important;
+}
+
+.btn_account_user .account_user_toggle.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Footer */
+#user_footer {
+    margin-top: 8rem;
+}
+
+#user_footer .sub_footer {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user_footer .col ul li a {
+    font-size: 1.25rem;
+}
+
+#user_footer .col ul li:hover a {
+    color: #65a7d3;
+}
+
+#user_footer .logo_footer {
+    max-width: 100%;
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+/* HOME PAGE */
+#user_homepage .video_container {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    position: relative;
+}
+
+#user_homepage .video_container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    mix-blend-mode: multiply;
+}
+
+#user_homepage .video_container .video_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 80%;
+}
+
+#user_homepage .video_container .video_content .video_content_title {
+    font-size: 5.75rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    word-spacing: 3px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#user_homepage .video_container .video_content .video_content_description {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#user_homepage .video_container .video_content .btn_explore_beaches {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 25%;
+    color: #FFFFFF;
+    padding: 1rem 2rem;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s linear;
+}
+
+#user_homepage .video_container .video_content .btn_explore_beaches:hover {
+    background-color: #FFFFFF;
+    color: #242649;
+}
+
+#user_homepage .beach_each_region_container {
+    margin-top: 8rem;
+}
+
+#user_homepage .beach_each_region_container .beach_each_region_item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 2rem;
+    width: 50%;
+}
+
+#user_homepage .beach_each_region_container .beach_each_region_title {
+    font-size: 3.25rem;
+    font-weight: bold;
+    color: #222b68;
+}
+
+#user_homepage .beach_each_region_container .beach_each_region_description {
+    font-size: 1rem;
+    color: #343434;
+}
+
+#user_homepage .beach_each_region_container .btn_explore_beaches {
+    background-color: transparent;
+    color: #242649;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    border: 2px solid #242649;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.3s linear;
+}
+
+#user_homepage .beach_each_region_container .btn_explore_beaches:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+#user_homepage .beach_each_region_container .beach_each_region_content {
+    margin-top: 4rem;
+}
+
+#user_homepage .beach_each_region_container .region_container .region_item {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#user_homepage .beach_each_region_container .region_container .region_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    mix-blend-mode: multiply;
+}
+
+#user_homepage .beach_each_region_container .region_container .region_item .region_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#user_homepage .beach_each_region_container .beach_container {
+    margin-top: 3rem;
+}
+
+.card_beach {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+}
+
+.card_beach .card_beach_img_wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card_beach .card_beach_img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 350px;
+    border-radius: inherit;
+    transition: 0.3s ease-in;
+}
+
+.card_beach .card_beach_content {
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card_beach .card_beach_content .card_beach_name {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #242649;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.card_beach .card_beach_content .card_beach_city {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.card_beach .card_beach_content .card_beach_city i {
+    color: #65a7d3;
+}
+
+.card_beach .card_beach_content .card_beach_description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card_beach .card_beach_content .btn_card_beach_explore {
+    background-color: transparent;
+    font-weight: bold;
+    color: #242649;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #242649;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s linear;
+}
+
+.card_beach .card_beach_content .btn_card_beach_explore:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+
+/* encourage join blog community section in homepage */
+#user_homepage .encourage_write_blog_container {
+    margin-top: 8rem;
+    width: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* overflow: hidden; */
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    mix-blend-mode: multiply;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_title {
+    font-size: 5.5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_description {
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    text-align: center;
+    text-wrap: balance;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage .btn_encourage_signin {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage .btn_encourage_signin:hover {
+    background-color: #FFFFFF;
+    color: #242649;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage .btn_encourage_signup {
+    background-color: #FFFFFF;
+    color: #242649;
+}
+
+#user_homepage .encourage_write_blog_container .encourage_write_blog_content .btn_signInUp_encourage .btn_encourage_signup:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+
+/* Travel section in homepage */
+#user_homepage .blog_container_home {
+    margin-top: 8rem;
+}
+
+#user_homepage .blog_container_home .blog_home_title {
+    font-size: 3.25rem;
+    font-weight: bold;
+    color: #222b68;
+    margin-bottom: 2rem;
+}
+
+#user_homepage .blog_container_home .blog_home_description {
+    font-size: 1.25rem;
+    color: #343434;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-wrap: balance;
+}
+
+#user_homepage .blog_container_home .btn_blog_home {
+    background-color: transparent;
+    color: #242649;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #242649;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s linear;
+}
+
+#user_homepage .blog_container_home .btn_blog_home:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+.blog_container_home .preview_card_blog_container {
+    margin-top: 4rem;
+}
+
+#user_homepage .card_blog_vertical {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+#user_homepage .card_blog_vertical>a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border: inherit;
+}
+
+#user_homepage .card_blog_vertical .card_blog_img_container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#user_homepage .card_blog_vertical .card_blog_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    border-radius: inherit;
+    overflow: hidden;
+    mix-blend-mode: multiply;
+}
+
+#user_homepage .card_blog_vertical .blog_of_beach {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #1bbc9b;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#user_homepage .card_blog_vertical .blog_of_beach i {
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#user_homepage .card_blog_vertical .card_blog_content {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#user_homepage .card_blog_vertical .card_blog_title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #242649;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#user_homepage .card_blog_vertical .card_blog_description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0.5rem 0; */
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: start;
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog .author_name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #242649;
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog .author_region {
+    color: #767676;
+}
+
+#user_homepage .card_blog_vertical .sub_blog_container .date_of_blog {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #767676;
+}
+
+
+
+#user_homepage .card_blog_horizontal {
+    max-height: 100%;
+    width: 100%;
+    height: 200px;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #dee2e6;
+    /* overflow: hidden; */
+}
+
+#user_homepage .card_blog_horizontal>a {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: start;
+    border-radius: inherit;
+}
+
+
+#user_homepage .card_blog_horizontal .card_blog_img {
+    flex-basis: 35%;
+    width: 35%;
+    height: 100%;
+    border-radius: inherit;
+    aspect-ratio: 4/3;
+    mix-blend-mode: multiply;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+
+#user_homepage .card_blog_horizontal .card_blog_content {
+    flex: 1;
+    max-width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+#user_homepage .card_blog_horizontal .card_blog_content .blog_of_beach {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #1bbc9b;
+    color: #FFFFFF;
+}
+
+#user_homepage .card_blog_horizontal .card_blog_content .blog_of_beach i {
+    color: #FFFFFF;
+}
+
+#user_homepage .card_blog_horizontal .card_blog_title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #242649;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#user_homepage .card_blog_horizontal .card_blog_description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container {
+    width: 100%;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container .author_of_blog {
+    display: flex;
+    padding-top: .5rem;
+    align-items: center;
+    gap: 1rem;
+    justify-content: start;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container .author_of_blog img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container .author_of_blog .author_name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #242649;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container .author_of_blog .author_region {
+    color: #767676;
+}
+
+#user_homepage .card_blog_horizontal .sub_blog_container .date_of_blog {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #767676;
+}
+
+
+
+#list_beaches_page .banner_list_beach {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#list_beaches_page .banner_list_beach img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    mix-blend-mode: multiply;
+}
+
+#list_beaches_page .banner_list_beach .banner_list_beach_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+#list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_description {
+    font-size: 1.75rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#list_beaches_page .filter_wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+#list_beaches_page .filter_wrapper .filter_beaches .btn_filter_beaches {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+#list_beaches_page .filter_wrapper .sort_by_beaches {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+#list_beaches_page .filter_toggle_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+}
+
+#list_beaches_page .filter_toggle_body .filter_regions,
+#list_beaches_page .filter_toggle_body .filter_cities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+#list_beaches_page .filter_toggle_body .groupBtn {
+    width: 100%;
+    margin-top: auto;
+    background-color: #FFFFFF;
+    border-top: 1px solid #dee2e6;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+#list_beaches_page .filter_toggle_body .groupBtn .btn_clearAll {
+    width: 100%;
+    border: 1px solid #242649;
+    background-color: transparent;
+    color: #242649;
+    border-radius: 28px;
+    padding-block: 8px;
+    transition: 0.3s ease-in;
+}
+
+#list_beaches_page .filter_toggle_body .groupBtn .btn_clearAll:hover {
+    color: #FFFFFF;
+    background-color: #242649;
+}
+
+#list_beaches_page .filter_toggle_body .groupBtn .btn_apply {
+    width: 100%;
+    border: none;
+    border: 1px solid #242649;
+    background-color: #242649;
+    color: #FFFFFF;
+    border-radius: 28px;
+    padding-block: 8px;
+    transition: 0.3s ease-in;
+}
+
+#list_beaches_page .filter_toggle_body .groupBtn .btn_apply:hover {
+    background-color: transparent;
+    color: #242649;
+}
+
+#list_beaches_page .filter_toggle_body .filter_regions .filter_regions_item label,
+#list_beaches_page .filter_toggle_body .filter_cities .filter_cities_item label {
+    width: 100%;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid #242649;
+    border-radius: 28px;
+    color: #242649;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: size 1.5rem;
+}
+
+#list_beaches_page .filter_toggle_body .filter_regions .filter_regions_item input:checked+label,
+#list_beaches_page .filter_toggle_body .filter_cities .filter_cities_item input:checked+label {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+.filter_wrapper .selectedRegion,
+.filter_wrapper .selectedCity {
+    background-color: #e2e8ee;
+    border: 1px solid #242649;
+    border-radius: 28px;
+    color: #242649;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.filter_wrapper .selectedRegion button,
+.filter_wrapper .selectedCity button {
+    background-color: transparent;
+    border: none;
+    color: #242649;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_wrapper .selectedRegion button span,
+.filter_wrapper .selectedCity button span {
+    font-size: 1rem;
+}
+
+.offcanvas_backdrop_custom{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: none;
+    z-index: 100;
+    transition: 0.15s ease-in-out;
+    visibility: hidden;
+}
+
+.offcanvas_backdrop_custom.show{
+    display: block;
+    visibility: visible;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 992px) {
+    #user_header .main_navhome_user {
+        width: 100%;
+    }
+
+    #user_header .main_navhome_user ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #user_header .main_navhome_user ul li {
+        width: 100%;
+    }
+
+    #user_header .main_navhome_user ul li:hover a {
+        color: #FFFFFF !important;
+    }
+
+    #user_header .main_navhome_user ul li a {
+        font-size: 1.5rem;
+        color: #242649 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #user_header .search_user_container {
+        padding: 1rem 4rem;
+        height: 100vh;
+    }
+
+    #user_header .search_user_container .search_result {
+        width: 100%;
+    }
+
+    #user_header .search_user_container .inp_search_home {
+        width: 80%;
+    }
+
+    #user_header .search_user_container .clear_search_home {
+        right: 47px;
+    }
+
+    #user_homepage .video_container .video_content {
+        width: 90%;
+    }
+
+    #user_homepage .video_container .video_content .video_content_title {
+        font-size: 4rem;
+    }
+
+    #user_homepage .video_container .video_content .btn_explore_beaches {
+        width: 40%;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_title {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_description {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    #user_homepage .card_blog_horizontal .card_blog_img {
+        flex: 0 0 40%;
+        width: 100%;
+    }
+
+    #user_homepage .card_blog_horizontal .card_blog_content {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_img {
+        height: 50vh;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_title {
+        font-size: 3.5rem;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_description {
+        font-size: 20px;
+    }
+    .offcanvas_custom {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #user_header .main_navhome_user {
+        width: 100%;
+    }
+
+    #user_header .main_navhome_user ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #user_header .main_navhome_user ul li {
+        width: 100%;
+    }
+
+    #user_header .main_navhome_user ul li:hover a {
+        color: #FFFFFF !important;
+    }
+
+    #user_header .main_navhome_user ul li a {
+        font-size: 1.5rem;
+        color: #242649 !important;
+    }
+
+    #user_header .search_user_container {
+        padding: 1rem;
+        height: 100vh;
+    }
+
+    #user_header .search_user_container .search_result {
+        width: 100%;
+    }
+
+    #user_header .search_user_container .inp_search_home {
+        width: 80%;
+    }
+
+    #user_header .search_user_container .clear_search_home {
+        right: 19px;
+    }
+
+    #user_homepage .video_container .video_content {
+        width: 90%;
+    }
+
+    #user_homepage .video_container .video_content .video_content_title {
+        font-size: 2rem;
+    }
+
+    #user_homepage .video_container .video_content .btn_explore_beaches {
+        width: 60%;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_title {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    #user_homepage .beach_each_region_container .beach_each_region_description {
+        text-align: center;
+        text-wrap: balance;
+    }
+
+
+    #user_homepage .card_blog_horizontal .card_blog_img {
+        flex: 0 0 40%;
+        width: 100%;
+    }
+
+    #user_homepage .card_blog_horizontal .card_blog_content {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    #user_homepage .card_blog_horizontal {
+        height: 250px;
+    }
+
+    #user_homepage .card_blog_horizontal>a {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: inherit;
+    }
+
+    #user_homepage .card_blog_horizontal .sub_blog_container {
+        width: 100%;
+        border-top: 1px solid #dee2e6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #user_homepage .card_blog_horizontal .sub_blog_container .author_of_blog {
+        justify-content: start;
+        width: 100%;
+    }
+
+    #user_homepage .card_blog_horizontal .sub_blog_container .date_of_blog {
+        text-align: start;
+        width: 100%;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_img {
+        height: 90vh;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_title {
+        font-size: 3rem;
+    }
+
+    #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_description {
+        font-size: 18px;
+    }
+}
