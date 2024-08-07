@@ -1,0 +1,1155 @@
+/* About Us */
+
+/* Mục đích: Để cuộn trang mượt mà */
+body{
+    scroll-behavior: smooth !important;
+}
+
+/* Phần About Us - Hiệu ứng hover cho các phần tử */
+#AboutUs .hover:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: transform 200ms;
+}
+
+/* Con trỏ chuột */
+.mouse {
+    cursor: pointer;
+}
+
+/* Phần About Us - Hiệu ứng hover cho các phần tử với độ mờ */
+#AboutUs .hoverOpacity:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Header - Logo */
+#header .logo {
+    border: 1px solid rgb(218, 208, 208);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+/* Header - Container */
+#header .containerHeader {
+    background-color: burlywood;
+    height: 80px;
+}
+
+/* Header - Menu Button Container */
+#header .menuContainer {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 1rem;
+    background-color: rgb(225, 52, 21);
+}
+
+/* Header - Menu Button */
+#header .btnMenu {
+    color: aliceblue;
+}
+
+/* Header - Search Bar */
+#header .formSearch {
+    width: 100%;
+    border-radius: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    height: 35px;
+    border: none;
+}
+
+/* Header - Search Container */
+#header .searchContainer {
+    position: relative;
+}
+
+/* Header - Space (chưa sử dụng) */
+header .space {
+    width: 10%;
+}
+
+/* Header - Search Icon */
+#header .iconSearch {
+    position: absolute;
+    font-size: 20px;
+    padding-left: 20px;
+    top: 50%;
+}
+
+/* Header - Middle Search Icon */
+#header .middleSearchIcon {
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+/* Header - Shopping Cart Icon Container */
+#header .cartShop-container {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(222, 214, 214);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header - Login Button */
+#header .btnLogin {
+    border: 1px solid rgb(255, 254, 254);
+    border-radius: 1rem;
+}
+
+/* Header - Middle Search Bar (chưa sử dụng) */
+#header .SearchBar_Middle {
+    display: none;
+}
+
+/* About Us - Background Image */
+#AboutUs .backgroundTitle {
+    position: relative;
+    object-fit: cover;
+    height: 500px;
+    filter: brightness(0.8);
+}
+
+/* About Us - Welcome Title Container */
+#AboutUs .WelcomeTitleContainer {
+    position: absolute;
+    z-index: 3;
+    height: 500px;
+}
+
+/* About Us - Welcome Title */
+#AboutUs .WelcomeTitle {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+/* About Us - Pacifico Regular Font Style */
+#AboutUs .pacifico-regular {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #269bd1;
+    font-size: 30px;
+    position: relative;
+    top: 12px;
+}
+
+/* About Us - Text Container */
+#AboutUs .text-container {
+    display: inline-block;
+}
+
+/* About Us - Highlighted Text */
+#AboutUs .text-container span {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+}
+
+/* About Us - Highlight Style */
+#AboutUs .highlight {
+    background-color: #269bd1;
+    color: #ffffff;
+    display: inline-block;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* About Us - Hidden Element */
+#AboutUs .hidden {
+    opacity: 0;
+}
+
+/* About Us - Big Title */
+#AboutUs .bigTitle {
+    color: #000000;
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.1em;
+}
+
+/* About Us - Section 2 Padding */
+#AboutUs #section_2 {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    width: 90%;
+    margin: auto;
+}
+
+/* About Us - Description */
+#AboutUs .describeAboutUs {
+    font-size: 18px;
+    opacity: 0.9;
+    position: relative;
+    bottom: 6px;
+}
+
+/* About Us - Blog Title */
+#AboutUs .titleBlog {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* About Us - Blog Border Container */
+#AboutUs .borderBlogContainer {
+    position: relative;
+}
+
+/* About Us - Blog Border Line 1 */
+#AboutUs .line_1 {
+    position: absolute;
+    border-bottom: 5px solid #000000;
+    border-radius: 1rem;
+    width: 80%;
+    z-index: 3;
+}
+
+/* About Us - Blog Border Line 2 */
+#AboutUs .line_2 {
+    position: absolute;
+    border-bottom: 5px solid #e0e7e4;
+    border-radius: 1rem;
+    z-index: 2;
+    width: 100%;
+}
+
+/* About Us - More Info Button */
+#AboutUs .btn_MoreInfor {
+    background-color: #269bd1;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+/* About Us - Beach Image Container */
+#AboutUs .beachImgContainer {
+    height: 500px;
+    position: relative;
+}
+
+/* About Us - Image 1 */
+#AboutUs .img_1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us - Image Container 1 */
+#AboutUs .imgContainer_1 {
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 550px;
+    height: 360px;
+}
+
+/* About Us - General Image Container */
+#AboutUs .imgContainer {
+    position: absolute;
+    z-index: 5;
+}
+
+/* About Us - Image Container 2 */
+#AboutUs .imgContainer_2 {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 1rem;
+    overflow: hidden;
+    bottom: -10px;
+    left: 30px;
+    z-index: 6;
+}
+
+/* About Us - Image 2 */
+#AboutUs .img_2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us - Image Container 3 */
+#AboutUs .imgContainer_3 {
+    position: absolute;
+    width: 200px;
+    height: 130px;
+    border-radius: 1rem;
+    overflow: hidden;
+    top: 10px;
+    right: 20px;
+    z-index: 4;
+}
+
+/* About Us - Image 3 */
+#AboutUs .img_3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us - Image Container 4 */
+#AboutUs .imgContainer_4 {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    border-radius: 1rem;
+    overflow: hidden;
+    bottom: 30px;
+    right: 40px;
+    z-index: 6;
+}
+
+/* About Us - Image 4 */
+#AboutUs .img_4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us - Image Container 5 */
+#AboutUs .imgContainer_5 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    border-radius: 1rem;
+    overflow: hidden;
+    left: 200px;
+    top: -10px;
+    z-index: 6;
+}
+
+/* About Us - Image 5 */
+#AboutUs .img_5 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* About Us - Carousel Container */
+#AboutUs .carouselContainer {
+    height: 860px !important;
+    margin: auto;
+    width: 90%;
+    text-align: center;
+}
+
+/* Carousel Inner */
+.carousel-inner {
+    height: 700px;
+}
+
+/* Carousel Item Image */
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Swiper Image */
+#AboutUs img.bigger {
+    transition: transform 10s ease;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    background: #fff;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#AboutUs img.bigger {
+    transform: scale(1.1);
+}
+
+/* Customer Stories - Subtitle */
+#AboutUs .subTitle {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #269bd1;
+    font-size: 50px;
+    position: relative;
+    top: 12px;
+}
+
+/* Customer Stories - Highlighted Word */
+#AboutUs .Satisfied {
+    background-color: #269bd1;
+    color: white;
+}
+
+/* Customer Stories - Title Section */
+#AboutUs .titleSection {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+/* Customer Stories - Container */
+#AboutUs .peopleFeelingContainer {
+    width: 90%;
+    margin: auto;
+}
+
+/* Customer Stories - Image Stories Container */
+#AboutUs .imgStoriesContainer {
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 100%;
+    height: 440px;
+}
+
+/* Customer Stories - Image Story */
+#AboutUs .imgStory {
+    object-fit: cover;
+    width: 100%;
+    height: 440px;
+}
+
+/* Customer Stories - Small Image */
+#AboutUs .smallStrImg {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Customer Stories - Avatar Container */
+#AboutUs .avatarContainer {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/* Customer Stories - Avatar */
+#AboutUs .avatar {
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+
+/* Customer Stories - Avatar Detail */
+#AboutUs .detailAvatar {
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+/* Customer Stories - Feedback Container */
+#AboutUs .feedBackContainer {
+    display: flex;
+    align-content: center;
+    height: 100%;
+    width: 90%;
+    margin: auto;
+}
+
+/* Customer Stories - Feedback Name */
+#AboutUs .name {
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Customer Stories - Feedback Location */
+#AboutUs .location {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* Customer Stories - Image Stories Container Below */
+#AboutUs .imgStoriesContainerBelow {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+/* Customer Stories - Image Story Below */
+#AboutUs .imgStoryBelow {
+    object-fit: cover;
+    width: 100%;
+    height: 480px;
+}
+
+/* Customer Stories - Feedback Content */
+#AboutUs .feedBack {
+    font-size: 30px;
+    font-weight: 470;
+    color: black;
+}
+
+/* Latest News - News Container */
+#AboutUs .NewsContainer {
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 100%;
+    height: 440px;
+    position: relative;
+}
+
+/* Latest News - News Image */
+#AboutUs .imgNews {
+    object-fit: cover;
+    width: 100%;
+    height: 440px;
+    position: absolute;
+}
+
+/* Latest News - Date */
+#AboutUs .date {
+    position: absolute;
+    z-index: 3;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #434A54;
+    width: 150px;
+    height: 30px;
+    bottom: 48%;
+    left: 10%;
+}
+
+/* Latest News - Title */
+#AboutUs .titleNews {
+    position: absolute;
+    z-index: 3;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-size: 35px;
+    font-weight: bold;
+    bottom: 30%;
+    left: 10%;
+}
+
+/* Latest News - Text */
+#AboutUs .textNews {
+    position: absolute;
+    z-index: 3;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-size: 18px;
+    font-weight: 500;
+    bottom: 12%;
+    left: 10%;
+}
+
+/* Responsive Design - Media Queries */
+@media screen and (max-width: 768px) {
+    /* Section 1 - Welcome Title */
+    #AboutUs .WelcomeTitle {
+        font-size: 50px;
+    }
+    #AboutUs .pacifico-regular {
+        font-size: 25px;
+        text-align: center;
+    }
+    #AboutUs .bigTitle {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+    #AboutUs .describeAboutUs {
+        padding-top: 25px;
+        text-align: center;
+    }
+    #AboutUs .titleBlog {
+        text-align: center;
+        opacity: 0.9;
+    }
+    #AboutUs .btnContainer {
+        display: flex;
+        justify-content: center;
+    }
+    #AboutUs .scaleNone {
+        scale: none !important;
+        height: 240px;
+        width: 90%;
+    }
+    #AboutUs .beachImgContainer {
+        height: 350px;
+    }
+    #AboutUs .carouselContainer {
+        height: 250px !important;
+    }
+    #AboutUs .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+    #AboutUs .subTitle {
+        font-size: 30px;
+    }
+    #AboutUs .titleSection {
+        font-size: 34px;
+    }
+    #AboutUs .imgStoriesContainer {
+        height: 300px;
+    }
+    #AboutUs .imgStory {
+        height: 300px;
+    }
+    #AboutUs .imgStoriesContainerBelow {
+        height: 300px;
+    }
+    #AboutUs .imgStoryBelow {
+        height: 300px;
+    }
+    #AboutUs .content {
+        font-size: 23px;
+    }
+    #AboutUs #feedBack {
+        height: 450px;
+    }
+    #AboutUs .date {
+        height: 30px;
+        bottom: 50%;
+    }
+    #AboutUs .titleNews {
+        font-size: 25px;
+        font-weight: bold;
+        bottom: 30%;
+        left: 10%;
+    }
+    #AboutUs .textNews {
+        font-size: 16px;
+        font-weight: 600;
+        bottom: 12%;
+        left: 10%;
+        width: 89%;
+    }
+    #AboutUs .imgNews {
+        filter: brightness(0.7);
+    }
+}
+/* Beach Blog */
+
+
+/* Blog Detail Section */
+/* Container width and margin */
+#BlogDetail {
+    width: 90%;
+    margin: auto;
+}
+
+/* Image hover effects */
+#BlogDetail .hoverBigger:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: 400ms;
+}
+
+/* Button hover effects */
+#BlogDetail .hoverBtn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 100ms;
+}
+
+/* Image opacity hover effects */
+#BlogDetail .hoverOpacity:hover {
+    opacity: 0.8;
+    transition: 800ms;
+}
+
+/* Blog title container margin */
+#BlogDetail .BlogTitleContainer {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+/* Blog title styling */
+#BlogDetail .BlogTitle {
+    color: #000000;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+
+/* Blog date styling */
+#BlogDetail .dateBlog {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Blog author styling */
+#BlogDetail .author {
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    color: #269bd1;
+}
+
+/* Main image container styling */
+#BlogDetail .BigImageContainer {
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+/* Text content styling */
+#BlogDetail .textContent {
+    font-size: 20px;
+    font-weight: 450;
+    line-height: 1.4em;
+    opacity: 0.9;
+}
+
+/* Comment Swiper Section */
+/* Feedback container styling */
+#BlogDetail #feedBack {
+    height: 300px;
+    width: 100%;
+    background-color: rgb(228, 228, 228);
+    border-radius: 1rem;
+}
+
+/* Feedback text container */
+#BlogDetail .feedBack {
+    width: 80%;
+    margin: auto;
+}
+
+/* Avatar container styling */
+#BlogDetail .avatarContainer {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+    object-fit: cover;
+    margin-top: 6px;
+}
+
+/* Avatar image styling */
+#BlogDetail .avatar {
+    object-fit: cover;
+    height: 70px;
+    width: 70px;
+}
+
+/* Avatar detail positioning */
+#BlogDetail .detailAvatar {
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+/* Feedback container layout */
+#BlogDetail .feedBackContainer {
+    display: flex;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+/* Feedback name styling */
+#BlogDetail .name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Feedback location styling */
+#BlogDetail .location {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* Feedback content text styling */
+#BlogDetail .content {
+    font-size: 24px;
+    font-weight: 450;
+    line-height: 1.4em;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Swiper pagination positioning */
+#BlogDetail .swiper-pagination {
+    position: relative;
+    z-index: 4;
+    top: -40px;
+}
+
+/* Image container styling */
+#BlogDetail .imgContainer {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Blog subtitle styling */
+#BlogDetail .titleBlog_2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.2em;
+    margin-top: 20px;
+}
+
+/* Blog subtitle styling */
+#BlogDetail .subTitle {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-size: 40px;
+    color: #269bd1;
+    line-height: 1.2em;
+}
+
+/* Latest articles text styling */
+#BlogDetail .latestArticles {
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 1em;
+}
+
+/* Article image container styling */
+#BlogDetail .imgArticleContainer {
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 400px;
+}
+
+/* Article image styling */
+#BlogDetail .imgArticle {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
+
+/* Article date styling */
+#BlogDetail .date {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5em;
+    opacity: 0.8;
+    background-color: black;
+    width: 120px;
+    text-align: center;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* Article title styling */
+#BlogDetail .titleArticle {
+    font-size: 25px;
+    font-weight: 750;
+}
+
+/* Article subtitle styling */
+#BlogDetail .subTitleArticle {
+    width: 90%;
+}
+
+/* Read more button container */
+#BlogDetail .btnContainer {
+    width: 150px;
+    background-color: #269bd1;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+/* Read more button styling */
+#BlogDetail .btnReadMore {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Responsive Design for Mobile */
+/* Blog detail text content responsiveness */
+@media screen and (max-width: 768px) {
+    #BlogDetail .textContent {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* Blog title responsiveness */
+    #BlogDetail .BlogTitle {
+        font-size: 32px;
+    }
+
+    /* Blog date responsiveness */
+    #BlogDetail .dateBlog {
+        font-size: 15px;
+    }
+
+    /* Blog author responsiveness */
+    #BlogDetail .author {
+        font-size: 15px;
+        font-family: "Caveat", cursive;
+        font-optical-sizing: auto;
+        font-weight: bold;
+        font-style: normal;
+        color: #269bd1;
+    }
+
+    /* Main image container responsiveness */
+    #BlogDetail .BigImageContainer {
+        height: 250px;
+    }
+
+    /* Main image responsiveness */
+    #BlogDetail .BigImage {
+        height: 250px;
+    }
+
+    /* Comment section responsiveness */
+    #BlogDetail .feedBack {
+        width: 90%;
+    }
+
+    /* Avatar container responsiveness */
+    #BlogDetail .avatarContainer {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        overflow: hidden;
+        object-fit: cover;
+        margin-top: 6px;
+    }
+
+    /* Avatar image responsiveness */
+    #BlogDetail .avatar {
+        object-fit: cover;
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Avatar detail responsiveness */
+    #BlogDetail .detailAvatar {
+        margin-left: 20px;
+        margin-top: 6px;
+    }
+
+    /* Feedback container responsiveness */
+    #BlogDetail .feedBackContainer {
+        display: flex;
+        align-content: center;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    /* Feedback name responsiveness */
+    #BlogDetail .name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Feedback location responsiveness */
+    #BlogDetail .location {
+        font-size: 18px;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    /* Feedback content text responsiveness */
+    #BlogDetail .content {
+        font-size: 15px;
+        font-weight: 450;
+        line-height: 1.4em;
+        opacity: 0.9;
+        text-align: center;
+    }
+
+    /* Blog subtitle responsiveness */
+    #BlogDetail .titleBlog_2 {
+        font-size: 24px;
+    }
+
+    /* Blog subtitle responsiveness */
+    #BlogDetail .subTitle {
+        font-size: 30px;
+    }
+
+    /* Latest articles text responsiveness */
+    #BlogDetail .latestArticles {
+        font-size: 42px;
+    }
+}
+
+/* contact Us */
+
+/* Wrapper container styles */
+.wrapper-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.wrapper-item {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Section 1: Title container */
+#ContactUs .titleContainer {
+    height: 500px;
+    position: relative;
+}
+#ContactUs .imgTitle {
+    object-fit: cover;
+    position: absolute;
+    height: 500px;
+    filter: brightness(0.7);
+}
+#ContactUs .title {
+    position: absolute;
+    z-index: 3;
+    font-size: 60px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Section 2: Contact details container */
+#ContactUs .section_2 {
+    width: 90%;
+    margin: auto;
+}
+
+/* Icon containers */
+#ContactUs .emailIconContainer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: black;
+    color: aliceblue;
+    font-size: 38px;
+}
+#ContactUs .locationIconContainer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #F2F2F2;
+    color: #20C997;
+    font-size: 38px;
+}
+#ContactUs .phoneIconContainer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #20C997;
+    color: #ffffff;
+    font-size: 38px;
+}
+
+/* Title details */
+#ContactUs .titleDetail {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+#ContactUs .DetailsContainer span {
+    text-decoration: underline;
+}
+
+/* Quotes and consulting text styles */
+#ContactUs .quotes,
+.consulting {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/* Form container styles */
+#ContactUs .formContactUsContainer {
+    background-color: #F2F2F2;
+    height: 755px;
+    border-radius: 1rem;
+    position: relative;
+    top: 150px;
+}
+
+/* Form input styles */
+#ContactUs .i1 .form-control {
+    background-color: #F2F2F2;
+    font-size: 21px;
+    font-weight: 450;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#ContactUs .i2 .form-control {
+    background-color: #F2F2F2;
+    font-size: 18px;
+    font-weight: 450;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#ContactUs .i3 .form-control {
+    background-color: #F2F2F2;
+    font-size: 15px;
+    font-weight: 450;
+    padding-left: 30px;
+    padding-top: 10px;
+    height: 150px;
+}
+
+/* Form layout */
+#ContactUs .formContactUs {
+    width: 90%;
+    margin: auto;
+}
+
+/* Form titles and notes */
+#ContactUs .subTitleForm {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-size: 30px;
+    color: #269bd1;
+    line-height: 1.2em;
+}
+#ContactUs .titleForm {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+#ContactUs .note {
+    opacity: 0.8;
+    font-size: 15px;
+    font-weight: 500;
+    width: 90%;
+    margin: auto;
+}
+
+/* Submit button styles */
+#ContactUs .btnContact {
+    background-color: #269bd1;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+#ContactUs .btnContact:hover {
+    background-color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Section 4: Google Map container */
+#ContactUs .section_4 {
+    height: 600px;
+}

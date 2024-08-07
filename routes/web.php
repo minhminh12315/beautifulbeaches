@@ -18,6 +18,11 @@ use App\Livewire\VerifyEmail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\User\Beaches as BeachesUser;
 use App\Livewire\User\Home;
+use App\Livewire\User\About;
+use App\Livewire\User\Contact;
+use App\livewire\User\BeachDetails;
+
+
 
 Route::get('/admin', Dashboard::class)->name('admin.dashboard');
 Route::get('/admin/beaches', Beaches::class)->name('admin.beaches');
@@ -30,11 +35,10 @@ Route::get('/admin/image', Image::class)->name('admin.image');
 Route::get('/admin/video', Video::class)->name('admin.video');
 Route::get('/admin/content', Content::class)->name('admin.content');
 Route::get('/login', Login::class)->name('login');
-
 Route::get('/register', Register::class)->name('register');
-
 Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
-
-
-Route::get('/', Home::class)->name('user.home');
+Route::get('/',Home::class)->name('user.home');
 Route::get('/beaches', BeachesUser::class)->name('user.beaches');
+Route::get('/about', About::class)->name('user.about');
+Route::get('/ContactUs',Contact::class)->name('user.contactUs');
+Route::get('/BeachDetails', BeachDetails::class)->name('user.beachDetails');
