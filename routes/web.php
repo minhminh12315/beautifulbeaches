@@ -20,7 +20,7 @@ use App\Livewire\User\Beaches as BeachesUser;
 use App\Livewire\User\Home;
 use App\Livewire\User\About;
 use App\Livewire\User\Contact;
-use App\livewire\User\BeachDetails;
+use App\Livewire\User\BeachDetails;
 
 
 
