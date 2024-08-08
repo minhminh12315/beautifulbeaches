@@ -5,27 +5,37 @@ namespace App\Livewire;
 use App\Mail\SendOtp;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-
-class VerifyEmail extends Component
+class ResetPasswordVerify extends Component
 {
     public $otp;
+    public $otp_expiration;
     public $newOtp;
     public $otp_new_expiration;
     public $userId;
     public $notification;
+
     public function mount($id)
     {
         $this->userId = $id;
-    }
+        $user = User::find($this->userId);
 
-    public function verifyEmail()
+        $this->otp = Str::random(6);
+        $this->otp_expiration = now()->addMinutes(2);
+
+        $user->otp = $this->otp;
+        $user->otp_expiration = $this->otp_expiration;
+        $user->save();
+
+        Mail::to($user->email)->send(new SendOtp($this->otp));
+    }
+    public function resetPasswordVerify()
     {
+
         $this->notification = null;
         try {
             $user = User::find($this->userId);
@@ -46,8 +56,7 @@ class VerifyEmail extends Component
                     $user->status = 'active';
                     $user->email_verified_at = Carbon::now();
                     $user->save();
-                    Auth::login($user);
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('reset_password');
                 }
             } else {
                 $this->addError('otp', 'Invalid OTP. Please try again.');
@@ -92,9 +101,8 @@ class VerifyEmail extends Component
             $this->addError('otp', 'An error occurred while sending new OTP. Please try again later.');
         }
     }
-
     public function render()
     {
-        return view('livewire.verify-email');
+        return view('livewire.reset-password-verify');
     }
 }

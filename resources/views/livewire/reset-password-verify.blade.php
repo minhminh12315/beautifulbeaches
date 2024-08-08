@@ -7,7 +7,7 @@
                     <div class="alert alert-info mb-4" role="alert">
                         An OTP has been sent to your email. Enter the code to verify your account.
                     </div>
-                    <form wire:submit="verifyEmail">
+                    <form wire:submit="resetPasswordVerify">
                         <div class="form-group">
                             <input type="text" class="form-control form-control-lg mb-3" wire:model="otp" placeholder="Enter OTP" aria-label="OTP">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -31,9 +31,6 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
-</div>
-=======
 </div>
 <script>
     $(document).ready(function() {
@@ -62,4 +59,3 @@
         });
     })
 </script>
->>>>>>> Stashed changes
