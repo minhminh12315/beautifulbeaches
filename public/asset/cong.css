@@ -1,9 +1,3 @@
-/* About Us */
-
-/* Mục đích: Để cuộn trang mượt mà */
-body{
-    scroll-behavior: smooth !important;
-}
 
 /* Phần About Us - Hiệu ứng hover cho các phần tử */
 #AboutUs .hover:hover {
@@ -715,14 +709,18 @@ header .space {
     line-height: 1.4em;
     opacity: 0.9;
 }
+#BlogDetail .spaced-paragraphs p {
+    margin-bottom: 20px; /* Khoảng cách giữa các đoạn văn */
+}
 
 /* Comment Swiper Section */
 /* Feedback container styling */
 #BlogDetail #feedBack {
     height: 300px;
     width: 100%;
-    background-color: rgb(228, 228, 228);
+    /* background-color: rgb(194, 36, 36); */
     border-radius: 1rem;
+    border:1px solid black;
 }
 
 /* Feedback text container */
@@ -882,6 +880,7 @@ header .space {
     #BlogDetail .textContent {
         font-size: 15px;
         line-height: 1.5;
+
     }
 
     /* Blog title responsiveness */
@@ -895,14 +894,7 @@ header .space {
     }
 
     /* Blog author responsiveness */
-    #BlogDetail .author {
-        font-size: 15px;
-        font-family: "Caveat", cursive;
-        font-optical-sizing: auto;
-        font-weight: bold;
-        font-style: normal;
-        color: #269bd1;
-    }
+
 
     /* Main image container responsiveness */
     #BlogDetail .BigImageContainer {
@@ -1045,6 +1037,9 @@ header .space {
     color: #20C997;
     font-size: 38px;
 }
+#ContactUs .locationIcon{
+    color: #20C997;
+ }
 #ContactUs .phoneIconContainer {
     width: 70px;
     height: 70px;
@@ -1052,6 +1047,9 @@ header .space {
     background-color: #20C997;
     color: #ffffff;
     font-size: 38px;
+}
+#ContactUs .phoneIcon,.emailIcon{
+    color:white
 }
 
 /* Title details */

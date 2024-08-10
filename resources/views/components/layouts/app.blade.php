@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title -->
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'Plan the Perfect Vacation' }}</title>
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Google Fonts -->
@@ -42,7 +42,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Custom CSS -->
-    {{-- <link rel="stylesheet" href="{{ asset('asset/index.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('asset/index.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/an.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/quan.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/cong.css') }}">
