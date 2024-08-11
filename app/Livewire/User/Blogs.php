@@ -2,79 +2,67 @@
 
 namespace App\Livewire\User;
 
-use App\Models\Beaches as ModelsBeaches;
+use App\Models\Blogs as ModelsBlogs;
 use App\Models\Cities;
 use App\Models\Regions;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class Beaches extends Component
+class Blogs extends Component
 {
     public $regions;
     public $cities;
     public $filters = [];
     public $temporaryFilters = [];
-    public $beaches;
-    public $perPage = 6;
-    public $totalbeaches;
+    public $blogs;
+    public $totalsblogs;
+    public $perpage = 6;
 
-    public function mount($id = null)
+
+    public function mount()
     {
         $this->regions = Regions::all();
         $this->cities = Cities::all();
-
-        if ($id) {
-            $this->filters['region'] = $id;
-            $this -> temporaryFilters['region'] = $id;
-            $this->apply_filter();
-        } else {
-            $this->beaches = ModelsBeaches::with('city')->take($this->perPage)->get();
-            $this->totalbeaches = ModelsBeaches::count();
-        }
+        $this->blogs = ModelsBlogs::take($this->perpage)->get();
+        $this->totalsblogs = ModelsBlogs::count();
     }
 
     public function apply_filter()
     {
-        $query = ModelsBeaches::query()->with('city');
-
+        $query = ModelsBlogs::query();
         foreach ($this->filters as $key => $value) {
             switch ($key) {
                 case 'region':
                     if ($value) {
-                        $query->whereHas('city', function ($query) use ($value) {
+                        $query->whereHas('beach.city', function ($query) use ($value) {
                             $query->where('region_id', $value);
                         });
                     }
                     break;
                 case 'city':
                     if ($value) {
-                        $query->where('city_id', $value);
+                        $query->whereHas('beach', function ($query) use ($value) {
+                            $query->where('city_id', $value);
+                        });
                     }
                     break;
                 case 'sortby':
                     if ($value) {
-                        $query->orderBy('name', $value);
+                        $query->orderBy('title', $value);
                     }
                     break;
             }
         }
 
-        $this->beaches = $query->take($this->perPage)->get();
-        $this->totalbeaches = $query->count();
-        
+        $this->blogs = $query->take($this->perpage)->get();
+        $this->totalsblogs = $query->count();
     }
 
-    public function loadMore()
-    {
-        $this->perPage += 6;
-        $this->apply_filter();
-    }
 
     public function clearAll()
     {
         $this->filters = [];
-        $this -> temporaryFilters = [];
-        $this->perPage = 6;
+        $this->temporaryFilters = [];
+        $this->perpage = 6;
         $this->apply_filter();
     }
 
@@ -90,14 +78,21 @@ class Beaches extends Component
         }
     }
 
-    public function applyFilters(){
-        $this -> filters = $this -> temporaryFilters;
-       
+    public function applyFilters()
+    {
+        $this->filters = $this->temporaryFilters;
         $this->apply_filter();
-        $this -> dispatch('hideOffcanvas');
+        $this->dispatch('hideOffcanvas');
     }
+
+    public function loadMore()
+    {
+        $this->perpage += 6;
+        $this->mount();
+    }
+
     public function render()
     {
-        return view('livewire.user.beaches');
+        return view('livewire.user.blogs');
     }
 }

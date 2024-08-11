@@ -16,4 +16,8 @@ class Beaches extends Model
     {
         return $this->hasMany(BeachImages::class);
     }
+    public function blogs()
+    {
+        return $this->hasMany(Blogs::class);
+    }
 }

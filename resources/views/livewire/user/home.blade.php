@@ -9,7 +9,7 @@
         <div class="video_content">
             <div class="video_content_title">Beautiful Beaches In Vietnam</div>
             <p class="video_content_description">Discover the hidden gems of Vietnam's beautiful beaches and indulge in pristine waters, vibrant marine life, and serene landscapes that promise unforgettable experiences.</p>
-            <a href="#" class="btn_explore_beaches">EXPLORE BEACHES</a>
+            <a href="{{route('user.beaches')}}" class="btn_explore_beaches">EXPLORE BEACHES</a>
         </div>
     </div>
 
@@ -22,28 +22,18 @@
             <div class="beach_each_region_description">
                 Explore the breathtaking beauty of Vietnam's coastline, where each region offers its own unique charm. From the tranquil shores of the north to the vibrant beach scenes of the south, uncover hidden gems and picturesque spots that cater to every beach lover's dream.
             </div>
-            <a href="#" class="btn_explore_beaches">More Beaches</a>
+            <a href="{{route('user.beaches')}}" class="btn_explore_beaches">More Beaches</a>
         </div>
         <div class="beach_each_region_content">
             <div class="region_container d-flex flex-lg-row flex-column jutify-content-between align-items-center gap-5">
-                <a class="region_item">
+                @foreach ($regions as $region )
+                <a href="{{route('user.beachesWithRegion', $region->id)}}" class="region_item" >
                     <img src="https://i.pinimg.com/564x/19/6e/79/196e795131d346550d6ab3e7257e55b7.jpg" alt="">
                     <div class="region_title">
-                        NORTH SIDE
+                        {{$region->name}}
                     </div>
                 </a>
-                <a class="region_item">
-                    <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="">
-                    <div class="region_title">
-                        MIDDLE SIDE
-                    </div>
-                </a>
-                <a class="region_item">
-                    <img src="https://i.pinimg.com/736x/4e/a1/d8/4ea1d803e28e0de1cd1933c7b316528f.jpg" alt="">
-                    <div class="region_title">
-                        SOUTH SIDE
-                    </div>
-                </a>
+                @endforeach
             </div>
             <div class="beach_container d-flex flex-lg-row flex-column jutify-content-between align-items-start gap-5">
                 <div class="card_beach">
@@ -141,7 +131,7 @@
             <div class="blog_home_description">
                 We share our experiences, tips and travel stories to inspire and guide our readers in their own wanderlust adventures. From hidden gems to popular destinations, we showcase the beauty and diversity of the world, and promote responsible and sustainable travel.
             </div>
-            <a href="#" class="btn_blog_home">
+            <a href="{{route('user.blogs')}}" class="btn_blog_home">
                 Read More
             </a>
         </div>
@@ -313,8 +303,8 @@
                 Want to share your travel stories and insights? Log in to start writing your own blog posts or create an account to join our vibrant community of writers. We’ll showcase your work on our platform and help you connect with a wider audience.
             </div>
             <div class="btn_signInUp_encourage">
-                <a href="" class="btn_encourage_signin">Sign in</a>
-                <a href="" class="btn_encourage_signup">Sign up</a>
+                <a href="{{route('login')}}" class="btn_encourage_signin">Sign in</a>
+                <a href="{{route('register')}}" class="btn_encourage_signup">Sign up</a>
             </div>
         </div>
     </div>

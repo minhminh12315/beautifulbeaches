@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class Header extends Component
 {
+    protected $listeners = ['regionOfBeach' => 'handleRegionOfBeach'];
     public $isHomePage;
     public function mount()
     {
         $this->isHomePage = request()->routeIs('user.home');
-        Log::info($this->isHomePage);
     }
+    
     public function render()
     {
         return view('livewire.user.header');

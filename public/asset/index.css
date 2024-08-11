@@ -79,15 +79,17 @@ ul {
     color: #242649 !important;
     position: relative;
     font-size: 1.25rem !important;
+    padding: 0;
+    margin-right: 0.5rem;
 }
 
 
-.breadcrumb .breadcrumb-item.active::before {
+.breadcrumb .breadcrumb-item.active::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 78%;
     height: 2px;
     background-color: #242649;
 }
@@ -97,7 +99,7 @@ ul {
     color: #65A6D3 !important;
 }
 
-.breadcrumb .breadcrumb-item.active:hover::before {
+.breadcrumb .breadcrumb-item.active:hover::after {
     background-color: #65A6D3 !important;
 }
 

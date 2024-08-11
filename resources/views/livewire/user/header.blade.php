@@ -12,7 +12,7 @@
                 <nav class="main_navhome_user">
                     <ul>
                         <li><a href="{{route('user.beaches')}}" wire:navigate>Beaches</a></li>
-                        <li><a href="" wire:navigate>Blogs</a></li>
+                        <li><a href="{{route('user.blogs')}}" wire:navigate>Blogs</a></li>
                         <li><a href="" wire:navigate>About</a></li>
                         <li><a href="" wire:navigate>Contact</a></li>
                     </ul>
@@ -33,7 +33,7 @@
                     <ul class="d-flex flex-column gap-3">
                         @guest
                         <li>
-                            <a href="" class="d-flex flex-row gap-2 justify-content-center align-items-center">
+                            <a href="{{route('login')}}" class="d-flex flex-row gap-2 justify-content-center align-items-center w-100">
                                 <span class="material-symbols-outlined">
                                     login
                                 </span>
@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" class="d-flex flex-row gap-2 justify-content-center align-items-center">
+                            <a href="{{route('register')}}" class="d-flex flex-row gap-2 justify-content-center align-items-center w-100">
                                 <span class="material-symbols-outlined">
                                     edit_square
                                 </span>

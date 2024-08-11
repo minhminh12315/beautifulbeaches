@@ -16,11 +16,10 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 // Home > Blog
 Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Blog', route('blog'));
+    $trail->push('Blog', route('user.blogs'));
 });
 
-// Home > Blog > [Category]
-Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
-    $trail->parent('blog');
-    $trail->push($category->title, route('category', $category));
+Breadcrumbs::for('beaches', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Beaches', route('user.beaches'));
 });

@@ -91,7 +91,7 @@
     cursor: pointer;
 }
 
-#user_header .header_action_user .btn_navbar_toggler {
+#user_header.isHomePage .header_action_user .btn_navbar_toggler {
     background-color: transparent;
     border: none;
     display: flex;
@@ -101,8 +101,22 @@
     border-left: 1px solid #f8f8f8;
 }
 
-#user_header .header_action_user .btn_navbar_toggler span {
+#user_header .header_action_user .btn_navbar_toggler {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 16px;
+    border-left: 1px solid #242649;
+}
+
+#user_header.isHomePage .header_action_user .btn_navbar_toggler span {
     color: #f8f8f8;
+}
+
+#user_header .header_action_user .btn_navbar_toggler span {
+    color: #242649;
 }
 
 #user_header .main_navhome_user ul li:hover {
@@ -239,6 +253,11 @@
 }
 
 .btn_account_user .account_user_toggle li button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
     background-color: transparent;
     border: none;
 }
@@ -656,7 +675,7 @@
     margin-top: 4rem;
 }
 
-#user_homepage .card_blog_vertical {
+.card_blog_vertical {
     width: 100%;
     height: 100%;
     border-radius: 16px;
@@ -665,7 +684,7 @@
     border: 1px solid #dee2e6;
 }
 
-#user_homepage .card_blog_vertical>a {
+.card_blog_vertical>a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -676,14 +695,14 @@
     border: inherit;
 }
 
-#user_homepage .card_blog_vertical .card_blog_img_container {
+.card_blog_vertical .card_blog_img_container {
     width: 100%;
     height: 100%;
     position: relative;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#user_homepage .card_blog_vertical .card_blog_img {
+.card_blog_vertical .card_blog_img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -693,7 +712,7 @@
     mix-blend-mode: multiply;
 }
 
-#user_homepage .card_blog_vertical .blog_of_beach {
+.card_blog_vertical .blog_of_beach {
     position: absolute;
     top: 30px;
     right: 30px;
@@ -710,13 +729,13 @@
     z-index: 1;
 }
 
-#user_homepage .card_blog_vertical .blog_of_beach i {
+.card_blog_vertical .blog_of_beach i {
     font-size: 1rem;
     color: #FFFFFF;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-#user_homepage .card_blog_vertical .card_blog_content {
+.card_blog_vertical .card_blog_content {
     width: 100%;
     padding: 1rem;
     display: flex;
@@ -725,7 +744,7 @@
     gap: 0.5rem;
 }
 
-#user_homepage .card_blog_vertical .card_blog_title {
+.card_blog_vertical .card_blog_title {
     font-size: 2rem;
     font-weight: bold;
     color: #242649;
@@ -735,7 +754,7 @@
     max-width: 100%;
 }
 
-#user_homepage .card_blog_vertical .card_blog_description {
+.card_blog_vertical .card_blog_description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
@@ -743,7 +762,7 @@
     text-overflow: ellipsis;
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container {
+.card_blog_vertical .sub_blog_container {
     width: 100%;
     padding: 0.5rem 1rem;
     border-top: 1px solid #dee2e6;
@@ -754,14 +773,14 @@
     /* padding: 0.5rem 0; */
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog {
+.card_blog_vertical .sub_blog_container .author_of_blog {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: start;
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog img {
+.card_blog_vertical .sub_blog_container .author_of_blog img {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -770,17 +789,17 @@
     aspect-ratio: 1/1;
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog .author_name {
+.card_blog_vertical .sub_blog_container .author_of_blog .author_name {
     font-size: 1.25rem;
     font-weight: bold;
     color: #242649;
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container .author_of_blog .author_region {
+.card_blog_vertical .sub_blog_container .author_of_blog .author_region {
     color: #767676;
 }
 
-#user_homepage .card_blog_vertical .sub_blog_container .date_of_blog {
+.card_blog_vertical .sub_blog_container .date_of_blog {
     font-size: 1.25rem;
     font-weight: bold;
     color: #767676;
@@ -928,15 +947,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    right: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    margin: 0 auto;
 }
 
 #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_title {
@@ -952,14 +971,14 @@
     text-align: center;
 }
 
-#list_beaches_page .filter_wrapper {
+.filter_container {
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 2.5rem;
 }
 
-#list_beaches_page .filter_wrapper .filter_beaches .btn_filter_beaches {
+.filter_container .filter_wrapper .btn_filter {
     border: none;
     background-color: transparent;
     display: flex;
@@ -969,15 +988,7 @@
     cursor: pointer;
 }
 
-#list_beaches_page .filter_wrapper .sort_by_beaches {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-#list_beaches_page .filter_toggle_body {
+.filter_toggle_body {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -986,8 +997,7 @@
     height: 100%;
 }
 
-#list_beaches_page .filter_toggle_body .filter_regions,
-#list_beaches_page .filter_toggle_body .filter_cities {
+.filter_toggle_body .filter_items{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -995,7 +1005,7 @@
     padding-block: 1rem;
 }
 
-#list_beaches_page .filter_toggle_body .groupBtn {
+.filter_toggle_body .groupBtn {
     width: 100%;
     margin-top: auto;
     background-color: #FFFFFF;
@@ -1008,7 +1018,7 @@
     z-index: 2;
 }
 
-#list_beaches_page .filter_toggle_body .groupBtn .btn_clearAll {
+.filter_toggle_body .groupBtn .btn_clearAll {
     width: 100%;
     border: 1px solid #242649;
     background-color: transparent;
@@ -1018,12 +1028,12 @@
     transition: 0.3s ease-in;
 }
 
-#list_beaches_page .filter_toggle_body .groupBtn .btn_clearAll:hover {
+.filter_toggle_body .groupBtn .btn_clearAll:hover {
     color: #FFFFFF;
     background-color: #242649;
 }
 
-#list_beaches_page .filter_toggle_body .groupBtn .btn_apply {
+.filter_toggle_body .groupBtn .btn_apply {
     width: 100%;
     border: none;
     border: 1px solid #242649;
@@ -1034,13 +1044,12 @@
     transition: 0.3s ease-in;
 }
 
-#list_beaches_page .filter_toggle_body .groupBtn .btn_apply:hover {
+.filter_toggle_body .groupBtn .btn_apply:hover {
     background-color: transparent;
     color: #242649;
 }
 
-#list_beaches_page .filter_toggle_body .filter_regions .filter_regions_item label,
-#list_beaches_page .filter_toggle_body .filter_cities .filter_cities_item label {
+.filter_toggle_body .filter_items label{
     width: 100%;
     padding: 8px 16px;
     cursor: pointer;
@@ -1053,14 +1062,14 @@
     font: size 1.5rem;
 }
 
-#list_beaches_page .filter_toggle_body .filter_regions .filter_regions_item input:checked+label,
-#list_beaches_page .filter_toggle_body .filter_cities .filter_cities_item input:checked+label {
+.filter_toggle_body .filter_items input:checked+label{
     background-color: #242649;
     color: #FFFFFF;
 }
-
-.filter_wrapper .selectedRegion,
-.filter_wrapper .selectedCity {
+.filter_toggle_body .filter_items input:checked+label i{
+    color: #FFFFFF;
+}
+.selectedFilter .selectedFilterItems{
     background-color: #e2e8ee;
     border: 1px solid #242649;
     border-radius: 28px;
@@ -1073,8 +1082,7 @@
     gap: 0.5rem;
 }
 
-.filter_wrapper .selectedRegion button,
-.filter_wrapper .selectedCity button {
+.selectedFilter .selectedFilterItems button {
     background-color: transparent;
     border: none;
     color: #242649;
@@ -1083,12 +1091,11 @@
     justify-content: center;
 }
 
-.filter_wrapper .selectedRegion button span,
-.filter_wrapper .selectedCity button span {
+.selectedFilter .selectedFilterItems button span{
     font-size: 1rem;
 }
 
-.offcanvas_backdrop_custom{
+.offcanvas_backdrop_custom {
     position: fixed;
     top: 0;
     left: 0;
@@ -1101,13 +1108,127 @@
     visibility: hidden;
 }
 
-.offcanvas_backdrop_custom.show{
+.offcanvas_backdrop_custom.show {
     display: block;
     visibility: visible;
     opacity: 0.5;
 }
 
-@media screen and (max-width: 992px) {
+
+#list_blogs_page .bannerBackground {
+    position: relative;
+    height: 100vh;
+}
+
+#list_blogs_page .bannerBackground>img {
+    opacity: 0.1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#list_blogs_page .bannerBlogsContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+}
+
+#list_blogs_page .bannerBlogsContainer .bannerBlogBanner {
+    font-size: 4rem;
+}
+
+#list_blogs_page .bannerBlogsContainer .bannerBlogDescription {
+    font-size: 1.25rem;
+}
+
+#list_blogs_page .bannerBlogsContainer .btn_bannerBlogging {
+    font-size: 1.25rem;
+    border-radius: 8px;
+    border: 2px solid #242649;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s ease-in;
+}
+
+#list_blogs_page .bannerBlogsContainer .btn_bannerBlogging:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+#list_blogs_page .bannerBlogsContainer .btn_bannerBlogging:hover span {
+    color: #FFFFFF;
+}
+
+#list_blogs_page .group_image_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+    height: 100%;
+    width: 100%;
+}
+
+#list_blogs_page .group_image_banner img {
+    border-radius: 168.71px;
+    height: 90%;
+    width: 280px;
+}
+
+#list_blogs_page .group_image_banner .img_1 {
+    align-self: start;
+}
+
+#list_blogs_page .group_image_banner .img_2 {
+    align-self: end;
+}
+
+.seeMoreRecord_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.seeMoreRecord_wrapper .seeMoreRecords {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #242649;
+    padding: 1rem 7rem;
+    margin-top: 4rem;
+    border: 1px solid #242649;
+    border-radius: 28px;
+    background-color: transparent;
+    transition: 0.3s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.seeMoreRecord_wrapper .seeMoreRecords:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+.seeMoreRecord_wrapper .seeMoreRecords:hover i {
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 991px) {
     #user_header .main_navhome_user {
         width: 100%;
     }
@@ -1196,7 +1317,7 @@
     }
 
     #user_homepage .encourage_write_blog_container .encourage_write_blog_img {
-        height: 50vh;
+        height: 70vh;
     }
 
     #user_homepage .encourage_write_blog_container .encourage_write_blog_content {
@@ -1211,12 +1332,44 @@
     #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_description {
         font-size: 20px;
     }
+
     .offcanvas_custom {
         width: 50%;
     }
+
+    .btn_account_user .account_user_toggle {
+        width: 20vw;
+    }
+
+    #list_blogs_page .list_blog_user {
+        margin-top: 0;
+    }
+
+    #list_blogs_page .bannerBlogsContainer .bannerBlogBanner {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    #list_blogs_page .bannerBlogsContainer .bannerBlogDescription {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    #list_blogs_page .bannerBackground {
+        position: relative;
+        height: 60vh;
+    }
+
+    #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_title {
+        font-size: 4rem;
+    }
+
+    #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_description {
+        font-size: 1.25rem;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     #user_header .main_navhome_user {
         width: 100%;
     }
@@ -1351,5 +1504,36 @@
 
     #user_homepage .encourage_write_blog_container .encourage_write_blog_content .encourage_write_blog_description {
         font-size: 18px;
+    }
+
+    .btn_account_user .account_user_toggle {
+        width: 40vw;
+    }
+
+    #list_blogs_page .list_blog_user {
+        margin-top: 0;
+    }
+
+    #list_blogs_page .bannerBlogsContainer .bannerBlogBanner {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #list_blogs_page .bannerBlogsContainer .bannerBlogDescription {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    #list_blogs_page .bannerBackground {
+        position: relative;
+        height: 80vh;
+    }
+
+    #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_title {
+        font-size: 3.5rem;
+    }
+
+    #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_description {
+        font-size: 1.25rem;
     }
 }

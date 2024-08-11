@@ -47,21 +47,12 @@ class Login extends Component
         $user = User::where('username', $this->login_username)->first();
 
         if (Auth::attempt($credentials)) {
-<<<<<<< Updated upstream
             if(Auth::user()->status == 'inactive'){
                 Auth::logout();
                 return redirect()->route('verify_email', $user->id);
             }
 
             return redirect()->route('user.home'); // Redirect to dashboard if login successful.
-=======
-            if (Auth::user()->status == 'inactive') {
-                Auth::logout();
-                return redirect()->route('verify_email', $user->id);
-            } else {
-                return redirect()->route('admin.dashboard'); // Redirect to dashboard if login successful.
-            }
->>>>>>> Stashed changes
         } else {
             $this->addError('login_failed', 'Invalid username or password. Please try again!');
             $this->login_password = '';

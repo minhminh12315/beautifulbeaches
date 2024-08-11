@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Blogs extends Model
 {
     use HasFactory;
+
+    public function beach(){
+        return $this->belongsTo(Beaches::class);
+    }
 }

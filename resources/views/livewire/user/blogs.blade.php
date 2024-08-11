@@ -1,21 +1,40 @@
 @extends('livewire.user.index')
 @section('content')
-<section id="list_beaches_page">
-    <div class="banner_list_beach">
-        <img src="https://i.pinimg.com/564x/ac/93/46/ac9346bf9586def789953adfdab8f069.jpg" alt="">
-        <div class="banner_list_beach_content">
-            <div class="banner_list_beach_title">
-                Our Beaches
+<section id="list_blogs_page">
+    <!-- BANNER -->
+    <div class="container-fluid bannerBackground">
+        <img src="https://travel.nicdark.com/travel-agency-wordpress-theme/wp-content/uploads/sites/9/2023/06/bg-01.png" alt="">
+        <div class="bannerBlogsContainer row g-5 h-100">
+            <div class="col-lg-6 col-12">
+                <div class="d-flex flex-column justify-content-center align-items-center align-items-lg-start gap-4 h-100">
+                    <div class="bannerBlogBanner">
+                        Let's share your beautiful beach's trip in Vietnam
+                    </div>
+                    <div class="bannerBlogDescription">
+                        Discover the hidden gems of Vietnam's beautiful beaches, indulge in pristine waters, vibrant marine life, and serene landscapes that promise unforgettable experiences.
+                    </div>
+                    <a href="#" class="btn_bannerBlogging">
+                        Blogging
+                        <span class="material-symbols-outlined">
+                            person_edit
+                        </span>
+                    </a>
+                </div>
             </div>
-            <div class="banner_list_beach_description">
-                Discover the stunning beaches of Vietnam, where tranquility and relaxation blend with serenity.
+            <div class="col-6 d-none d-lg-block">
+                <div class="group_image_banner">
+                    <img src="https://i.pinimg.com/564x/ac/93/46/ac9346bf9586def789953adfdab8f069.jpg" alt="" class="img_1">
+                    <img src="https://i.pinimg.com/564x/ac/93/46/ac9346bf9586def789953adfdab8f069.jpg" alt="" class="img_2">
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- FILTER-BREADCRUMBS -->
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center">
             <div class="breadcrumbs_wrapper pt-4">
-                {{ Breadcrumbs::render('beaches') }}
+                {{ Breadcrumbs::render('blog') }}
             </div>
             <div class="filter_container">
                 <div class="filter_wrapper">
@@ -140,60 +159,61 @@
             </div>
         </div>
     </div>
-    <main class="container mt-5">
-        <ul class="row row-cols-lg-3 row-cols-md-2 g-3">
-            @if ($beaches)
-            @foreach ($beaches as $beach )
+
+    <!-- LIST BLOGS -->
+    <main class="container list_blog_user mt-5">
+        <ul class="row row-cols-lg-3 row-cols-md-2 g-4">
+            @if ($blogs)
+            @foreach ($blogs as $blog )
             <li class="col">
-                <div class="card_beach">
-                    <a href="{{route('user.home')}}" class="h-100 w-100 ">
-                        <div class="d-flex flex-column justify-content-start align-items-start gap-2 w-100 h-100">
-                            <img src="https://statics.vinpearl.com/bai-bien-dep-o-phu-quoc_1648306936.png" alt="" class="card_beach_img">
-                            <div class="card_beach_content">
-                                <div class="d-flex flex-column gap-1 justify-content-start align-items-start">
-                                    <div class="card_beach_name">
-                                        {{$beach->name}}
-                                    </div>
-                                    <div class="card_beach_city">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                        <span>
-                                            {{$beach->city->name}}
-                                        </span>
-                                    </div>
+                <div class="card_blog_vertical">
+                    <a href="">
+                        <div class="card_blog_img_container">
+                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
+                            <span class="badge blog_of_beach">
+                                <i class="fa-solid fa-location-dot"></i>
+                                DA NANG
+                            </span>
+                        </div>
+                        <div class="card_blog_content">
+                            <div class="card_blog_title">
+                                {{$blog -> title}}
+                            </div>
+                            <div class="card_blog_description">
+                                {{$blog -> content}}
+                            </div>
+                        </div>
+                        <div class="sub_blog_container">
+                            <div class="author_of_blog">
+                                <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
+                                <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
+                                    <span class="author_name">John Doe</span>
+                                    <span class="author_region">Viet Nam</span>
                                 </div>
-                                <div class="card_beach_description">
-                                    {{$beach->description}}
-                                </div>
-                                <a href="/" class="btn_card_beach_explore">
-                                    Explore beach
-                                </a>
+                            </div>
+                            <div class="date_of_blog">
+                                {{ \Carbon\Carbon::parse($blog->created_at)->format('F j, Y') }}
                             </div>
                         </div>
                     </a>
                 </div>
             </li>
             @endforeach
-
-            @else
-            <div class="h-100 d-flex justify-content-center align-items-center">
-                No beaches found.
-            </div>
             @endif
         </ul>
-        @if ($beaches)
-        @if($beaches->count() < $totalbeaches)
+        @if ($blogs)
+            @if($blogs->count() < $totalsblogs)
             <div class="seeMoreRecord_wrapper">
-            <button class="seeMoreRecords" wire:click="loadMore">
-                See more
-                <i class="fa-solid fa-arrow-down"></i>
-            </button>
+                <button class="seeMoreRecords" wire:click="loadMore">
+                    See more 
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
             </div>
             @endif
-            @endif
+        @endif
     </main>
 </section>
 @endsection
-
 @script
 <script>
     $(document).ready(function() {
