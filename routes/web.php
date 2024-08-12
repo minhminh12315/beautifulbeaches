@@ -27,17 +27,24 @@ use App\Livewire\User\Contact;
 use App\Livewire\User\BeachDetails;
 
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/beaches', Beaches::class)->name('admin.beaches');
+    Route::get('/admin/accounts', Accounts::class)->name('admin.accounts');
+    Route::get('/admin/cities', Cities::class)->name('admin.cities');
+    Route::get('/admin/regions', Regions::class)->name('admin.regions');
+    Route::get('/admin/blogs', Blogs::class)->name('admin.blogs');
+    Route::get('/admin/comments', Comments::class)->name('admin.comments');
+    Route::get('/admin/image', Image::class)->name('admin.image');
+    Route::get('/admin/video', Video::class)->name('admin.video');
+    Route::get('/admin/content', Content::class)->name('admin.content');
+});
 
-Route::get('/admin', Dashboard::class)->name('admin.dashboard');
-Route::get('/admin/beaches', Beaches::class)->name('admin.beaches');
-Route::get('/admin/accounts', Accounts::class)->name('admin.accounts');
-Route::get('/admin/cities', Cities::class)->name('admin.cities');
-Route::get('/admin/regions', Regions::class)->name('admin.regions');
-Route::get('/admin/blogs', Blogs::class)->name('admin.blogs');
-Route::get('/admin/comments', Comments::class)->name('admin.comments');
-Route::get('/admin/image', Image::class)->name('admin.image');
-Route::get('/admin/video', Video::class)->name('admin.video');
-Route::get('/admin/content', Content::class)->name('admin.content');
+
+Route::middleware(['auth', 'user'])->group(function () {
+
+});
+
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');

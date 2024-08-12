@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->foreignId('city_id')->constrained('cities');
+            $table->string('status')->default('active');
+            $table->string('type')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
