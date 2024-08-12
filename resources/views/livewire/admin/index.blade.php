@@ -1,11 +1,12 @@
-<div>
-    <div class="row">
-        <div class="col-3">
-            <livewire:admin.sidebar />
-        </div>
-        <div class="col-9">
+<div id="admin_container">
+    <livewire:admin.sidebar />
+    <div id="admin_main_container">
+        <div id="admin_main_wrapper">
             <livewire:admin.header />
-            @yield('content')
+            <main id="admin_content">
+                @yield('content')
+            </main>
+            <livewire:admin.footer />
         </div>
     </div>
 </div>

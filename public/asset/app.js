@@ -19,15 +19,15 @@ var R = {
                 $('#user_header').removeClass('headerFixed');
             }
         })
-        $('.btn_account_user').click(() => {
-            $('.account_user_toggle').toggleClass('show');
+        $('.btn_account').click(() => {
+            $('.account_toggle').toggleClass('show');
         });
         $(document).click(function (event) {
-            if (!$(event.target).closest('.btn_account_user, .account_user_toggle').length) {
-                $('.account_user_toggle').removeClass('show');
+            if (!$(event.target).closest('.btn_account, .account_toggle').length) {
+                $('.account_toggle').removeClass('show');
             }
         });
-        $('.account_user_toggle').click(function (event) {
+        $('.account_toggle').click(function (event) {
             event.stopPropagation();
         });
         $('.clear_search_home').on('click', function () {
@@ -50,8 +50,22 @@ var R = {
             $('.offcanvas').offcanvas('hide');
             $('.offcanvas_backdrop_custom').removeClass('show');
         });
-       
-       
+
+        $('.btn_collapse_aside').click(function() {
+            $('#aside_admin').toggleClass('show');
+            $('.backdrop_custom').toggleClass('active');
+        });
+
+        $('.backdrop_custom').click(function() {
+            $('#aside_admin').removeClass('show');
+            $('.backdrop_custom').removeClass('active');
+        });
+
+        $('.btn_close_aside').click(function() {
+            $('#aside_admin').removeClass('show');
+            $('.backdrop_custom').removeClass('active');
+        });
+        
     },
 }
 

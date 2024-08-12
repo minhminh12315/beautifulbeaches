@@ -42,14 +42,14 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
 
-Route::get('/',Home::class)->name('user.home');
+Route::get('/', Home::class)->name('user.home');
 Route::get('/beaches', BeachesUser::class)->name('user.beaches');
 Route::get('/about', About::class)->name('user.about');
-Route::get('/ContactUs',Contact::class)->name('user.contactUs');
+Route::get('/ContactUs', Contact::class)->name('user.contactUs');
 Route::get('/BeachDetails', BeachDetails::class)->name('user.beachDetails');
 Route::get('/reset-password', ResetPassword::class)->name('reset_password');
 Route::get('/reset-password-verify/{id}', ResetPasswordVerify::class)->name('reset_password_verify');
 
 
 Route::get('/beaches/{id}', BeachesUser::class)->name('user.beachesWithRegion');
-Route::get('/blogs',UserBlogs::class)->name('user.blogs');
+Route::get('/blogs', UserBlogs::class)->name('user.blogs');

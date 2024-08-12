@@ -233,7 +233,7 @@
     opacity: 1;
 }
 
-.btn_account_user .account_user_toggle {
+.btn_account .account_toggle {
     position: absolute;
     top: 130%;
     right: -10px;
@@ -246,13 +246,14 @@
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in;
+    cursor: pointer;
 }
 
-.btn_account_user .account_user_toggle li:hover * {
+.btn_account .account_toggle li:hover * {
     color: #65a7d3 !important;
 }
 
-.btn_account_user .account_user_toggle li button {
+.btn_account .account_toggle li button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,11 +263,11 @@
     border: none;
 }
 
-.btn_account_user .account_user_toggle li button i {
+.btn_account .account_toggle li button i {
     color: #282828 !important;
 }
 
-.btn_account_user .account_user_toggle.show {
+.btn_account .account_toggle.show {
     visibility: visible;
     opacity: 1;
 }
@@ -997,7 +998,7 @@
     height: 100%;
 }
 
-.filter_toggle_body .filter_items{
+.filter_toggle_body .filter_items {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1049,7 +1050,7 @@
     color: #242649;
 }
 
-.filter_toggle_body .filter_items label{
+.filter_toggle_body .filter_items label {
     width: 100%;
     padding: 8px 16px;
     cursor: pointer;
@@ -1062,14 +1063,16 @@
     font: size 1.5rem;
 }
 
-.filter_toggle_body .filter_items input:checked+label{
+.filter_toggle_body .filter_items input:checked+label {
     background-color: #242649;
     color: #FFFFFF;
 }
-.filter_toggle_body .filter_items input:checked+label i{
+
+.filter_toggle_body .filter_items input:checked+label i {
     color: #FFFFFF;
 }
-.selectedFilter .selectedFilterItems{
+
+.selectedFilter .selectedFilterItems {
     background-color: #e2e8ee;
     border: 1px solid #242649;
     border-radius: 28px;
@@ -1091,7 +1094,7 @@
     justify-content: center;
 }
 
-.selectedFilter .selectedFilterItems button span{
+.selectedFilter .selectedFilterItems button span {
     font-size: 1rem;
 }
 
@@ -1228,6 +1231,127 @@
     color: #FFFFFF;
 }
 
+#aside_admin .admin_aside_list li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 28px;
+    transition: 0.2s ease-in;
+    overflow: hidden;
+}
+
+#aside_admin .admin_aside_list li a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.75rem;
+    text-overflow: ellipsis;
+    padding: 0.5rem 1rem;
+}
+
+#aside_admin .admin_aside_list li:hover {
+    transform: scale(1.2);
+    background-color: #65a7d3;
+}
+
+#aside_admin .admin_aside_list li:hover * {
+    color: #FFFFFF;
+}
+
+#admin_header .btn_collapse_aside {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_primary_custom,
+.btn_primary_custom * {
+    background-color: transparent;
+    border: 1px solid #242649;
+    color: #242649;
+    padding: 0.5rem 2.5rem;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+}
+
+.btn_primary_custom:hover {
+    background-color: #242649;
+    color: #FFFFFF;
+}
+
+.btn_primary_custom:hover * {
+    color: #FFFFFF;
+}
+
+.btn_secondary_custom,
+.btn_secondary_custom * {
+    background-color: #242649;
+    border: 1px solid #242649;
+    color: #FFFFFF;
+    padding: 0.5rem 2.5rem;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+}
+
+.btn_secondary_custom:hover {
+    background-color: #FFFFFF;
+    color: #242649;
+}
+
+.btn_secondary_custom:hover * {
+    color: #242649;
+}
+
+.btn_info_custom {
+    background-color: #FFFFFF;
+    border: 1px solid #FFC107;
+    padding: 0.5rem 0.25rem ;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+}
+
+.btn_info_custom * {
+    color: #FFC107;
+}
+
+.btn_info_custom:hover {
+    background-color: #FFC107;
+    color: #242649;
+}
+
+.btn_info_custom:hover * {
+    color: #242649;
+}
+
+.btn_danger_custom{
+    background-color: #FFFFFF;
+    border: 1px solid #FF0000;
+    padding: 0.5rem 0.25rem ;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+}
+
+.btn_danger_custom * {
+    color: #FF0000;
+}
+
+.btn_danger_custom:hover {
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+.btn_danger_custom:hover * {
+    color: #FFFFFF;
+}
+
 @media screen and (max-width: 991px) {
     #user_header .main_navhome_user {
         width: 100%;
@@ -1337,7 +1461,7 @@
         width: 50%;
     }
 
-    .btn_account_user .account_user_toggle {
+    .btn_account .account_toggle {
         width: 20vw;
     }
 
@@ -1366,6 +1490,24 @@
 
     #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_description {
         font-size: 1.25rem;
+    }
+
+    #admin_container #aside_admin {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 2000;
+        width: 0;
+        height: 100vh;
+        visibility: hidden;
+        background-color: #FFFFFF;
+        transition: 0.15s ease-in
+    }
+
+    #aside_admin.show {
+        width: 40vw !important;
+        visibility: visible !important;
     }
 }
 
@@ -1506,7 +1648,7 @@
         font-size: 18px;
     }
 
-    .btn_account_user .account_user_toggle {
+    .btn_account .account_toggle {
         width: 40vw;
     }
 
@@ -1535,5 +1677,9 @@
 
     #list_beaches_page .banner_list_beach .banner_list_beach_content .banner_list_beach_description {
         font-size: 1.25rem;
+    }
+
+    #aside_admin.show {
+        width: 100vw !important;
     }
 }

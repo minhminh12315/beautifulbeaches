@@ -10,9 +10,6 @@ use Livewire\Component;
 class Cities extends Component
 {
     public $cities;
-    public $AddModal = false;
-    public $showEditModal = false;
-    public $showDeleteModal = false;
     public $cityIdToDelete;
     public $name;
     public $editCityId;
@@ -32,15 +29,10 @@ class Cities extends Component
 
     public function showAddModal()
     {
+        $this->dispatch('toggleModalAdd')->self();
         $this->name = '';
-        $this->AddModal = true;
     }
 
-
-    public function closeAddModal()
-    {
-        $this->AddModal = false;
-    }
 
     public function saveCity()
     {
@@ -56,25 +48,19 @@ class Cities extends Component
             'region_id' => $this->region_id,
         ]);
         $this->name = '';
-        $this->closeAddModal();
         $this->mount();
         session()->flash('message', 'City created successfully.');
     }
 
     public function showEditModal($id)
     {
-        $city = ModelsCities::find($id); // Cập nhật model ở đây
+        $city = ModelsCities::find($id);
         if ($city) {
             $this->name = $city->name;
             $this->editCityId = $city->id;
-            $this->showEditModal = true;
         }
     }
 
-    public function closeEditModal()
-    {
-        $this->showEditModal = false;
-    }
 
     public function updateCity()
     {
@@ -82,22 +68,21 @@ class Cities extends Component
             'name' => 'required|string|max:255',
         ]);
 
-        $city = ModelsCities::find($this->editCityId); // Cập nhật model ở đây
+        $city = ModelsCities::find($this->editCityId);
         if ($city) {
             $city->update([
                 'name' => $this->name,
             ]);
 
-            $this->closeEditModal();
             $this->cities = ModelsCities::all(); // Cập nhật model ở đây
             session()->flash('message', 'City updated successfully.');
         }
     }
 
-    public function deleteCity($id)
+    public function showDeleteCity($id)
     {
         $this->cityIdToDelete = $id;
-        $this->showDeleteModal = true;
+        $this->dispatch('toggleModalDelete')->self();
     }
 
     public function confirmDelete()
@@ -107,14 +92,9 @@ class Cities extends Component
             if ($city) {
                 $city->delete();
                 $this->cities = ModelsCities::all(); // Cập nhật model ở đây
+                
                 session()->flash('message', 'City deleted successfully.');
             }
-            $this->closeDeleteModal();
         }
-    }
-
-    public function closeDeleteModal()
-    {
-        $this->showDeleteModal = false;
     }
 }

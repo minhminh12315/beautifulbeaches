@@ -13,8 +13,8 @@
                     <ul>
                         <li><a href="{{route('user.beaches')}}" wire:navigate>Beaches</a></li>
                         <li><a href="{{route('user.blogs')}}" wire:navigate>Blogs</a></li>
-                        <li><a href="" wire:navigate>About</a></li>
-                        <li><a href="" wire:navigate>Contact</a></li>
+                        <li><a href="{{route('user.about')}}" wire:navigate>About</a></li>
+                        <li><a href="{{route('user.contactUs')}}" wire:navigate>Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -25,11 +25,11 @@
                     search
                 </span>
             </li>
-            <li class="btn_account_user position-relative">
+            <li class="btn_account position-relative">
                 <span class="material-symbols-outlined">
                     account_circle
                 </span>
-                <div class="account_user_toggle">
+                <div class="account_toggle">
                     <ul class="d-flex flex-column gap-3">
                         @guest
                         <li>

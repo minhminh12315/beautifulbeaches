@@ -1,6 +1,6 @@
 @extends('livewire.admin.index')
 @section('content')
-    <div>
+    <section>
         <h1>Dashboard</h1>
-    </div>
+    </section>
 @endsection
