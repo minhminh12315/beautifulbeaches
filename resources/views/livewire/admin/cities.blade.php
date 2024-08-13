@@ -9,11 +9,7 @@
                 Manage and create cities for your beach destinations. You can add, edit, and delete cities here.
             </p>
         </div>
-        <div class="d-flex align-items-center justify-content-center gap-2">
-            <button wire:click="showAddModal" class="btn_secondary_custom" wire:click="toggleModalAdd">Add New City</button>
-            <a href="{{ route('admin.regions') }}" class=" btn_primary_custom">Manage Regions</a>
-        </div>
-
+        <button wire:click="showAddModal" class="btn_secondary_custom" >Add New City</button>
     </header>
 
     <!-- Cities Table -->
@@ -83,11 +79,10 @@
                         </div>
 
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-
+                        <div class="w-100 d-flex justify-content-end">
+                            <button type="submit" class="btn_secondary_custom mt-4 ">Save</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn_secondary_custom">Save</button>
                 </div>
                 @if (session()->has('error'))
                 <div class="alert alert-danger">
@@ -105,9 +100,9 @@
     </div>
 
     <!-- Modal for Editing City -->
-    <div class="modal fade " tabindex="-1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-dialog-centered">
+    <div class="modal fade " tabindex="-1" id="edit_city">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit City</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -115,14 +110,13 @@
                 <div class="modal-body">
                     <form wire:submit.prevent="updateCity">
                         <div class="form-group">
-                            <label for="name">City Name</label>
-                            <input type="text" id="name" wire:model="name" class="form-control" required>
+                            <input type="text" id="name" wire:model="name" class="form-control" placeholder="City name" required >
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
+                        <div class="w-100 d-flex justify-content-end">
+                            <button type="submit" class="btn_secondary_custom mt-4">Update</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>
         </div>
@@ -130,7 +124,7 @@
 
     <!-- Modal for Confirming Deletion -->
     <div class="modal fade" tabindex="-1" id="delete_city">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirm Deletion</h5>
@@ -155,7 +149,7 @@
             $('#addnew_city').modal('show');
         });
         $wire.on('toggleModalEdit', () => {
-            $('#listcategory-edit-category').modal('show');
+            $('#edit_city').modal('show');
         });
 
         $wire.on('toggleModalDelete', () => {

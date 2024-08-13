@@ -1,4 +1,4 @@
-<headear class="sticky-top border-bottom bg-white" id="admin_header">
+<headear class="border-bottom bg-white" id="admin_header">
     <div class="backdrop_custom"></div>
     <button type="button" class="btn_collapse_aside d-lg-none d-block">
         <div class="d-flex align-items-center justify-content-center">

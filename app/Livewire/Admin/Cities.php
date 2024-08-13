@@ -48,8 +48,9 @@ class Cities extends Component
             'region_id' => $this->region_id,
         ]);
         $this->name = '';
-        $this->mount();
-        session()->flash('message', 'City created successfully.');
+        $this->dispatch('closeModal')->self();
+        flash()->success('City created successfully.');
+        $this->cities = ModelsCities::all();
     }
 
     public function showEditModal($id)
@@ -57,7 +58,12 @@ class Cities extends Component
         $city = ModelsCities::find($id);
         if ($city) {
             $this->name = $city->name;
-            $this->editCityId = $city->id;
+            $this->editCityId = $id;
+            $this->dispatch('toggleModalEdit')->self();
+        }
+        else{
+            flash()->error('City not found.');
+            $this->dispatch('closeModal')->self();
         }
     }
 
@@ -73,9 +79,9 @@ class Cities extends Component
             $city->update([
                 'name' => $this->name,
             ]);
-
-            $this->cities = ModelsCities::all(); // Cập nhật model ở đây
-            session()->flash('message', 'City updated successfully.');
+            $this->dispatch('closeModal')->self();
+            flash()->success('City updated successfully.');
+            $this->cities = ModelsCities::all();
         }
     }
 
@@ -88,12 +94,12 @@ class Cities extends Component
     public function confirmDelete()
     {
         if ($this->cityIdToDelete) {
-            $city = ModelsCities::find($this->cityIdToDelete); // Cập nhật model ở đây
+            $city = ModelsCities::find($this->cityIdToDelete);
             if ($city) {
                 $city->delete();
-                $this->cities = ModelsCities::all(); // Cập nhật model ở đây
-                
-                session()->flash('message', 'City deleted successfully.');
+                flash()->success('City deleted successfully.');
+                $this->dispatch('closeModal')->self();
+                $this->cities = ModelsCities::all();
             }
         }
     }

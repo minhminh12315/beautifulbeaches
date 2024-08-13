@@ -233,6 +233,10 @@
     opacity: 1;
 }
 
+.btn_account span {
+    cursor: pointer;
+}
+
 .btn_account .account_toggle {
     position: absolute;
     top: 130%;
@@ -246,7 +250,6 @@
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in;
-    cursor: pointer;
 }
 
 .btn_account .account_toggle li:hover * {
@@ -1311,7 +1314,7 @@
 .btn_info_custom {
     background-color: #FFFFFF;
     border: 1px solid #FFC107;
-    padding: 0.5rem 0.25rem ;
+    padding: 0.5rem 0.25rem;
     border-radius: 28px;
     cursor: pointer;
     transition: 0.15s ease-in;
@@ -1330,10 +1333,10 @@
     color: #242649;
 }
 
-.btn_danger_custom{
+.btn_danger_custom {
     background-color: #FFFFFF;
     border: 1px solid #FF0000;
-    padding: 0.5rem 0.25rem ;
+    padding: 0.5rem 0.25rem;
     border-radius: 28px;
     cursor: pointer;
     transition: 0.15s ease-in;

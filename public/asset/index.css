@@ -49,7 +49,6 @@ ul {
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow: hidden;
 }
 
 #user_content {
@@ -80,7 +79,15 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 2rem;
+    padding: 1.25rem 3.5rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#admin_container #admin_main_container #admin_main_wrapper #admin_footer {
+    padding: 1.25rem 3.5rem;
 }
 
 #admin_container #admin_main_container #admin_main_wrapper #admin_content {
