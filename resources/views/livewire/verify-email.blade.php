@@ -31,9 +31,6 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
-</div>
-=======
 </div>
 <script>
     $(document).ready(function() {
@@ -62,4 +59,3 @@
         });
     })
 </script>
->>>>>>> Stashed changes

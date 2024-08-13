@@ -51,7 +51,7 @@
                         @endguest
                         @auth
                         <li>
-                            <button>
+                            <button wire:click="goInformation">
                                 <i class="fa-solid fa-gear text-light"></i>
                                 <span>Profile</span>
                             </button>

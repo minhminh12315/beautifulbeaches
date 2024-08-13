@@ -80,7 +80,7 @@
     opacity: 0;
 }
 
-.userbox input::placeholder{  
+.userbox input::placeholder {
     width: 85%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -170,4 +170,242 @@
     align-items: center;
     flex-direction: column;
     position: absolute;
+}
+
+#setting_page_container {
+    display: flex;
+    flex-direction: row;
+}
+
+#setting_page_container .setting_main_content {
+    flex: 1;
+    padding: 0.5rem 1rem;
+}
+
+#aside_setting_container {
+    flex: 0 0 20vw;
+    height: 100vh;
+    position: sticky;
+    right: 0;
+    top: 0;
+    padding: 1rem 1rem;
+    border-right: 1px solid #dee2e6;
+}
+
+.aside-setting-list li a {
+    padding: 0.5rem;
+}
+
+.aside-setting-list li {
+    transition: 0.3s ease-in-out;
+}
+
+.aside-setting-list li:hover {
+    border-radius: 8px;
+    background-color: #cddfef;
+}
+
+.aside-setting-list li:hover a,
+.aside-setting-list li:hover a span {
+    color: #242649;
+}
+
+.aside-setting-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.6rem;
+}
+
+.backdrops {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+
+.backdrops.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width:992px) {
+    #setting_page_container {
+        display: block;
+    }
+
+    #aside_setting_container {
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        border: none;
+        z-index: 2000;
+        background-color: #FFFFFF;
+        transition: 0.3s ease-in-out;
+    }
+
+    #aside_setting_container.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .setting_main_content {
+        width: 100vw;
+        height: 100vh;
+        background-color: #FFFFFF;
+        transition: 0.3s ease-in-out;
+        position: fixed;
+        top: 0;
+        overflow-y: auto;
+    }
+
+    .setting_main_content.active {
+        display: block;
+    }
+
+    .avatar_setting_container input {
+        width: 100%;
+    }
+
+    .avatar_setting {
+        width: 30vw;
+        /* height: 20%; */
+        object-fit: cover;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        border: 3px solid #dee2e6;
+        padding: 0.2rem;
+    }
+
+    .setting-backhome {
+        width: 30%;
+    }
+
+    .join-newletter-container form {
+        width: 100%;
+        position: relative;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+    #setting_page_container {
+        display: block;
+    }
+
+    #aside_setting_container {
+        width: 40%;
+        visibility: hidden;
+        opacity: 0;
+        border: none;
+        z-index: 2000;
+        background-color: #FFFFFF;
+        transition: 0.3s ease-in-out;
+    }
+
+    #aside_setting_container.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .setting_main_content {
+        width: 100vw;
+        height: 100vh;
+        background-color: #FFFFFF;
+        transition: 0.3s ease-in-out;
+        position: fixed;
+        top: 0;
+        right: 0;
+        overflow-y: auto;
+    }
+
+    .setting_main_content.active {
+        display: block;
+    }
+
+    .avatar_setting_container input {
+        width: 40%;
+    }
+
+    .avatar_setting {
+        width: 20vw;
+        height: 20vw;
+        object-fit: cover;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        border: 3px solid #dee2e6;
+        padding: 0.2rem;
+    }
+
+    .setting-backhome {
+        width: 40%;
+    }
+}
+
+.form_setting_container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.avatar_setting_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar_setting_container input {
+    width: 30%;
+}
+
+.avatar_setting {
+    width: 12vw;
+    height: 12vw;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #dee2e6;
+    padding: 0.2rem;
+    overflow: hidden;
+}
+
+.form_setting_except_avatar input,
+.form_setting_except_avatar select {
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    padding: .5rem 0;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.form_setting_except_avatar label {
+    color: #242649;
+}
+
+.btn_success {
+    padding: 0.5rem 1.5rem;
+    background-color: #fff;
+    color: #242649;
+    border: 1px solid #242649;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn_success:hover {
+    background-color: #242649;
+    color: #fff;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    /* Làm mờ nút để biểu thị rằng nó bị vô hiệu hóa */
 }

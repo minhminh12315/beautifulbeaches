@@ -66,6 +66,20 @@ var R = {
             $('.backdrop_custom').removeClass('active');
         });
         
+        $('.btn-showAsideSetting').click(() => {
+            $('#aside_setting_container').toggleClass('show');
+            $('.backdrops').toggleClass('active');
+        })
+        $('.btn-close-asideSetting').click(() => {
+            $('#aside_setting_container').toggleClass('show');
+            $('.backdrops').toggleClass('active');
+        })
+        $('.backdrops').click(() => {
+            $('#aside_setting_container').removeClass('show');
+            $('.backdrops').removeClass('active');
+        });
+       
+       
     },
 }
 
