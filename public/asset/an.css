@@ -1271,8 +1271,7 @@
     justify-content: center;
 }
 
-.btn_primary_custom,
-.btn_primary_custom * {
+.btn_primary_custom {
     background-color: transparent;
     border: 1px solid #242649;
     color: #242649;
@@ -1280,6 +1279,14 @@
     border-radius: 28px;
     cursor: pointer;
     transition: 0.15s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn_primary_custom * {
+    color: #242649;
 }
 
 .btn_primary_custom:hover {
@@ -1291,8 +1298,7 @@
     color: #FFFFFF;
 }
 
-.btn_secondary_custom,
-.btn_secondary_custom * {
+.btn_secondary_custom {
     background-color: #242649;
     border: 1px solid #242649;
     color: #FFFFFF;
@@ -1300,6 +1306,10 @@
     border-radius: 28px;
     cursor: pointer;
     transition: 0.15s ease-in;
+}
+
+.btn_secondary_custom * {
+    color: #FFFFFF;
 }
 
 .btn_secondary_custom:hover {
@@ -1354,7 +1364,30 @@
 .btn_danger_custom:hover * {
     color: #FFFFFF;
 }
+.btn_addnew_types_video{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border: 1px solid #242649;
+    border-radius: 28px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+}
 
+.btn_addnew_types_video *{
+    color: #242649;
+}
+
+.btn_addnew_types_video:hover{
+    background-color: #242649;
+    color: #FFFFFF;
+}
+.btn_addnew_types_video:hover *{
+    color: #FFFFFF;
+}
 @media screen and (max-width: 991px) {
     #user_header .main_navhome_user {
         width: 100%;

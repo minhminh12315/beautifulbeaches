@@ -180,3 +180,7 @@ ul {
     visibility: visible;
     opacity: 1;
 }
+
+.flasher-wrapper {
+    z-index: 2000;
+}

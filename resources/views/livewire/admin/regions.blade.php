@@ -59,8 +59,7 @@
                 <div class="modal-body mt-2 mb-2">
                     <form wire:submit="saveRegion">
                         <div class="form-group">
-                            <label for="name">Region Name</label>
-                            <input type="text" class="form-control" id="name" wire:model="name">
+                            <input type="text" class="form-control" id="name" wire:model="name" placeholder="Region name">
                         </div>
                         <button type="submit" class="btn_secondary_custom mt-4">Add Region</button>
                         @error('name') <span class="text-danger">{{ $message }}</span> @enderror

@@ -9,7 +9,7 @@
                 Manage and create cities for your beach destinations. You can add, edit, and delete cities here.
             </p>
         </div>
-        <button wire:click="showAddModal" class="btn_secondary_custom" >Add New City</button>
+        <button wire:click="showAddModal" class="btn_secondary_custom">Add New City</button>
     </header>
 
     <!-- Cities Table -->
@@ -19,6 +19,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Region Of City</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -28,6 +29,13 @@
                 <tr>
                     <td>{{ $city->id }}</td>
                     <td>{{ $city->name }}</td>
+                    <td>
+                        @if($city->region)
+                            {{ $city->region->name }}
+                        @else
+                            N/A
+                        @endif
+                    </td>
                     <td class="d-flex align-items-center justify-content-start gap-3">
                         <button wire:click="showEditModal({{ $city->id }})" class="btn_info_custom">
                             <span class="material-symbols-outlined mt-1 fs-6">
@@ -110,9 +118,18 @@
                 <div class="modal-body">
                     <form wire:submit.prevent="updateCity">
                         <div class="form-group">
-                            <input type="text" id="name" wire:model="name" class="form-control" placeholder="City name" required >
+                            <input type="text" id="name" wire:model="name" class="form-control" placeholder="City name" required>
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
+                        <select wire:model="region_id" class="form-control mt-2" name="" id="" placeholder="Region">
+                            @if($regions)
+                            @foreach($regions as $region)
+                            <option value="{{ $region->id }}">{{ $region->name }}</option>
+                            @endforeach
+                            @else
+                            <option value="">No regions found.</option>
+                            @endif
+                        </select>
                         <div class="w-100 d-flex justify-content-end">
                             <button type="submit" class="btn_secondary_custom mt-4">Update</button>
                         </div>
@@ -124,7 +141,7 @@
 
     <!-- Modal for Confirming Deletion -->
     <div class="modal fade" tabindex="-1" id="delete_city">
-        <div class="modal-dialog" >
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirm Deletion</h5>

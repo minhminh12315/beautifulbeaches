@@ -58,6 +58,7 @@ class Cities extends Component
         $city = ModelsCities::find($id);
         if ($city) {
             $this->name = $city->name;
+            $this -> region_id = $city->region_id;
             $this->editCityId = $id;
             $this->dispatch('toggleModalEdit')->self();
         }
@@ -78,6 +79,7 @@ class Cities extends Component
         if ($city) {
             $city->update([
                 'name' => $this->name,
+                'region_id' => $this->region_id,
             ]);
             $this->dispatch('closeModal')->self();
             flash()->success('City updated successfully.');
