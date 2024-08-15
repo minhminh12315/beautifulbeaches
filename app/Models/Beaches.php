@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Beaches extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'city_id', 'description', 'image', 'status'];
+    
     public function city()
     {
         return $this->belongsTo(Cities::class);

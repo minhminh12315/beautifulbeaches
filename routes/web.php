@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Admin\Accounts;
+use App\Livewire\Admin\AddNewBeach;
 use App\Livewire\Admin\Beaches;
 use App\Livewire\Admin\Blogs;
 use App\Livewire\Admin\Cities;
@@ -30,9 +31,7 @@ use App\Livewire\User\BeachDetails;
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
-
 });
-
 Route::get('/admin', Dashboard::class)->name('admin.dashboard');
 Route::get('/admin/beaches', Beaches::class)->name('admin.beaches');
 Route::get('/admin/accounts', Accounts::class)->name('admin.accounts');
@@ -43,6 +42,9 @@ Route::get('/admin/comments', Comments::class)->name('admin.comments');
 Route::get('/admin/image', Image::class)->name('admin.image');
 Route::get('/admin/video', Video::class)->name('admin.video');
 Route::get('/admin/content', Content::class)->name('admin.content');
+Route::get('/admin/add_new_beach', AddNewBeach::class)->name('admin.add_new_beach');
+
+
 
 
 Route::middleware(['auth', 'user'])->group(function () {

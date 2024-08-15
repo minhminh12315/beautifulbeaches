@@ -12,6 +12,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{route('admin.add_new_beach')}}">
+                    <i class="fa-solid fa-user"></i>
+                    add
+                </a>
+            </li>
+            <li>
                 <a href="{{route('admin.beaches')}}">
                     <i class="fa-solid fa-mountain"></i>
                     Beach

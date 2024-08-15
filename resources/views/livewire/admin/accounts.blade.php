@@ -5,7 +5,8 @@
         <div class="d-flex flex-column gap-1 justify-content-center align-items-start">
             <h1>Account</h1>
             <p class="text-secondary">
-                Manage your account settings, update your profile, and change your password. You can add, edit, and delete cities here.
+                Manage your account settings, update your profile, and change your password. You can add, edit, and
+                delete cities here.
             </p>
         </div>
     </header>
@@ -26,37 +27,37 @@
             </thead>
             <tbody>
                 @if ($users)
-                @foreach ($users as $user)
-                <td>{{$user->id}}</td>
-                <td>{{$user->fullname}}</td>
-                <td>{{$user->username}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role}}</td>
-                <td>{{$user->phone}}</td>
-                <td>{{$user->status}}</td>
-                <td>{{$user->created_at}}</td>
-                <td>{{$user->updated_at}}</td>
-                <td class="d-flex justify-content-start align-items-center gap-2">
-                    <button type="button" class="btn_info_custom" wire:click="showAccountEdit({{$user->id}})">
-                        <span class="material-symbols-outlined mt-1 fs-6">
-                            edit_square
-                        </span>
-                    </button>
-                    <button type="button" class="btn_danger_custom" wire:click="showAccountDelete({{$user->id}})">
-                        <span class="material-symbols-outlined fs-6 mt-1">
-                            delete
-                        </span>
-                    </button>
-                </td>
-                @endforeach
+                    @foreach ($users as $user)
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->fullname}}</td>
+                        <td>{{$user->username}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->role}}</td>
+                        <td>{{$user->phone}}</td>
+                        <td>{{$user->status}}</td>
+                        <td>{{$user->created_at}}</td>
+                        <td>{{$user->updated_at}}</td>
+                        <td class="d-flex justify-content-start align-items-center gap-2">
+                            <button type="button" class="btn_info_custom" wire:click="showAccountEdit({{$user->id}})">
+                                <span class="material-symbols-outlined mt-1 fs-6">
+                                    edit_square
+                                </span>
+                            </button>
+                            <button type="button" class="btn_danger_custom" wire:click="showAccountDelete({{$user->id}})">
+                                <span class="material-symbols-outlined fs-6 mt-1">
+                                    delete
+                                </span>
+                            </button>
+                        </td>
+                    @endforeach
                 @else
-                No accounts founded.
+                    No accounts founded.
                 @endif
             </tbody>
         </table>
     </div>
 
-
+    <!-- Modal for Editing Account -->
     <div class="modal fade " tabindex="-1" id="edit_account">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -67,15 +68,18 @@
                 <div class="modal-body">
                     <form wire:submit.prevent="updateAccount" class="d-flex flex-column gap-2 w-100">
                         <div class="form-group">
-                            <input type="text" id="name" wire:model="fullname" class="form-control" placeholder="Fullname" required>
+                            <input type="text" id="name" wire:model="fullname" class="form-control"
+                                placeholder="Fullname" required>
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" id="email" wire:model="email" class="form-control" placeholder="Email" required>
+                            <input type="text" id="email" wire:model="email" class="form-control" placeholder="Email"
+                                required>
                             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" id="phone" wire:model="phone" class="form-control" placeholder="Phone" required>
+                            <input type="text" id="phone" wire:model="phone" class="form-control" placeholder="Phone"
+                                required>
                             @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
