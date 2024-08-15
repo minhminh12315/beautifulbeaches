@@ -1364,7 +1364,7 @@
 .btn_danger_custom:hover * {
     color: #FFFFFF;
 }
-.btn_addnew_types_video{
+.btn_addnew_types{
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -1377,15 +1377,15 @@
     transition: 0.15s ease-in;
 }
 
-.btn_addnew_types_video *{
+.btn_addnew_types *{
     color: #242649;
 }
 
-.btn_addnew_types_video:hover{
+.btn_addnew_types:hover{
     background-color: #242649;
     color: #FFFFFF;
 }
-.btn_addnew_types_video:hover *{
+.btn_addnew_types:hover *{
     color: #FFFFFF;
 }
 @media screen and (max-width: 991px) {

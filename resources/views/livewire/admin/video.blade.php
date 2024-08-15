@@ -69,7 +69,7 @@
                             @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn_addnew_types_video" data-bs-target="#addnew_video_type" data-bs-toggle="modal">
+                            <button type="button" class="btn_addnew_types" data-bs-target="#addnew_video_type" data-bs-toggle="modal">
                                 <span class="material-symbols-outlined">
                                     add
                                 </span>
@@ -161,7 +161,7 @@
                             @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn_addnew_types_video" data-bs-target="#addnew_video_type" data-bs-toggle="modal">
+                            <button type="button" class="btn_addnew_types" data-bs-target="#addnew_video_type" data-bs-toggle="modal">
                                 <span class="material-symbols-outlined">
                                     add
                                 </span>
