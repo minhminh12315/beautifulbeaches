@@ -8,25 +8,34 @@
     height: 100vh;
 }
 
-.login-box a,
+.login-box,
+.register-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+}
+
+.login-input a,
 .register-box a {
     color: #000;
 }
 
-.login-box a:hover,
+.login-input a:hover,
 .register-box a:hover {
     color: #65a7d3;
 }
 
-.login-box,
-.register-box {
+.login-input,
+.register-input {
+    background-color: #fff;
     display: flex;
     align-items: center;
-    justify-content: end;
     flex-direction: column;
     padding: 5px 40px;
-    height: 100%;
     font-size: 14px;
+    z-index: 2;
 }
 
 .userbox {
@@ -86,8 +95,7 @@
     text-overflow: ellipsis;
 }
 
-.icon-eye,
-.icon-eye-2 {
+.icon-eye {
     width: max-content;
     height: max-content;
     position: absolute;
@@ -408,4 +416,68 @@
     cursor: not-allowed !important;
     opacity: 0.5;
     /* Làm mờ nút để biểu thị rằng nó bị vô hiệu hóa */
+}
+
+.form_setting_except_avatar .icon-eye {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    right: 0.75rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: all 0.6s ease-in-out;
+}
+
+.fui-loading-ring {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+}
+
+.fui-loading-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    height: 80px;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 7px solid #65a7d3;
+    border-radius: 50%;
+    animation: S3ZAk 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #65a7d3 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+}
+
+.fui-loading-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.fui-loading-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.fui-loading-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes S3ZAk {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

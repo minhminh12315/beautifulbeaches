@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
-
 class VerifyEmail extends Component
 {
     public $otp;
@@ -47,7 +46,7 @@ class VerifyEmail extends Component
                     $user->email_verified_at = Carbon::now();
                     $user->save();
                     Auth::login($user);
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('user.home');
                 }
             } else {
                 $this->addError('otp', 'Invalid OTP. Please try again.');

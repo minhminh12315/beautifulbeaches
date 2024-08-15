@@ -15,7 +15,7 @@
                                 <button class="btn btn-outline-secondary" type="button" wire:click="recoveryOtp" wire:ignore id="recoveryOtp">Send</button>
                             </div>
                             <div class="position-relative mb-3">
-                                <input type="password" class="form-control form-control-lg input-password" wire:model.live="rs_password" placeholder="Enter your New Password" aria-label="OTP">
+                                <input type="password" class="form-control form-control-lg password" wire:model.live="rs_password" placeholder="Enter your New Password" aria-label="OTP">
                                 <i class="fa-regular fa-eye login-eye icon-eye"></i>
                             </div>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -48,17 +48,12 @@
 <script>
     $(document).ready(function() {
         // Show and hide password using eye icon
-        const showHiddenPassword = (inputPasswordClass, inputIconClass) => {
-            const $input = $(`.${inputPasswordClass}`);
-            const $iconEye = $(`.${inputIconClass}`);
-
-            $iconEye.on('click', () => {
-                const isPassword = $input.attr('type') === 'password';
-                $input.attr('type', isPassword ? 'text' : 'password');
-                $iconEye.toggleClass('fa-eye fa-eye-slash');
-            });
-        };
-        showHiddenPassword('input-password', 'icon-eye');
+        $('.icon-eye').click(function() {
+            $(this).toggleClass('fa-eye fa-eye-slash');
+            const input = $(this).closest('.position-relative').find('input.password');
+            const inputType = input.attr('type') === 'password' ? 'text' : 'password';
+            input.attr('type', inputType);
+        });
 
         // Disable button and start countdown
         const disableButton = () => {
