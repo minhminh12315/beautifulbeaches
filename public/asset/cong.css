@@ -639,10 +639,13 @@ header .space {
 /* Blog Detail Section */
 /* Container width and margin */
 #BlogDetail {
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
-
+#BlogDetail .smallStrImg {
+    border-radius: 1rem;
+    overflow: hidden;
+}
 /* Image hover effects */
 #BlogDetail .hoverBigger:hover {
     cursor: pointer;
@@ -700,6 +703,14 @@ header .space {
 #BlogDetail .BigImageContainer {
     overflow: hidden;
     border-radius: 1rem;
+    height: 700px;
+}
+#BlogDetail .bigPicture{
+    object-fit: cover;
+    height: 100%;
+}
+#BlogDetail .paddingBig{
+    padding:0
 }
 
 /* Text content styling */
@@ -794,6 +805,7 @@ header .space {
 #BlogDetail .imgContainer {
     border-radius: 1rem;
     overflow: hidden;
+    height: 540px;
 }
 
 /* Blog subtitle styling */
@@ -893,12 +905,15 @@ header .space {
         font-size: 15px;
     }
 
+
     /* Blog author responsiveness */
 
 
     /* Main image container responsiveness */
     #BlogDetail .BigImageContainer {
         height: 250px;
+        border-radius: 1rem;
+        overflow: hidden;
     }
 
     /* Main image responsiveness */

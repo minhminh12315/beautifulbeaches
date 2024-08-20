@@ -7,10 +7,6 @@
             <div class="BlogTitle text-center">XYZ Thiên Đường Giữa Lòng Thiên Nhiên</div>
             <div class="dateBlog text-center m-2">Apr 7 2023</div>
         </div>
-        <!-- Main Image -->
-        <div class="BigImageContainer hoverBigger">
-            <img src="./copu.png" class="img-fluid BigImage" alt="Big Image">
-        </div>
         <!-- Blog Content Sections -->
         <div class="blogContentContainer_1 mt-5">
             <div class="titleBlog_2">The Beauty of the Coastline</div>
@@ -55,9 +51,79 @@
                     protocols.
                 </p>
             </div>
-
-            <!-- Comment Section -->
-            <div class="blogContentSection_3 mt-5">
+            <!-- Image Gallery -->
+            <div class="blogContentSection_5 mt-3">
+                <div class="row">
+                    @if(count($imagePaths_2)==1)
+                    <div class="col-12 mt-3">
+                        <div class="BigImageContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[0]) }}" class=" BigImage w-100 bigPicture" alt="Big Image">
+                        </div>
+                    </div>
+                    @endif
+                    @if(count($imagePaths_2)==2)
+                    <div class="col-12 mt-3 col-lg-6">
+                        <div class="imgContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[1]) }}" class="img-fluid BigImage h-100 w-100" alt>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 col-lg-6">
+                        <div class="imgContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[2]) }}" class="img-fluid BigImage h-100 w-100" alt>
+                        </div>
+                    </div>
+                    @endif
+                    @if(count($imagePaths_2)==3)
+                    <div class="col-12 mt-3">
+                        <div class="BigImageContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[0]) }}" class=" BigImage w-100 bigPicture" alt="Big Image">
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 col-lg-6">
+                        <div class="imgContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[1]) }}" class="img-fluid BigImage h-100 w-100" alt>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 col-lg-6">
+                        <div class="imgContainer hoverBigger">
+                            <img src="{{ Storage::url($imagePaths[2]) }}" class="img-fluid BigImage h-100 w-100" alt>
+                        </div>
+                    </div>
+                    @endif
+                    @if(count($imagePaths_2)==4)
+                    <div class="col-12 mt-5">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="smallStrImg hover">
+                                    <img src="{{ Storage::url($imagePaths[2]) }}"
+                                        class="img-fluid" alt>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="smallStrImg hover">
+                                    <img src="{{ Storage::url($imagePaths[2]) }}"
+                                        class="img-fluid" alt>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-4">
+                                <div class="smallStrImg hover">
+                                    <img src="{{ Storage::url($imagePaths[2]) }}"
+                                        class="img-fluid" alt>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-4">
+                                <div class="smallStrImg hover">
+                                    <img src="{{ Storage::url($imagePaths[2]) }}"
+                                        class="img-fluid" alt>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+             <!-- Comment Section -->
+             <div class="blogContentSection_3 mt-5">
                 <div id="feedBack" class="swiper mySwiper hover">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -131,25 +197,10 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <!-- Image Gallery -->
-            <div class="blogContentSection_5 mt-3">
-                <div class="row">
-                    <div class="col-12 mt-3 col-lg-6">
-                        <div class="imgContainer hoverBigger">
-                            <img src="./img_1.jpg" class="img-fluid BigImage" alt>
-                        </div>
-                    </div>
-                    <div class="col-12 mt-3 col-lg-6">
-                        <div class="imgContainer hoverBigger">
-                            <img src="./img_1.jpg" class="img-fluid BigImage" alt>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!-- Additional Blog Content Section -->
         <div class="blogContentContainer_2 mt-4 row">
-            <div class="col-12 titleBlog_2">The Beauty of Coastal Cuisine</div>
+            <div class="col-12 titleBlog_2">The best Cusine</div>
             <div class="col-12 mt-4 textContent spaced-paragraphs">
                 <p>Coastal cuisine is a celebration of the sea’s bounty, where every dish tells a story of the ocean’s
                     depths. Freshly caught fish, still glistening with seawater, is transformed into mouthwatering
@@ -170,8 +221,8 @@
 
             </div>
             <div class="col-12 mt-5">
-                <div class="BigImageContainer hoverBigger">
-                    <img src="./copu.png" class="img-fluid BigImage" alt="Big Image">
+                <div class="BigImageContainer hoverBigger ">
+                    <img src="{{ Storage::url($imagePaths_2[0]) }}" class="img-fluid BigImage w-100 " alt="Big Image">
                 </div>
             </div>
         </div>
