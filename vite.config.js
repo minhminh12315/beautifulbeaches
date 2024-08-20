@@ -1,15 +1,19 @@
-import { defineConfig } from "vite";
-import laravel from "laravel-vite-plugin";
-import { builderDevTools } from "@builder.io/dev-tools/vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import laravel, { refreshPaths } from 'laravel-vite-plugin'
 
 export default defineConfig({
-  plugins: [
-    laravel({
-      input: ["resources/sass/app.scss", "resources/js/app.js"],
-      refresh: true,
-    }),
-    react(),
-    builderDevTools(),
-  ],
-});
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: [
+                ...refreshPaths,
+                'app/Filament/**',
+                'app/Forms/Components/**',
+                'app/Livewire/**',
+                'app/Infolists/Components/**',
+                'app/Providers/Filament/**',
+                'app/Tables/Columns/**',
+            ],
+        }),
+    ],
+})

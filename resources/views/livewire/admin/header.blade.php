@@ -8,7 +8,7 @@
         </div>
     </button>
     <a href="{{route('admin.dashboard')}}" class="d-lg-none">
-        <img width="100%" height="auto" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/452964084_892680496221769_3236605991899914280_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=L6PPvfSCUvIQ7kNvgFmIpSr&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QGdQ94IfBihy34Dl0gDf2CC4EOPmLcVx3smda3hOjDXBw&oe=66E0278C" alt="">
+        <img width="100" height="auto" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/452964084_892680496221769_3236605991899914280_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=L6PPvfSCUvIQ7kNvgFmIpSr&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QGdQ94IfBihy34Dl0gDf2CC4EOPmLcVx3smda3hOjDXBw&oe=66E0278C" alt="">
     </a>
     <div class="d-none d-lg-block text-secondary">
         Manage your web here
