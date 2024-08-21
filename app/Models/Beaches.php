@@ -8,9 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Beaches extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'city_id',
+        'status',
+        'type',
+        'image',
+    ];
     public function city()
     {
-        return $this->belongsTo(Cities::class);
+        return $this->belongsTo(Cities::class, 'city_id');
     }
     public function beachImages()
     {
@@ -19,5 +27,9 @@ class Beaches extends Model
     public function blogs()
     {
         return $this->hasMany(Blogs::class);
+    }
+    public function beachSections()
+    {
+        return $this->hasMany(BeachSection::class, 'beach_id');
     }
 }

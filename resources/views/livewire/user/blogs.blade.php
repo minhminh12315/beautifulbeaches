@@ -13,7 +13,7 @@
                     <div class="bannerBlogDescription">
                         Discover the hidden gems of Vietnam's beautiful beaches, indulge in pristine waters, vibrant marine life, and serene landscapes that promise unforgettable experiences.
                     </div>
-                    <a href="#" class="btn_bannerBlogging">
+                    <a href="{{ route('user.blogging') }}" class="btn_bannerBlogging">
                         Blogging
                         <span class="material-symbols-outlined">
                             person_edit

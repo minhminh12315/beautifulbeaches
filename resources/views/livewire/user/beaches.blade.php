@@ -164,7 +164,7 @@
                                 <div class="card_beach_description">
                                     {{$beach->description}}
                                 </div>
-                                <a href="/" class="btn_card_beach_explore">
+                                <a href="{{ route('user.beachDetails', $beach->id) }}" class="btn_card_beach_explore">
                                     Explore beach
                                 </a>
                             </div>

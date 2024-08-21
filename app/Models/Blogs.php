@@ -9,7 +9,15 @@ class Blogs extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'content',
+        'beach_id',
+        'user_id',
+    ];
+
     public function beach(){
         return $this->belongsTo(Beaches::class);
     }
+
 }
