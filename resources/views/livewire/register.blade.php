@@ -3,7 +3,7 @@
         <div class="register-input">
             <h1 class="register-title pb-5">Sign Up</h1>
             <div class="userbox col-12">
-                <input wire:model.live="username" type="text" name="username" placeholder="Please enter your username" required>
+                <input wire:model.live="name" type="text" name="username" placeholder="Please enter your username" required>
                 <label for="username">Username</label>
                 @error('username') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>

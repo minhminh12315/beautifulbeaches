@@ -40,11 +40,11 @@ class Login extends Component
         ]);
 
         $credentials = [
-            'username' => $this->login_username,
+            'name' => $this->login_username,
             'password' => $this->login_password
         ];
 
-        $user = User::where('username', $this->login_username)->first();
+        $user = User::where('name', $this->login_username)->first();
 
         if (Auth::attempt($credentials)) {
             if (Auth::user()->status == 'inactive') {

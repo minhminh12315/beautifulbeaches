@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 
 class Register extends Component
 {
-    public $username;
+    public $name;
     public $email;
     public $city_id;
     public $password;
@@ -25,15 +25,15 @@ class Register extends Component
     public $cities;
 
     protected $rules = [
-        'username' => 'required|unique:users',
+        'name' => 'required|unique:users',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:6|',
         'password_confirmation' => 'required|min:6|same:password'
     ];
 
     protected $messages = [
-        'username.required' => 'Username is required',
-        'username.unique' => 'Username already exists',
+        'name.required' => 'Username is required',
+        'name.unique' => 'Username already exists',
         'email.required' => 'Email is required',
         'email.email' => 'Please enter a valid email address',
         'email.unique' => 'Email already exists!',
@@ -50,7 +50,7 @@ class Register extends Component
     public function register(){
 
         $this->validate([
-            'username' => $this->rules['username'],
+            'name' => $this->rules['name'],
             'email' => $this->rules['email'],
             'password' => $this->rules['password'],
             'password_confirmation' => $this->rules['password_confirmation']
@@ -60,7 +60,7 @@ class Register extends Component
         $this->otp_expiration = now()->addMinutes(2);
 
         $user = new User;
-        $user->username = $this->username;
+        $user->name = $this->name;
         $user->email = $this->email;
         $user->city_id = $this->city_id;
         $user->password = Hash::make($this->password);
@@ -73,7 +73,7 @@ class Register extends Component
         // Send OTP to User's Email
         Mail::to($this->email)->send(new SendOtp($this->otp));
 
-        $this->reset(['username', 'email', 'city_id', 'password', 'password_confirmation']);
+        $this->reset(['name', 'email', 'city_id', 'password', 'password_confirmation']);
 
         return redirect()->route('verify_email', $userId);
 
