@@ -160,12 +160,18 @@
 
 #user_header .search_user_container .inp_search_home {
     width: 50%;
-    outline: none;
+    outline: none !important;
     padding: 0.5rem 0;
     border: none;
     border-bottom: 1px solid #dee2e6;
 }
-
+#user_header .search_user_container .inp_search_home:focus{
+    width: 50%;
+    outline: none !important;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+}
 #user_header .search_user_container .clear_search_home {
     position: absolute;
     top: 8px;

@@ -57,7 +57,7 @@
                             </button>
                         </li>
                         <li>
-                            <button>
+                            <button type="button" wire:click="signout">
                                 <i class="fa-solid fa-right-from-bracket text-light"></i>
                                 <span>Sign out</span>
                             </button>
@@ -74,56 +74,54 @@
                 </button>
             </li>
         </ul>
-        <div class="search_user_container">
+        <div class="search_user_container" wire:ignore.self>
             <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                <a href="">
-                    OCEANIC
+                <a href="{{route('user.home')}}" wire:navigate>
+                    <img src="./asset/logo/logo3D.png" alt="" class="logo_header">
                 </a>
                 <div class="w-100 d-flex justify-content-center position-relative">
-                    <input type="text" class="inp_search_home" placeholder="Search for beaches">
-                    <span class="material-symbols-outlined clear_search_home">
+                    <input type="text" class="inp_search_home" placeholder="Search for beaches" wire:model.live.debounce.150s="search">
+                    <span class="material-symbols-outlined clear_search_home" wire:click="clear_search">
                         close
                     </span>
                 </div>
                 <button class="btn_close_search">Cancel</button>
             </div>
             <div class="search_result">
-                <a href="/" class="search_result_item">
+                @if ($search_result_beaches)
+                @foreach ($search_result_beaches as $srb)
+                <a href="" class="search_result_item">
                     <img src="https://dummyimage.com/600x400/000/fff" alt="" class="beach_img_result">
                     <div class="d-flex flex-column">
-                        <div class="beach_result_title">
-                            MY KHE BEACH
+                        <div class="beach_result_title fw-bold fs-4">
+                            {{$srb -> name}}
                         </div>
                         <p class="beach_result_description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam et magni delectus dolore inventore ducimus quasi ad id consectetur sapiente unde eius sed, tempora repudiandae officiis. Iure dicta eius iusto?
+                            {{$srb->description}}
                         </p>
                     </div>
                 </a>
-                <a class="search_result_item">
+                @endforeach
+                @endif
+
+                @if ($search_result_blogs)
+                @foreach ($search_result_blogs as $srb)
+                <a href="" class="search_result_item">
                     <img src="https://dummyimage.com/600x400/000/fff" alt="" class="beach_img_result">
                     <div class="d-flex flex-column">
-                        <div class="beach_result_title">
-                            MY KHE BEACH
+                        <div class="beach_result_title fw-bold fs-4">
+                            {{$srb -> title}}
                         </div>
                         <p class="beach_result_description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam et magni delectus dolore inventore ducimus quasi ad id consectetur sapiente unde eius sed, tempora repudiandae officiis. Iure dicta eius iusto?
+                            {{$srb->content}}
                         </p>
                     </div>
                 </a>
-                <a class="search_result_item">
-                    <img src="https://dummyimage.com/600x400/000/fff" alt="" class="beach_img_result">
-                    <div class="d-flex flex-column">
-                        <div class="beach_result_title">
-                            MY KHE BEACH
-                        </div>
-                        <p class="beach_result_description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam et magni delectus dolore inventore ducimus quasi ad id consectetur sapiente unde eius sed, tempora repudiandae officiis. Iure dicta eius iusto?
-                        </p>
-                    </div>
-                </a>
+                @endforeach
+                @endif
             </div>
         </div>
-        <div class="search_backdrop"></div>
+        <div class="search_backdrop" wire:ignore></div>
     </div>
     <div class="offcanvas_backdrop_custom" wire:ignore></div>
 </header>

@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class ImagesResource extends Resource
 {
@@ -19,20 +20,42 @@ class ImagesResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
+    
+    protected array $temporaryTypes = [];
+
     public static function form(Form $form): Form
     {
+        $formInstance = new self();
         return $form
             ->schema([
-                Forms\Components\TextInput::make('path')
+                Forms\Components\FileUpload::make('path')
+                    ->name('image')
+                    ->directory('assets/images')
+                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                        return time() . '_' . $file->getClientOriginalName();
+                    })
+                    ->required(),
+                Forms\Components\Select::make('type')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('type')
-                    ->required()
-                    ->maxLength(255),
+                    ->searchable()
+                    ->options(Images::pluck('type', 'type'))
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('new_type')
+                            ->label('New Type')
+                            ->required(),
+                    ])
+                    
+                    ->createOptionUsing(function (array $data) use ($formInstance) {
+                        // Thêm vào danh sách tùy chọn tạm thời
+                        $formInstance->temporaryTypes[$data['new_type']] = $data['new_type'];
+                        return $data['new_type'];
+                    }),
+
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->autosize(),
             ]);
     }
 
