@@ -1,4 +1,4 @@
-<form class="login-form " wire:submit.prevent="login">
+<form class="login-form" wire:submit.prevent="login">
     <div class="login-box col-md-6 col-lg-3 position-relative">
         <div class="login-input">
             <h1 class="login-title pb-5">Sign In</h1>
