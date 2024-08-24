@@ -32,13 +32,8 @@ use App\Livewire\User\Blogging;
 // Account
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
-Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
 Route::get('/reset-password', ResetPassword::class)->name('reset_password');
-Route::get('/reset-password-verify/{id}', ResetPasswordVerify::class)->name('reset_password_verify');
 Route::get('/beaches/{id}', BeachesUser::class)->name('user.beachesWithRegion');
-Route::get('/changeInformation', ChangeInformation::class)->name('user.changeInformation');
-Route::get('/changePassword', ChangePassword::class)->name('user.changePassword');
-
 //Page
 Route::get('/', Home::class)->name('user.home');
 Route::get('/beaches', BeachesUser::class)->name('user.beaches');
@@ -52,6 +47,9 @@ Route::get('/blogging', Blogging::class)->name('user.blogging');
 
 
 Route::middleware(['auth', 'user'])->group(function () {
-
+    Route::get('/reset-password-verify/{id}', ResetPasswordVerify::class)->name('reset_password_verify');
+    Route::get('/changeInformation', ChangeInformation::class)->name('user.changeInformation');
+    Route::get('/changePassword', ChangePassword::class)->name('user.changePassword');
+    Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
 });
 

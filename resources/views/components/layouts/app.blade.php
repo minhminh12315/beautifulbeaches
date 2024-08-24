@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8" />
 
-        <meta name="application-name" content="{{ config('app.name') }}" />
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ config('app.name') }}</title>
-
-         <!-- Google Fonts -->
+    <!-- Title -->
+    <title>{{ $title ?? 'Plan the Perfect Vacation' }}</title>
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
@@ -41,7 +40,7 @@
     <!-- Swiper.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('asset/index.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/an.css') }}">
@@ -50,26 +49,66 @@
 
     <!-- Livewire Styles -->
     @livewireStyles
+</head>
 
-        <style>
-            [x-cloak] {
-                display: none !important;
-            }
-        </style>
+<body>
+    <!-- Slot Content -->
+    {{ $slot }}
 
-        @filamentStyles
-        @vite('resources/css/app.css')
-    </head>
+    <script src="https://cdn.tiny.cloud/1/nk5ujhdn7wjzbw99gx7u6bd8tjgpzv9abtbz2nff989vzpug/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
-    <body class="antialiased">
-        {{ $slot }}
+    <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [{
+                    value: 'First.Name',
+                    title: 'First Name'
+                },
+                {
+                    value: 'Email',
+                    title: 'Email'
+                },
+            ],
+            file_picker_callback: (callback, value, meta) => {
+                if (meta.filetype === 'image') {
+                    // Create a file input element
+                    const input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', 'image/*');
+                    input.onchange = (e) => {
+                        const file = e.target.files[0];
+                        const reader = new FileReader();
 
-        @livewire('notifications')
+                        reader.onload = (event) => {
+                            // Create an image element to display the image
+                            const img = new Image();
+                            img.src = event.target.result;
 
-        @filamentScripts
-        @vite('resources/js/app.js')
+                            // Send the image data to the TinyMCE callback
+                            callback(img.src, {
+                                alt: file.name
+                            });
+                        };
 
-        <script src="{{ asset('asset/app.js') }}"></script>
-        @livewireScripts
-    </body>
+                        reader.readAsDataURL(file);
+                    };
+                    input.click();
+                }
+            },
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
+
+    <!-- Custom JS -->
+    <script src="{{ asset('asset/app.js') }}"></script>
+
+    <!-- Livewire Scripts -->
+    @livewireScripts
+</body>
+
 </html>
