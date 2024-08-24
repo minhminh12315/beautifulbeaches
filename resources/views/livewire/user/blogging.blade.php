@@ -4,12 +4,28 @@
             <h1 class="mb-4">Blogging</h1>
             <!-- Form to create the blog -->
             <form wire:submit.prevent="store">
+
+                <!-- Beach -->
+                <div class="mb-3">
+                    <label for="beach" class="form-label">Beach</label>
+                    <select id="beach" wire:model="beach_id" class="form-select">
+                        <option value="" selected>Please choose a beach</option>
+                        @if($beaches)
+                            @foreach($beaches as $beach)
+                                <option value="{{ $beach->id }}">{{ $beach->name }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                </div>
+                @error('beach_id') <span class="error text-danger">{{ $message }}</span> @enderror
+
                 <!-- Title -->
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" id="title" wire:model.live="title" class="form-control"
                         placeholder="Enter blog title">
                 </div>
+                @error('title') <span class="error text-danger">{{ $message }}</span> @enderror
 
                 <!-- Content -->
                 <div class="mb-3">
@@ -17,10 +33,15 @@
                     <textarea id="content" wire:model.live="content" class="form-control" rows="4"
                         placeholder="Enter blog content"></textarea>
                 </div>
+                @error('content') <span class="error text-danger">{{ $message }}</span> @enderror
 
                 <!-- Sections -->
                 <div class="mb-4">
                     <h2 class="h4">Sections</h2>
+                    @if(count($sections) === 0)
+                        <p class="mb-3">No sections added yet.</p>
+                    @else
+
                     @foreach($sections as $index => $section)
                         <div class="card mb-3">
                             <div class="card-body">
@@ -65,12 +86,24 @@
                             </div>
                         </div>
                     @endforeach
-
+                    @endif
                     <button type="button" class="btn btn-primary" wire:click="addSection">Add Section</button>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-success">Submit</button>
+                @if(session()->has('message'))
+                    <div class="alert alert-success mt-3">{{ session('message') }}</div>
+                @endif
+                @if($errors->any())
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
         </div>
 
@@ -79,9 +112,9 @@
             <h2>{{ $title }}</h2>
             <p>{{ $content }}</p>
             @if(count($sections) > 0 && $sections[0]['title'] !== null)
-                @foreach($sections as $section)
-                    <div class="card mb-3">
-                        <div class="card-body">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        @foreach($sections as $section)
                             <h3 class="h5">{{ $section['title'] }}</h3>
                             <p>{{ $section['description'] }}</p>
                             <div class="row">
@@ -96,9 +129,9 @@
                                     @endforeach
                                 @endif
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             @endif
         </div>
     </div>

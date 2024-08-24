@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Beaches;
 use App\Models\BlogImage;
 use App\Models\Blogs;
 use App\Models\BlogSection;
@@ -18,13 +19,13 @@ class Blogging extends Component
     public $title;
     public $content;
     public $sections = [];
+    public $beaches;
+    public $beach_id;
 
     public function mount()
     {
-        $this->sections = [
-            ['title' => '', 'description' => '', 'images' => []],
-        ];
-        Log::info(Auth::user()->id);
+        
+        $this->beaches = Beaches::all();
     }
 
     public function addSection()
@@ -51,21 +52,31 @@ class Blogging extends Component
 
     public function store()
     {
-
+        $this->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'beach_id' => 'required',
+            'sections.*.title' => 'required',
+            'sections.*.description' => 'required',
+            'sections.*.images.*' => 'required',
+        ], [
+            'title.required' => 'The title field is required',
+            'content.required' => 'The content field is required',
+            'beach_id.required' => 'The beach field is required',
+            'sections.*.title.required' => 'The section title field is required',
+            'sections.*.description.required' => 'The section description field is required',
+            'sections.*.images.*.required' => 'The section image field is required',
+        ]);
         try {
-            Log::info('Store method started.');
-    
             // Tạo blog
             $blog = Blogs::create([
                 'title' => $this->title,
                 'content' => $this->content,
                 'user_id' => Auth::user()->id,
-                'beach_id' => 1,
+                'beach_id' => $this->beach_id,
             ]);
-            Log::info('Blog created successfully', ['blog_id' => $blog->id]);
     
             foreach ($this->sections as $section) {
-                Log::info('Processing section', ['section' => $section]);
     
                 // Tạo blog section
                 $blogSection = new BlogSection();
@@ -73,28 +84,30 @@ class Blogging extends Component
                 $blogSection->description = $section['description'];
                 $blogSection->blog_id = $blog->id;
                 $blogSection->save();
-                Log::info('Blog section saved', ['blog_section_id' => $blogSection->id]);
+                
     
                 foreach ($section['images'] as $image) {
-                    Log::info('Processing image', ['image' => $image->getClientOriginalName()]);
+                    
     
                     // Lưu trữ ảnh
                     $imageName = time() . '_' . $image->getClientOriginalName();
                     $imagePath = $image->storeAs('public/assets/images', $imageName);
-                    Log::info('Image stored', ['image_name' => $imageName, 'image_path' => $imagePath]);
+                    
     
                     // Tạo bản ghi BlogImage
                     BlogImage::create([
                         'blog_section_id' => $blogSection->id,
                         'path' => $imagePath,
                     ]);
-                    Log::info('Blog image created successfully', ['blog_section_id' => $blogSection->id]);
+                    
                 }
             }
     
-            Log::info('Store method completed successfully.');
+            session()->flash('message', 'Blog created successfully');
+            $this->reset();
         } catch (\Exception $e) {
             Log::error('Error in store method', ['error' => $e->getMessage()]);
+            session()->flash('error', 'Something went wrong');
         }
 
     }
