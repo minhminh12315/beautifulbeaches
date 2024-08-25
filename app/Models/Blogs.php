@@ -20,4 +20,13 @@ class Blogs extends Model
         return $this->belongsTo(Beaches::class);
     }
 
+    public function blogSections(){
+        return $this->hasMany(BlogSection::class, 'blog_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

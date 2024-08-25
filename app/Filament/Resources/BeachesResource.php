@@ -63,10 +63,8 @@ class BeachesResource extends Resource
                                     ->required()
                                     ->maxLength(255),
                                 Select::make('beach_id')
-                                    ->required()
-                                    ->relationship('beach', 'name')
-                                    ->columnSpanFull()
-                                    ->columnSpan(1),
+                                ->default(fn ($get) => $get('id'))  // Lấy giá trị id của beach hiện tại
+                                ->hidden(),
                                 Textarea::make('description')
                                     ->required()
                                     ->columnSpanFull(),

@@ -1,3 +1,5 @@
+@extends('livewire.user.index')
+@section('content')
 <div class="ps-5 pe-5 mt-5">
     <div class="row">
         <div class="col-6">
@@ -42,50 +44,50 @@
                         <p class="mb-3">No sections added yet.</p>
                     @else
 
-                    @foreach($sections as $index => $section)
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h3 class="h5 mb-3">Section {{ $index + 1 }}</h3>
+                        @foreach($sections as $index => $section)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h3 class="h5 mb-3">Section {{ $index + 1 }}</h3>
 
-                                <!-- Section Title -->
-                                <div class="mb-3">
-                                    <label for="sections.{{ $index }}.title" class="form-label">Section Title</label>
-                                    <input type="text" wire:model.live="sections.{{ $index }}.title" class="form-control"
-                                        placeholder="Enter section title">
+                                    <!-- Section Title -->
+                                    <div class="mb-3">
+                                        <label for="sections.{{ $index }}.title" class="form-label">Section Title</label>
+                                        <input type="text" wire:model.live="sections.{{ $index }}.title" class="form-control"
+                                            placeholder="Enter section title">
+                                    </div>
+
+                                    <!-- Section Description -->
+                                    <div class="mb-3">
+                                        <label for="sections.{{ $index }}.description" class="form-label">Section
+                                            Description</label>
+                                        <textarea wire:model.live="sections.{{ $index }}.description" class="form-control"
+                                            rows="3" placeholder="Enter section description"></textarea>
+                                    </div>
+
+                                    <!-- Images -->
+                                    <div class="mb-3">
+                                        <label class="form-label">Images</label>
+                                        @foreach($section['images'] as $imageIndex => $image)
+                                            <div class="input-group mb-2">
+                                                <input type="file" wire:model="sections.{{ $index }}.images.{{ $imageIndex }}"
+                                                    class="form-control">
+                                                <button type="button" class="btn btn-danger"
+                                                    wire:click="removeImage({{ $index }}, {{ $imageIndex }})">Remove</button>
+                                            </div>
+
+                                            @if (is_object($image))
+                                                <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail mb-2" alt="Preview">
+                                            @endif
+                                        @endforeach
+                                        <button type="button" class="btn btn-secondary" wire:click="addImage({{ $index }})">Add
+                                            Image</button>
+                                    </div>
+
+                                    <button type="button" class="btn btn-danger" wire:click="removeSection({{ $index }})">Remove
+                                        Section</button>
                                 </div>
-
-                                <!-- Section Description -->
-                                <div class="mb-3">
-                                    <label for="sections.{{ $index }}.description" class="form-label">Section
-                                        Description</label>
-                                    <textarea wire:model.live="sections.{{ $index }}.description" class="form-control"
-                                        rows="3" placeholder="Enter section description"></textarea>
-                                </div>
-
-                                <!-- Images -->
-                                <div class="mb-3">
-                                    <label class="form-label">Images</label>
-                                    @foreach($section['images'] as $imageIndex => $image)
-                                        <div class="input-group mb-2">
-                                            <input type="file" wire:model="sections.{{ $index }}.images.{{ $imageIndex }}"
-                                                class="form-control">
-                                            <button type="button" class="btn btn-danger"
-                                                wire:click="removeImage({{ $index }}, {{ $imageIndex }})">Remove</button>
-                                        </div>
-
-                                        @if (is_object($image))
-                                            <img src="{{ $image->temporaryUrl() }}" class="img-thumbnail mb-2" alt="Preview">
-                                        @endif
-                                    @endforeach
-                                    <button type="button" class="btn btn-secondary" wire:click="addImage({{ $index }})">Add
-                                        Image</button>
-                                </div>
-
-                                <button type="button" class="btn btn-danger" wire:click="removeSection({{ $index }})">Remove
-                                    Section</button>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
                     @endif
                     <button type="button" class="btn btn-primary" wire:click="addSection">Add Section</button>
                 </div>
@@ -136,3 +138,4 @@
         </div>
     </div>
 </div>
+@endsection

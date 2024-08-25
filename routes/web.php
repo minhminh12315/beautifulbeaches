@@ -19,6 +19,7 @@ use App\Livewire\Login;
 use App\Livewire\Register;
 use App\Livewire\ResetPassword;
 use App\Livewire\ResetPasswordVerify;
+use App\Livewire\User\BlogDetail;
 use App\Livewire\VerifyEmail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\User\Beaches as BeachesUser;
@@ -44,6 +45,7 @@ Route::get('/BeachDetails/{id}', BeachDetails::class)->name('user.beachDetails')
 // Blog
 Route::get('/blogs', UserBlogs::class)->name('user.blogs');
 Route::get('/blogging', Blogging::class)->name('user.blogging');
+Route::get('/blog-detail/{id}', BlogDetail::class)->name('user.blogDetail');
 
 
 Route::middleware(['auth', 'user'])->group(function () {

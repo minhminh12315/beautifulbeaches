@@ -55,55 +55,6 @@
     <!-- Slot Content -->
     {{ $slot }}
 
-    <script src="https://cdn.tiny.cloud/1/nk5ujhdn7wjzbw99gx7u6bd8tjgpzv9abtbz2nff989vzpug/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
-    <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [{
-                    value: 'First.Name',
-                    title: 'First Name'
-                },
-                {
-                    value: 'Email',
-                    title: 'Email'
-                },
-            ],
-            file_picker_callback: (callback, value, meta) => {
-                if (meta.filetype === 'image') {
-                    // Create a file input element
-                    const input = document.createElement('input');
-                    input.setAttribute('type', 'file');
-                    input.setAttribute('accept', 'image/*');
-                    input.onchange = (e) => {
-                        const file = e.target.files[0];
-                        const reader = new FileReader();
-
-                        reader.onload = (event) => {
-                            // Create an image element to display the image
-                            const img = new Image();
-                            img.src = event.target.result;
-
-                            // Send the image data to the TinyMCE callback
-                            callback(img.src, {
-                                alt: file.name
-                            });
-                        };
-
-                        reader.readAsDataURL(file);
-                    };
-                    input.click();
-                }
-            },
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
-        });
-    </script>
-
     <!-- Custom JS -->
     <script src="{{ asset('asset/app.js') }}"></script>
 
