@@ -5,6 +5,7 @@ namespace App\Livewire\User;
 use Livewire\Component;
 use App\Models\Images;
 use App\Models\Texts;
+use App\Models\Beaches;
 
 class About extends Component
 {
@@ -22,6 +23,7 @@ class About extends Component
     public $textSection_2_2;
     public $textSection_3_1;
     public $textSection_3_2;
+    public $beaches;
     public function mount()
     {
         // Truy vấn lấy tất cả dữ liệu từ bảng images
@@ -43,23 +45,26 @@ class About extends Component
        ->toArray();
        $this->AboutTilte = Texts::where('type','About_Title')
        ->first();
-       $this->textSection_1_1 = Texts::where('type','About_section_1.1')
+       $this->textSection_1_1 = Texts::where('type','About_section_1_1')
        ->first();
-       $this->textSection_1_2 = Texts::where('type','About_section_1.2')
+       $this->textSection_1_2 = Texts::where('type','About_section_1_2')
        ->first();
-       $this->textSection_1_3 = Texts::where('type','About_section_1.3')
+       $this->textSection_1_3 = Texts::where('type','About_section_1_3')
        ->first();
-       $this->textSection_1_4 = Texts::where('type','About_section_1.4')
+       $this->textSection_1_4 = Texts::where('type','About_section_1_4')
        ->first();
-       $this->textSection_2_1 = Texts::where('type','About_section_2.1')
+       $this->textSection_2_1 = Texts::where('type','About_section_2_1')
        ->first();
-       $this->textSection_2_2 = Texts::where('type','About_section_2.2')
+       $this->textSection_2_2 = Texts::where('type','About_section_2_2')
        ->first();
 
-       $this->textSection_3_1 = Texts::where('type','About_section_3.1')
+       $this->textSection_3_1 = Texts::where('type','About_section_3_1')
        ->first();
-       $this->textSection_3_2 = Texts::where('type','About_section_3.2')
+       $this->textSection_3_2 = Texts::where('type','About_section_3_2')
        ->first();
+       $this->beaches = Beaches::take(4)->get();
+
+
 
     }
     public function render()
@@ -78,6 +83,7 @@ class About extends Component
         'textSection_2_2' => $this->textSection_2_2,
         'textSection_3_1' => $this->textSection_3_1,
         'textSection_3_2' => $this->textSection_3_2,
+        'beaches' => $this->beaches,
     ]);
 }
 

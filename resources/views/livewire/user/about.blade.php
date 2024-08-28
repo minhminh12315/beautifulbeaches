@@ -275,73 +275,21 @@
         </div>
         <div class="row mt-5">
             <!-- News Articles -->
+            @foreach($beaches as $beach)
             <div class="col-12 col-lg-6 mt-5">
                 <div class="NewsContainer hover">
-                    <img src="./copu.png" class="img-fluid imgNews" alt>
+                   <a href="{{ route('user.beachDetails', ['id' => $beach->id]) }}">
+                    <img src="{{storage::url($beach->image)}}" class="img-fluid imgNews" alt>
                     <div
-                        class="date d-flex justify-content-center align-items-center">April
-                        7,2024</div>
+                        class="date d-flex justify-content-center align-items-center">{{ $beach->updated_at }}</div>
                     <div
-                        class="titleNews d-flex justify-content-center align-items-center">New
-                        Vietnam Tourism Trends</div>
+                        class="titleNews d-flex justify-content-center align-items-center">{{ $beach->name }}</div>
                     <div
-                        class="textNews d-flex justify-content-center align-items-center">Discover
-                        the hidden gems of Vietnam's beautiful beaches
-                        and lakes, and experience the vibrant culture
-                        and history.</div>
+                        class="textNews d-flex justify-content-center align-items-center">{{ $beach->description }}</div>
+                   </a>
                 </div>
             </div>
-            <!-- Repeat News Articles -->
-            <div class="col-12 col-lg-6 mt-5">
-                <div class="NewsContainer hover">
-                    <img src="./copu.png" class="img-fluid imgNews" alt>
-                    <div
-                        class="date d-flex justify-content-center align-items-center">April
-                        7,2024</div>
-                    <div
-                        class="titleNews d-flex justify-content-center align-items-center">New
-                        Vietnam Tourism Trends</div>
-                    <div
-                        class="textNews d-flex justify-content-center align-items-center">Discover
-                        the hidden gems of Vietnam's beautiful beaches
-                        and lakes, and experience the vibrant culture
-                        and history.</div>
-                </div>
-            </div>
-            <!-- Repeat News Articles -->
-            <div class="col-12 col-lg-6 mt-5">
-                <div class="NewsContainer hover">
-                    <img src="./copu.png" class="img-fluid imgNews" alt>
-                    <div
-                        class="date d-flex justify-content-center align-items-center">April
-                        7,2024</div>
-                    <div
-                        class="titleNews d-flex justify-content-center align-items-center">New
-                        Vietnam Tourism Trends</div>
-                    <div
-                        class="textNews d-flex justify-content-center align-items-center">Discover
-                        the hidden gems of Vietnam's beautiful beaches
-                        and lakes, and experience the vibrant culture
-                        and history.</div>
-                </div>
-            </div>
-            <!-- Repeat News Articles -->
-            <div class="col-12 col-lg-6 mt-5">
-                <div class="NewsContainer hover">
-                    <img src="./copu.png" class="img-fluid imgNews" alt>
-                    <div
-                        class="date d-flex justify-content-center align-items-center">April
-                        7,2024</div>
-                    <div
-                        class="titleNews d-flex justify-content-center align-items-center">New
-                        Vietnam Tourism Trends</div>
-                    <div
-                        class="textNews d-flex justify-content-center align-items-center">Discover
-                        the hidden gems of Vietnam's beautiful beaches
-                        and lakes, and experience the vibrant culture
-                        and history.</div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

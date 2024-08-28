@@ -20,10 +20,11 @@ class Contact extends Component
     public $MobilePhone;
     public $TitleImage;
     public $Administration_number;
-    public $technical_number;ư
+    public $technical_number;
     public $operator_Address;
     public $Contact_Consulting;
     public $Quotes;
+    public $Agency_Address;
 
     public function mount(){
         $this->TitleImage = Images::Where('type','Contact_Title')

@@ -15,6 +15,7 @@ class Beaches extends Model
         'status',
         'type',
         'image',
+        'updated_at',
     ];
     public function city()
     {
