@@ -45,8 +45,8 @@ class Blogging extends Component
                     ];
 
                     if ($section->images) {
-                        foreach ($section->images as $image) {
-                            $sectionData['oldImage'][] = $image -> path;
+                        foreach ($section->images as $key => $image) {
+                            $sectionData['oldImage'][$key] = $image -> path;
                         }
                     }
 
