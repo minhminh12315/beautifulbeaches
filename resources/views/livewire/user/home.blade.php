@@ -27,7 +27,7 @@
         <div class="beach_each_region_content">
             <div class="region_container d-flex flex-lg-row flex-column jutify-content-between align-items-center gap-5">
                 @foreach ($regions as $region )
-                <a href="{{route('user.beachesWithRegion', $region->id)}}" class="region_item" >
+                <a href="{{route('user.beachesWithRegion', $region->id)}}" class="region_item">
                     <img src="https://i.pinimg.com/564x/19/6e/79/196e795131d346550d6ab3e7257e55b7.jpg" alt="">
                     <div class="region_title">
                         {{$region->name}}
@@ -36,88 +36,34 @@
                 @endforeach
             </div>
             <div class="beach_container d-flex flex-lg-row flex-column jutify-content-between align-items-start gap-5">
+                @foreach ($three_beaches as $tb )
                 <div class="card_beach">
-                    <a href="" class="w-100 h-100 d-flex flex-column gap-2">
+                    <a href="{{route('user.beachDetails',$tb -> id)}}" class="w-100 h-100 d-flex flex-column gap-2">
                         <div class="card_beach_img_wrapper">
-                            <img src="https://i.pinimg.com/564x/70/b6/78/70b678bd0f6435d6e5e6e7f96c39af8e.jpg" alt="" class="card_beach_img">
+                            <img src="{{Storage::url($tb -> image)}}" alt="" class="card_beach_img">
                         </div>
                         <div class="card_beach_content">
                             <div class="d-flex flex-column gap-1 justify-content-start align-items-start">
                                 <div class="card_beach_name">
-                                    HALONG BAY
+                                    {{$tb->name}}
                                 </div>
                                 <div class="card_beach_city">
                                     <i class="fa-solid fa-location-dot"></i>
                                     <span>
-                                        HA LONG CITY
+                                        {{$tb->city->name}}
                                     </span>
                                 </div>
                             </div>
                             <div class="card_beach_description">
-                                Ha Long Bay, a UNESCO World Heritage site in northern Vietnam, boasts stunning landscapes with its thousands of limestone islands rising from crystal-clear waters. Visitors can enjoy scenic cruises, explore mysterious caves, and relax on pristine beaches. The bay's unique rock formations and tranquil environment offer a perfect escape into nature. Whether kayaking or simply taking in the views, Ha Long Bay promises an unforgettable experience.
+                                {{$tb->description}}
                             </div>
-                            <a href="/" class="btn_card_beach_explore">
+                            <a href="{{route('user.beachDetails',$tb -> id)}}" class="btn_card_beach_explore">
                                 Explore beach
                             </a>
                         </div>
                     </a>
                 </div>
-                <div class="card_beach">
-                    <a href="" class="w-100 h-100 d-flex flex-column gap-2">
-                        <div class="card_beach_img_wrapper">
-                            <img src="https://i.pinimg.com/564x/4f/e2/c0/4fe2c012feee5f8137a57fc4822678a7.jpg" alt="" class="card_beach_img">
-                        </div>
-                        <div class="card_beach_content">
-                            <div class="d-flex flex-column gap-1 justify-content-start align-items-start">
-                                <div class="card_beach_name">
-                                    MY KHE BEACH
-                                </div>
-                                <div class="card_beach_city">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>
-                                        DA NANG CITY
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card_beach_description">
-                                My Khe Beach in Da Nang is renowned for its pristine, white sandy shores and inviting turquoise waters.
-                                Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity,
-                                with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local
-                                eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance,
-                                My Khe Beach is an ideal destination for both relaxation and adventure.
-                            </div>
-                            <a href="/" class="btn_card_beach_explore">
-                                Explore beach
-                            </a>
-                        </div>
-                    </a>
-                </div>
-                <div class="card_beach">
-                    <a href="" class="w-100 h-100 d-flex flex-column gap-2">
-                        <div class="card_beach_img_wrapper">
-                            <img src="https://statics.vinpearl.com/bai-bien-dep-o-phu-quoc_1648306936.png" alt="" class="card_beach_img">
-                        </div>
-                        <div class="card_beach_content">
-                            <div class="d-flex flex-column gap-1 justify-content-start align-items-start">
-                                <div class="card_beach_name">
-                                    BAI DAI
-                                </div>
-                                <div class="card_beach_city">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>
-                                        PHU QUOC ISLAND
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card_beach_description">
-                                Bai Dai on Phu Quoc Island is celebrated for its unspoiled, golden sandy stretch and crystal-clear blue waters. This serene beach offers a perfect setting for relaxation, with its gentle waves and peaceful environment. Visitors can enjoy leisurely walks along the shore, indulge in water activities, or savor fresh seafood at nearby beachside restaurants. The lush surroundings and stunning sunsets make Bai Dai a picturesque retreat for anyone seeking both tranquility and natural beauty.
-                            </div>
-                            <a href="/" class="btn_card_beach_explore">
-                                Explore beach
-                            </a>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -135,162 +81,86 @@
                 Read More
             </a>
         </div>
-        <div class="row row-cols-lg-2 row-cols-md-1 g-5 preview_card_blog_container">
-            <div class="col">
+        <div class="row g-5 preview_card_blog_container">
+            <div class="col-lg-6 col-12">
+                @if ($mainBlogs)
                 <div class="card_blog_vertical">
-                    <a href="">
+                    <a href="{{route('user.blogDetail',$mainBlogs -> id)}}">
                         <div class="card_blog_img_container">
                             <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
                             <span class="badge blog_of_beach">
                                 <i class="fa-solid fa-location-dot"></i>
-                                DA NANG
+                                {{$mainBlogs -> beach -> name}}
                             </span>
                         </div>
                         <div class="card_blog_content">
                             <div class="card_blog_title">
-                                My Khe Beach: A Weekend Adventure in Da Nang
+                                {{$mainBlogs -> title}}
                             </div>
                             <div class="card_blog_description">
-                                My Khe Beach in Da Nang offers a pristine, white sandy shores and inviting turquoise waters. Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity, with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance, My Khe Beach is an ideal destination for both relaxation and adventure.
+                                {{$mainBlogs -> content}}
                             </div>
                         </div>
                         <div class="sub_blog_container">
                             <div class="author_of_blog">
                                 <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
                                 <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                    <span class="author_name">John Doe</span>
-                                    <span class="author_region">Viet Nam</span>
+                                    <span class="author_name">{{$mainBlogs -> user -> fullname}}</span>
+                                    <span class="author_region">{{$mainBlogs -> user -> city -> name}}</span>
                                 </div>
                             </div>
                             <div class="date_of_blog">
-                                January 15, 2023
+                                {{\Carbon\Carbon::parse($mainBlogs -> created_at)->format('M j Y')}}
                             </div>
                         </div>
                     </a>
                 </div>
+                @endif
             </div>
-            <div class="col">
+            <div class="col-lg-6 col-12">
                 <div class="d-flex flex-column jutify-content-between align-items-center gap-5">
+                    @if ($otherBlogs)
+                    @foreach ($otherBlogs as $ob )
                     <div class="card_blog_horizontal">
-                        <a href="">
-                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
+                        <a href="{{route('user.blogDetail',$ob -> id)}}">
+                            <img src="{{$ob -> image}}" alt="" class="card_blog_img">
                             <div class="card_blog_content">
                                 <span class="badge blog_of_beach">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    DA NANG
+                                    {{$ob -> beach -> name}}
                                 </span>
                                 <div class="card_blog_title">
-                                    My Khe Beach: A Weekend Adventure in Da Nang
+                                    {{$ob -> title}}
                                 </div>
                                 <div class="card_blog_description">
-                                    My Khe Beach in Da Nang offers a pristine, white sandy shores and inviting turquoise waters. Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity, with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance, My Khe Beach is an ideal destination for both relaxation and adventure.
+                                    {{$ob -> content}}
                                 </div>
                                 <div class="sub_blog_container">
                                     <div class="author_of_blog">
                                         <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
                                         <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                            <span class="author_name">John Doe</span>
-                                            <span class="author_region">Viet Nam</span>
+                                            <span class="author_name">
+                                                {{$ob -> user -> fullname}}
+                                            </span>
+                                            <span class="author_region">
+                                                {{$ob -> user -> city -> name}}
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="date_of_blog">
-                                        January 15, 2023
+                                        {{\Carbon\Carbon::parse($ob -> created_at)->format('M j Y')}}
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="card_blog_horizontal">
-                        <a href="">
-                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
-                            <div class="card_blog_content">
-                                <span class="badge blog_of_beach">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    DA NANG
-                                </span>
-                                <div class="card_blog_title">
-                                    My Khe Beach: A Weekend Adventure in Da Nang
-                                </div>
-                                <div class="card_blog_description">
-                                    My Khe Beach in Da Nang offers a pristine, white sandy shores and inviting turquoise waters. Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity, with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance, My Khe Beach is an ideal destination for both relaxation and adventure.
-                                </div>
-                                <div class="sub_blog_container">
-                                    <div class="author_of_blog">
-                                        <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
-                                        <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                            <span class="author_name">John Doe</span>
-                                            <span class="author_region">Viet Nam</span>
-                                        </div>
-                                    </div>
-                                    <div class="date_of_blog">
-                                        January 15, 2023
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card_blog_horizontal">
-                        <a href="">
-                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
-                            <div class="card_blog_content">
-                                <span class="badge blog_of_beach">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    DA NANG
-                                </span>
-                                <div class="card_blog_title">
-                                    My Khe Beach: A Weekend Adventure in Da Nang
-                                </div>
-                                <div class="card_blog_description">
-                                    My Khe Beach in Da Nang offers a pristine, white sandy shores and inviting turquoise waters. Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity, with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance, My Khe Beach is an ideal destination for both relaxation and adventure.
-                                </div>
-                                <div class="sub_blog_container">
-                                    <div class="author_of_blog">
-                                        <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
-                                        <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                            <span class="author_name">John Doe</span>
-                                            <span class="author_region">Viet Nam</span>
-                                        </div>
-                                    </div>
-                                    <div class="date_of_blog">
-                                        January 15, 2023
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card_blog_horizontal">
-                        <a href="">
-                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
-                            <div class="card_blog_content">
-                                <span class="badge blog_of_beach">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    DA NANG
-                                </span>
-                                <div class="card_blog_title">
-                                    My Khe Beach: A Weekend Adventure in Da Nang
-                                </div>
-                                <div class="card_blog_description">
-                                    My Khe Beach in Da Nang offers a pristine, white sandy shores and inviting turquoise waters. Stretching for several kilometers along the coast, it offers a perfect blend of relaxation and activity, with opportunities for swimming, sunbathing, and water sports. The beach is bordered by a lively promenade with local eateries and shops, adding to its vibrant atmosphere. With its stunning sunrise views and tranquil ambiance, My Khe Beach is an ideal destination for both relaxation and adventure.
-                                </div>
-                                <div class="sub_blog_container">
-                                    <div class="author_of_blog">
-                                        <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
-                                        <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                            <span class="author_name">John Doe</span>
-                                            <span class="author_region">Viet Nam</span>
-                                        </div>
-                                    </div>
-                                    <div class="date_of_blog">
-                                        January 15, 2023
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- encourage write blog -->
     <div class="encourage_write_blog_container">
@@ -302,10 +172,17 @@
             <div class="encourage_write_blog_description">
                 Want to share your travel stories and insights? Log in to start writing your own blog posts or create an account to join our vibrant community of writers. We’ll showcase your work on our platform and help you connect with a wider audience.
             </div>
+            @auth
+            <div class="btn_signInUp_encourage">
+                <a href="{{route('user.blogging')}}" class="btn_encourage_signup">Blogging</a>
+            </div>
+            @endauth
+            @guest
             <div class="btn_signInUp_encourage">
                 <a href="{{route('login')}}" class="btn_encourage_signin">Sign in</a>
                 <a href="{{route('register')}}" class="btn_encourage_signup">Sign up</a>
             </div>
+            @endguest
         </div>
     </div>
 

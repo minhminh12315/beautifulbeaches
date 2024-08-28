@@ -639,10 +639,6 @@ header .space {
 
 /* Blog Detail Section */
 /* Container width and margin */
-#BlogDetail {
-    width: 80%;
-    margin: auto;
-}
 #BlogDetail .smallStrImg {
     border-radius: 1rem;
     overflow: hidden;

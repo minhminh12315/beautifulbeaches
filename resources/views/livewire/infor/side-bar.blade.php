@@ -17,9 +17,6 @@
                     <span>
                         Personal Infomation
                     </span>
-                    <span class="material-symbols-outlined mt-1 d-lg-none d-block">
-                        chevron_right
-                    </span>
                 </a>
             </li>
             <li wire:click="displayMainSettingContent">
@@ -30,8 +27,15 @@
                     <span>
                         Password and Security
                     </span>
-                    <span class="material-symbols-outlined mt-1 d-lg-none d-block">
-                        chevron_right
+                </a>
+            </li>
+            <li wire:click="displayMainSettingContent">
+                <a wire:navigate href="{{ route('blog_wrote') }}">
+                    <span class="material-symbols-outlined ">
+                        edit
+                    </span>
+                    <span>
+                        Blogs Written
                     </span>
                 </a>
             </li>

@@ -51,33 +51,33 @@
                         </div>
                         <div class="offcanvas-body pb-0">
                             <div class="filter_toggle_body">
+                                @if ($regions -> isNotEmpty())
                                 <div class="filter_items">
                                     <h5 class="regionsTitle text-secondary">Regions</h5>
-                                    <ul class=" row g-3 p-2">
-                                        @if ($regions)
+                                    <ul class=" row g-3 p-2 w-100">
                                         @foreach ($regions as $region )
                                         <li class="col-6">
                                             <input type="radio" class="d-none" wire:model.live="temporaryFilters.region" id="region_{{$region->id}}" value="{{$region->id}}">
                                             <label for="region_{{$region->id}}">{{$region->name}}</label>
                                         </li>
                                         @endforeach
-                                        @endif
                                     </ul>
                                 </div>
+                                @endif
+                                @if ($cities -> isNotEmpty())
                                 <div class="filter_items border-top">
                                     <h5 class="citiesTitle text-secondary">Cities</h5>
-                                    <ul class="row g-3 p-2">
-                                        @if ($cities)
+                                    <ul class="row g-3 p-2 w-100">
                                         @foreach ($cities as $city )
                                         <li class="col-6 filter_cities_item {{ (isset($temporaryFilters['region']) && $city->region_id != $temporaryFilters['region']) ? 'd-none' : '' }}">
                                             <input type="radio" class="filter_cities_item d-none" wire:model.live="temporaryFilters.city" id="city_{{$city->id}}" value="{{$city->id}}">
                                             <label for="city_{{$city->id}}" class="">{{$city->name}}</label>
                                         </li>
                                         @endforeach
-                                        @endif
                                     </ul>
                                 </div>
-                                <div class="filter_items border-top w-100">
+                                @endif
+                                <div class="filter_items border-top ">
                                     <h5 class="sortbyTitle text-secondary">Sort By</h5>
                                     <ul class="row g-3 p-2 w-100">
                                         <li class="col-6">
@@ -154,7 +154,7 @@
                             </span>
                         </button>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -167,12 +167,12 @@
             @foreach ($blogs as $blog )
             <li class="col">
                 <div class="card_blog_vertical">
-                    <a href="">
+                    <a href="{{route('user.blogDetail', $blog->id)}}">
                         <div class="card_blog_img_container">
-                            <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="card_blog_img">
+                            <img src="{{Storage::url($blog->image)}}" alt="" class="card_blog_img">
                             <span class="badge blog_of_beach">
                                 <i class="fa-solid fa-location-dot"></i>
-                                DA NANG
+                                {{$blog -> beach -> name}}
                             </span>
                         </div>
                         <div class="card_blog_content">
@@ -202,15 +202,15 @@
             @endif
         </ul>
         @if ($blogs)
-            @if($blogs->count() < $totalsblogs)
+        @if($blogs->count() < $totalsblogs)
             <div class="seeMoreRecord_wrapper">
-                <button class="seeMoreRecords" wire:click="loadMore">
-                    See more 
-                    <i class="fa-solid fa-arrow-down"></i>
-                </button>
+            <button class="seeMoreRecords" wire:click="loadMore">
+                See more
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
             </div>
             @endif
-        @endif
+            @endif
     </main>
 </section>
 @endsection

@@ -11,7 +11,7 @@ use Livewire\Component;
 class Beaches extends Component
 {
     public $regions;
-    public $cities;
+    public $cities = null;
     public $filters = [];
     public $temporaryFilters = [];
     public $beaches;
@@ -25,7 +25,7 @@ class Beaches extends Component
 
         if ($id) {
             $this->filters['region'] = $id;
-            $this -> temporaryFilters['region'] = $id;
+            $this->temporaryFilters['region'] = $id;
             $this->apply_filter();
         } else {
             $this->beaches = ModelsBeaches::with('city')->take($this->perPage)->get();
@@ -61,7 +61,6 @@ class Beaches extends Component
 
         $this->beaches = $query->take($this->perPage)->get();
         $this->totalbeaches = $query->count();
-        
     }
 
     public function loadMore()
@@ -73,7 +72,7 @@ class Beaches extends Component
     public function clearAll()
     {
         $this->filters = [];
-        $this -> temporaryFilters = [];
+        $this->temporaryFilters = [];
         $this->perPage = 6;
         $this->apply_filter();
     }
@@ -90,11 +89,12 @@ class Beaches extends Component
         }
     }
 
-    public function applyFilters(){
-        $this -> filters = $this -> temporaryFilters;
-       
+    public function applyFilters()
+    {
+        $this->filters = $this->temporaryFilters;
+
         $this->apply_filter();
-        $this -> dispatch('hideOffcanvas');
+        $this->dispatch('hideOffcanvas');
     }
     public function render()
     {
