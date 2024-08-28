@@ -1,15 +1,17 @@
 @extends('livewire.user.index')
 @section('content')
 <section id="AboutUs">
+    @if($section_1)
     <!-- Section 1: Welcome title and background image -->
     <div id="section_1" class="WelcomeAboutUs">
         <div
             class="w-100 d-flex justify-content-center align-items-center WelcomeTitleContainer">
-            <div class="WelcomeTitle">About Us</div>
+            <div class="WelcomeTitle">{{ $AboutTilte->content }}</div>
         </div>
-        <img src="./a1.jpg" class="backgroundTitle w-100" alt>
+        <img src="{{ Storage::url($section_1->path) }}" class="backgroundTitle w-100" alt>
     </div>
-
+    @endif
+    @if($section_2)
     <!-- Section 2: Introduction -->
     <div id="section_2">
         <div class="row">
@@ -17,22 +19,18 @@
             <div class="col-12 col-lg-6">
                 <div class="row textSection_2">
                     <div class="col-12">
-                        <div class="pacifico-regular">Explore the
-                            Vietnam's Beaches with us.
+                        <div class="pacifico-regular">{{ $textSection_1_1->content }}
                         </div>
-                        <div class="bigTitle">Your ideal <span
-                                class="highlight">beach</span>
-                            vacation starts here with our blogs
+                        <div class="bigTitle">
+                            {{-- {{ $textSection_1_2->content }} --}}
+                            <div class="div">Your ideal <span class="highlight">beach</span> vacation starts here with our blogs</div>
                         </div>
                         <div class="describeAboutUs">
-                            We share the beauty of Vietnam's beaches
-                            through engaging blog posts. Explore our
-                            guides and tips for your next beach
-                            adventure.
+                            {{ $textSection_1_3->content }}
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="titleBlog">Local travel blog</div>
+                        <div class="titleBlog">{{ $textSection_1_4->content }}</div>
                         <div class="borderBlogContainer">
                             <div class="line_1"></div>
                             <div class="line_2"></div>
@@ -51,38 +49,39 @@
                     <div
                         class="imgContainer w-100 h-100 d-flex justify-content-center align-items-center">
                         <div class="imgContainer_1 hoverOpacity scaleNone">
-                            <img class="img_1" src="./copu.png" alt>
+                            <img class="img_1" src="{{ Storage::url($section_2[0]) }}" alt>
                         </div>
                     </div>
                     <div class="imgContainer_2 d-none d-lg-block">
-                        <img class="img_2 hoverOpacity" src="./a1.jpg"
+                        <img class="img_2 hoverOpacity" src="{{ Storage::url($section_2[1]) }}"
                             alt>
                     </div>
                     <div class="imgContainer_3 d-none d-lg-block">
                         <img class="img_3 hoverOpacity"
-                            src="./img_4.png" alt>
+                            src="{{ Storage::url($section_2[2]) }}" alt>
                     </div>
                     <div class="imgContainer_4 d-none d-lg-block">
                         <img class="img_4 hoverOpacity"
-                            src="./img_1.jpg" alt>
+                            src="{{ Storage::url($section_2[3]) }}" alt>
                     </div>
                     <div class="imgContainer_5  d-none d-lg-block">
                         <img class="img_5 hoverOpacity"
-                            src="./img_1.jpg" alt>
+                            src="{{ Storage::url($section_2[4]) }}" alt>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    @endif
     <!-- Section 3: Carousel -->
     <div id="section_3" class="carouselContainer pt-lg-5">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
+                @foreach($section_3 as $path)
                 <div class="swiper-slide">
-                    <img src="./copu.png" class="img-fluid" alt>
+                    <img src="{{ Storage::url($path)}}" class="img-fluid" alt>
                 </div>
-                <div class="swiper-slide">
+                {{-- <div class="swiper-slide">
                     <img src="./img_2.jpg" class="img-fluid" alt>
                 </div>
                 <div class="swiper-slide">
@@ -90,29 +89,33 @@
                 </div>
                 <div class="swiper-slide">
                     <img src="./img_4.png" class="img-fluid" alt>
-                </div>
+                </div> --}}
+                @endforeach
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
     </div>
-
+    @if($section_4)
     <!-- Section 4: Customer Stories -->
     <div id="section_4" class="peopleFeelingContainer pt-5">
         <div class="row">
             <div class="col-12">
-                <div class="text-center subTitle">Happy Travelers Share
-                    Their Experiences</div>
+                <div class="text-center subTitle">{{ $textSection_2_1->content }}</div>
                 <div class="titleSection text-center">Stories from
                     <span class="Satisfied">Satisfied</span>
-                    Customers</div>
+                    Customers
+                </div>
+                    {{-- <div class="titleSection text-center">
+                        {{ $textSection_2_2->content }}
+                    </div> --}}
             </div>
         </div>
         <div class="row pt-4">
             <!-- Large Image Section -->
             <div class="col-12 col-lg-6 mt-4">
                 <div class="imgStoriesContainer ">
-                    <img src="./img_1.jpg" class="imgStory img-fluid"
+                    <img src="{{ Storage::url($section_4[0])}}" class="imgStory img-fluid"
                         alt>
                 </div>
             </div>
@@ -217,7 +220,7 @@
             <!-- Below Image Section -->
             <div class="col-12 col-lg-6 mt-5">
                 <div class="imgStoriesContainerBelow hover">
-                    <img src="./img_2.jpg"
+                    <img src="{{ Storage::url($section_4[1])}}"
                         class="imgStoryBelow img-fluid"
                         alt>
                 </div>
@@ -227,25 +230,25 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="smallStrImg hover">
-                            <img src="./img_1.jpg"
+                            <img src="{{ Storage::url($section_4[2])}}"
                                 class="img-fluid" alt>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="smallStrImg hover">
-                            <img src="./img_1.jpg"
+                            <img src="{{ Storage::url($section_4[3])}}"
                                 class="img-fluid" alt>
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="smallStrImg hover">
-                            <img src="./img_1.jpg"
+                            <img src="{{ Storage::url($section_4[4])}}"
                                 class="img-fluid" alt>
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="smallStrImg hover">
-                            <img src="./img_1.jpg"
+                            <img src="{{ Storage::url($section_4[5])}}"
                                 class="img-fluid" alt>
                         </div>
                     </div>
@@ -253,15 +256,21 @@
             </div>
         </div>
     </div>
+    @endif
 
     <!-- Section 5: Latest News -->
     <div id="section_5" class="peopleFeelingContainer pt-5">
         <div class="row">
             <div class="col-12">
-                <div class="text-center subTitle">True Roaming
-                    Tales</div>
+                <div class="text-center subTitle">
+                    {{ $textSection_3_1->content }}
+                </div>
                 <div class="text-center titleSection">Latest <span
-                        class="Satisfied">Useful</span> News</div>
+                        class="Satisfied">Useful</span> News
+                </div>
+                {{-- <div class="text-center titleSection">
+                    {{ $textSection_3_2->content }}
+                </div> --}}
             </div>
         </div>
         <div class="row mt-5">

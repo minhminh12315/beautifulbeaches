@@ -5,7 +5,7 @@
         <!-- Section 1: Title -->
         <div class="section_1">
             <div class="titleContainer w-100 d-flex justify-content-center align-items-center">
-                <img class="imgTitle w-100" src="https://statics.vinwonders.com/bai-bien-dep-nhat-viet-nam-01_1635343595.jpg">
+                <img class="imgTitle w-100" src="{{ Storage::url($TitleImage->path) }}">
                 <div class="title">Contact Us</div>
             </div>
         </div>
@@ -27,9 +27,9 @@
                             </div>
                         </div>
                         <div class="quotes m-3">Our Agency</div>
-                        <div class="quotesDetail m-3">285 Đội Cấn,Ba Đình,Hà Nội</div>
+                        <div class="quotesDetail m-3">{{ $Agency_Address->content }}</div>
                         <div class="consulting m-3">Operator</div>
-                        <div class="consultingDetail m-3">285 Đội Cấn,Ba Đình,Hà Nội</div>
+                        <div class="consultingDetail m-3">{{ $operator_Address->content }}</div>
                     </div>
                 </div>
 
@@ -47,10 +47,10 @@
                             </div>
                         </div>
                         <div class="quotes m-3">Mobile Number</div>
-                        <div class="quotesDetail m-3">Paul Davis: +1 629 592 593</div>
+                        <div class="quotesDetail m-3">{{ $MobilePhone->content }}</div>
                         <div class="consulting m-3">Office Number</div>
-                        <div class="consultingDetail m-3">Administration: <span>+1 184 016 482</span></div>
-                        <div class="consultingDetail m-3">Technical Office <span>+1 963 935 836</span></div>
+                        <div class="consultingDetail m-3">Administration: <span>{{ $Administration_number->content }}</span></div>
+                        <div class="consultingDetail m-3">Technical Office <span>{{ $technical_number->content }}</span></div>
                     </div>
                 </div>
 
@@ -69,10 +69,10 @@
                         </div>
                         <div class="quotes m-3">quotes</div>
                         <div class="quotesDetail m-3">Write to this email for a detailed quotation
-                            <span>quote@travel.com</span> and information.</div>
+                            <span>{{ $Quotes->content }}</span> and information.</div>
                         <div class="consulting m-3">Consulting</div>
                         <div class="consultingDetail m-3">Our free consultation service can be requested here
-                            <span>info@travel.com</span> every day.</div>
+                            <span>{{ $Contact_Consulting->content }}</span> every day.</div>
                     </div>
                 </div>
             </div>

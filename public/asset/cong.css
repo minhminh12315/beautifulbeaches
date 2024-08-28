@@ -422,6 +422,7 @@ header .space {
 #AboutUs .smallStrImg {
     border-radius: 1rem;
     overflow: hidden;
+    height: 220px;
 }
 
 /* Customer Stories - Avatar Container */
@@ -645,6 +646,7 @@ header .space {
 #BlogDetail .smallStrImg {
     border-radius: 1rem;
     overflow: hidden;
+    
 }
 /* Image hover effects */
 #BlogDetail .hoverBigger:hover {
