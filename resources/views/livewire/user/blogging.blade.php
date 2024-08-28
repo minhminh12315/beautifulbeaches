@@ -5,7 +5,7 @@
         <div class="col-6 border-end">
             <h1 class="mb-4">Blogging</h1>
             <!-- Form to create the blog -->
-            <form wire:submit.prevent="store">
+            <form wire:submit.prevent="{{ $statusEdit ? 'updateBlog' : 'store' }}">
 
                 <!-- Beach -->
                 <div class="mb-3">
@@ -57,9 +57,6 @@
                     @else
 
                         @foreach($sections as $index => $section)
-
-
-
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="d-flex flex-row justify-content-between align-items-center">
@@ -150,7 +147,13 @@
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn_secondary_custom">Submit</button>
+                <button type="submit" class="btn_secondary_custom">
+                    @if ($statusEdit)
+                    Save Changes
+                    @else
+                    Submit
+                    @endif
+                </button>
                 @if(session()->has('message'))
                     <div class="alert alert-success mt-3">{{ session('message') }}</div>
                 @endif
@@ -191,11 +194,15 @@
                             @if (isset($section['oldImage']))
                                 @foreach($section['oldImage'] as $imageIndex => $image)
                                     @if (is_string($image))
-                                        <img src="{{ Storage::url($image) }}" class="w-100 mb-2 mt-2" alt="Preview">
+                                    <div class="col">
+                                        <img src="{{ Storage::url($image) }}" class="img_custom_beachBlog" alt="Preview">
+                                    </div>
                                     @elseif (is_object($image))
-                                        <img src="{{ $image->temporaryUrl() }}" class="w-100 mb-2" alt="Preview">
+                                    <div class="col">
+                                        <img src="{{ $image->temporaryUrl() }}" class="img_custom_beachBlog" alt="Preview">
+                                    </div>
                                     @endif
-                                @endforeach
+                                    @endforeach
 
                             @endif
 
