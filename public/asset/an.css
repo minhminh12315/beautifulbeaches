@@ -165,13 +165,15 @@
     border: none;
     border-bottom: 1px solid #dee2e6;
 }
-#user_header .search_user_container .inp_search_home:focus{
+
+#user_header .search_user_container .inp_search_home:focus {
     width: 50%;
     outline: none !important;
     padding: 0.5rem 0;
     border: none;
     border-bottom: 1px solid #dee2e6;
 }
+
 #user_header .search_user_container .clear_search_home {
     position: absolute;
     top: 8px;
@@ -767,7 +769,7 @@
 .card_blog_vertical .card_blog_description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -1008,6 +1010,7 @@
 }
 
 .filter_toggle_body .filter_items {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1370,7 +1373,8 @@
 .btn_danger_custom:hover * {
     color: #FFFFFF;
 }
-.btn_addnew_types{
+
+.btn_addnew_types {
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -1383,17 +1387,109 @@
     transition: 0.15s ease-in;
 }
 
-.btn_addnew_types *{
+.btn_addnew_types * {
     color: #242649;
 }
 
-.btn_addnew_types:hover{
+.btn_addnew_types:hover {
     background-color: #242649;
     color: #FFFFFF;
 }
-.btn_addnew_types:hover *{
+
+.btn_addnew_types:hover * {
     color: #FFFFFF;
 }
+
+.img_custom_beachBlog {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#BlogDetail .textContent {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card_comment {
+    height: 450px;
+}
+
+.card_comment .comment_content_item {
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    background-color: #dee2e6;
+}
+
+.cmt_form_submit input {
+    width: 100%;
+    padding: 0.5rem 2.5rem;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    transition: 0.15s ease-in;
+}
+
+.btn_send_comment {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+    position: absolute;
+    right: 10px;
+    top: 25%;
+}
+
+#BlogDetail .blog_comment_container {
+    margin-top: 8rem;
+}
+
+#BlogDetail .imgArticleContainer .aciton_group {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.75rem;
+    z-index: 2000;
+    background-color: transparent;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#BlogDetail .imgArticleContainer .aciton_group .btn_edit_blog,
+#BlogDetail .imgArticleContainer .aciton_group .btn_delete_blog
+{
+    color: #FFFFFF;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: 0.15s ease-in;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in;
+}
+#BlogDetail .imgArticleContainer .aciton_group .btn_edit_blog{
+    background-color: #FFC107;
+}
+
+#BlogDetail .imgArticleContainer .aciton_group .btn_delete_blog{
+    background-color: #FF0000;
+}
+
+#BlogDetail .imgArticleContainer .aciton_group .btn_edit_blog:hover{
+    background-color: rgba(255, 193, 7, 0.8);
+}
+#BlogDetail .imgArticleContainer .aciton_group .btn_delete_blog:hover{
+    background-color: rgba(255, 0, 0, 0.8);
+}
+#BlogDetail .articlesContainer:hover .aciton_group .btn_delete_blog,
+#BlogDetail .articlesContainer:hover .aciton_group .btn_edit_blog{
+    opacity: 1;
+    visibility: visible;
+}
+
 @media screen and (max-width: 991px) {
     #user_header .main_navhome_user {
         width: 100%;

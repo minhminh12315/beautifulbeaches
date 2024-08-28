@@ -32,33 +32,33 @@
                         </div>
                         <div class="offcanvas-body pb-0">
                             <div class="filter_toggle_body">
+                                @if ($regions -> isNotEmpty())
                                 <div class="filter_items">
                                     <h5 class="regionsTitle text-secondary">Regions</h5>
-                                    <ul class=" row g-3 p-2">
-                                        @if ($regions)
+                                    <ul class=" row g-3 p-2 w-100">
                                         @foreach ($regions as $region )
                                         <li class="col-6">
                                             <input type="radio" class="d-none" wire:model.live="temporaryFilters.region" id="region_{{$region->id}}" value="{{$region->id}}">
                                             <label for="region_{{$region->id}}">{{$region->name}}</label>
                                         </li>
                                         @endforeach
-                                        @endif
                                     </ul>
                                 </div>
-                                <div class="filter_items border-top">
+                                @endif
+                                @if ($cities -> isNotEmpty())
+                                <div class="filter_items border-top ">
                                     <h5 class="citiesTitle text-secondary">Cities</h5>
-                                    <ul class="row g-3 p-2">
-                                        @if ($cities)
+                                    <ul class="row g-3 p-2 w-100">
                                         @foreach ($cities as $city )
                                         <li class="col-6 filter_cities_item {{ (isset($temporaryFilters['region']) && $city->region_id != $temporaryFilters['region']) ? 'd-none' : '' }}">
                                             <input type="radio" class="filter_cities_item d-none" wire:model.live="temporaryFilters.city" id="city_{{$city->id}}" value="{{$city->id}}">
                                             <label for="city_{{$city->id}}" class="">{{$city->name}}</label>
                                         </li>
                                         @endforeach
-                                        @endif
                                     </ul>
                                 </div>
-                                <div class="filter_items border-top w-100">
+                                @endif
+                                <div class="filter_items border-top">
                                     <h5 class="sortbyTitle text-secondary">Sort By</h5>
                                     <ul class="row g-3 p-2 w-100">
                                         <li class="col-6">
@@ -146,9 +146,9 @@
             @foreach ($beaches as $beach )
             <li class="col">
                 <div class="card_beach">
-                    <a href="{{route('user.home')}}" class="h-100 w-100 ">
+                    <a href="{{route('user.beachDetails', $beach -> id)}}" class="h-100 w-100 ">
                         <div class="d-flex flex-column justify-content-start align-items-start gap-2 w-100 h-100">
-                            <img src="https://statics.vinpearl.com/bai-bien-dep-o-phu-quoc_1648306936.png" alt="" class="card_beach_img">
+                            <img src="{{Storage::url($beach-> image)}}" alt="" class="card_beach_img">
                             <div class="card_beach_content">
                                 <div class="d-flex flex-column gap-1 justify-content-start align-items-start">
                                     <div class="card_beach_name">

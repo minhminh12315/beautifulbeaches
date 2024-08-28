@@ -13,6 +13,7 @@ use App\Livewire\Admin\Regions;
 use App\Livewire\Admin\Sidebar;
 use App\Livewire\Admin\Video;
 use App\Livewire\Blogs as LivewireBlogs;
+use App\Livewire\Infor\BlogWrote;
 use App\Livewire\Infor\ChangeInformation;
 use App\Livewire\Infor\ChangePassword;
 use App\Livewire\Login;
@@ -45,13 +46,14 @@ Route::get('/BeachDetails/{id}', BeachDetails::class)->name('user.beachDetails')
 // Blog
 Route::get('/blogs', UserBlogs::class)->name('user.blogs');
 Route::get('/blogging', Blogging::class)->name('user.blogging');
+Route::get('/blogging/{id}', Blogging::class)->name('user.bloggingEdit');
 Route::get('/blog-detail/{id}', BlogDetail::class)->name('user.blogDetail');
 
 
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/reset-password-verify/{id}', ResetPasswordVerify::class)->name('reset_password_verify');
-    Route::get('/changeInformation', ChangeInformation::class)->name('user.changeInformation');
-    Route::get('/changePassword', ChangePassword::class)->name('user.changePassword');
-    Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
 });
-
+Route::get('/reset-password-verify/{id}', ResetPasswordVerify::class)->name('reset_password_verify');
+Route::get('/changeInformation', ChangeInformation::class)->name('user.changeInformation');
+Route::get('/changePassword', ChangePassword::class)->name('user.changePassword');
+Route::get('/verify-email/{id}', VerifyEmail::class)->name('verify_email');
+Route::get('/blog-wrote', BlogWrote::class)->name('blog_wrote');

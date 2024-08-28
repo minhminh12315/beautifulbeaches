@@ -22,7 +22,7 @@ class Blogs extends Component
     {
         $this->regions = Regions::all();
         $this->cities = Cities::all();
-        $this->blogs = ModelsBlogs::take($this->perpage)->get();
+        $this->blogs = ModelsBlogs::take($this->perpage)->with('beach')->get();
         $this->totalsblogs = ModelsBlogs::count();
     }
 
