@@ -7,8 +7,12 @@
             <source src="/asset/video/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4">
         </video>
         <div class="video_content">
-            <div class="video_content_title">Beautiful Beaches In Vietnam</div>
-            <p class="video_content_description">Discover the hidden gems of Vietnam's beautiful beaches and indulge in pristine waters, vibrant marine life, and serene landscapes that promise unforgettable experiences.</p>
+            @if($textSection_1)
+            <div class="video_content_title">{{ $textSection_1->content }}</div>
+            @endif
+            @if($textSection_1_1)
+            <p class="video_content_description">{{ $textSection_1_1->content }}</p>
+            @endif
             <a href="{{route('user.beaches')}}" class="btn_explore_beaches">EXPLORE BEACHES</a>
         </div>
     </div>
@@ -16,12 +20,16 @@
     <!-- region -->
     <div class="container beach_each_region_container">
         <div class="beach_each_region_item">
+            @if($textSection_2)
             <div class="beach_each_region_title">
-                Discover Vietnam's Coastal Paradise
+                {{ $textSection_2->content }}
             </div>
+            @endif
+            @if($textSection_2_1)
             <div class="beach_each_region_description">
-                Explore the breathtaking beauty of Vietnam's coastline, where each region offers its own unique charm. From the tranquil shores of the north to the vibrant beach scenes of the south, uncover hidden gems and picturesque spots that cater to every beach lover's dream.
+                {{ $textSection_2_1->content }}
             </div>
+            @endif
             <a href="{{route('user.beaches')}}" class="btn_explore_beaches">More Beaches</a>
         </div>
         <div class="beach_each_region_content">
@@ -71,12 +79,16 @@
     <!-- blog -->
     <div class="blog_container_home container">
         <div class="d-flex flex-column justify-content-center align-items-center">
+            @if($textSection_3)
             <div class="blog_home_title">
-                Travel Blog
+                {{ $textSection_3->content }}
             </div>
+            @endif
+            @if($textSection_3_1)
             <div class="blog_home_description">
-                We share our experiences, tips and travel stories to inspire and guide our readers in their own wanderlust adventures. From hidden gems to popular destinations, we showcase the beauty and diversity of the world, and promote responsible and sustainable travel.
+                {{ $textSection_3_1->content }}
             </div>
+            @endif
             <a href="{{route('user.blogs')}}" class="btn_blog_home">
                 Read More
             </a>
@@ -166,12 +178,16 @@
     <div class="encourage_write_blog_container">
         <img src="https://i.pinimg.com/564x/ac/93/46/ac9346bf9586def789953adfdab8f069.jpg" class="encourage_write_blog_img" alt="">
         <div class="encourage_write_blog_content">
+            @if($textSection_4)
             <div class="encourage_write_blog_title">
-                Join Our Blogging Community
+                {{ $textSection_4->content }}
             </div>
+            @endif
+            @if($textSection_4_1)
             <div class="encourage_write_blog_description">
-                Want to share your travel stories and insights? Log in to start writing your own blog posts or create an account to join our vibrant community of writers. We’ll showcase your work on our platform and help you connect with a wider audience.
+                {{ $textSection_4_1->content }}
             </div>
+            @endif
             @auth
             <div class="btn_signInUp_encourage">
                 <a href="{{route('user.blogging')}}" class="btn_encourage_signup">Blogging</a>
