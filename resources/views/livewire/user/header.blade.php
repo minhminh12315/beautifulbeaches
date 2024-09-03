@@ -91,7 +91,7 @@
                 @if ($search_result_beaches)
                 @foreach ($search_result_beaches as $srb)
                 <a href="" class="search_result_item">
-                    <img src="https://dummyimage.com/600x400/000/fff" alt="" class="beach_img_result">
+                    <img src="{{Storage::url($srb -> image)}}" alt="" class="beach_img_result">
                     <div class="d-flex flex-column">
                         <div class="beach_result_title fw-bold fs-4">
                             {{$srb -> name}}
@@ -107,7 +107,7 @@
                 @if ($search_result_blogs)
                 @foreach ($search_result_blogs as $srb)
                 <a href="" class="search_result_item">
-                    <img src="https://dummyimage.com/600x400/000/fff" alt="" class="beach_img_result">
+                    <img src="{{Storage::url($srb -> image)}}" alt="" class="beach_img_result">
                     <div class="d-flex flex-column">
                         <div class="beach_result_title fw-bold fs-4">
                             {{$srb -> title}}

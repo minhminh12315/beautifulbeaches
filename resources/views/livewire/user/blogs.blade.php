@@ -187,8 +187,12 @@
                             <div class="author_of_blog">
                                 <img src="https://i.pinimg.com/564x/b3/97/04/b39704283dcce1a48ebf74c092993b49.jpg" alt="" class="author_img">
                                 <div class="d-flex flex-column jutify-content-between align-items-start gap-1">
-                                    <span class="author_name">John Doe</span>
-                                    <span class="author_region">Viet Nam</span>
+                                    <span class="author_name">
+                                        {{$blog -> user -> fullname}}
+                                    </span>
+                                    <span class="author_region">
+                                        {{$blog -> user -> city -> name}}
+                                    </span>
                                 </div>
                             </div>
                             <div class="date_of_blog">

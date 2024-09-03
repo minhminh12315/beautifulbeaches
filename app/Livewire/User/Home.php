@@ -24,6 +24,8 @@ class Home extends Component
     public $textSection_3_1;
     public $textSection_4;
     public $textSection_4_1;
+
+    public $video_home;
     public function mount()
     {
         $this->regions = Regions::all();
@@ -46,6 +48,7 @@ class Home extends Component
         ->first();
         $this->textSection_4_1 = Texts::where('type','Home_4_1')
         ->first();
+        // $this->video_home = Texts::where('type','Home_Video');
     }
     public function render()
     {

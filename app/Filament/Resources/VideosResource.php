@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class VideosResource extends Resource
 {
@@ -24,9 +25,13 @@ class VideosResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('path')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\FileUpload::make('path')
+                    ->name('video') // Optional: set the input name to 'video' if needed
+                    ->directory('assets/videos') // Specify the directory for video storage
+                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                        return time() . '_' . $file->getClientOriginalName();
+                    })
+                    ->required(),
                 Forms\Components\TextInput::make('type')
                     ->required()
                     ->maxLength(255),
