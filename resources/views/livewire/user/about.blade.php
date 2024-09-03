@@ -294,11 +294,11 @@
                    <a href="{{ route('user.beachDetails', ['id' => $beach->id]) }}">
                     <img src="{{storage::url($beach->image)}}" class="img-fluid imgNews" alt>
                     <div
-                        class="date d-flex justify-content-center align-items-center">{{ $beach->updated_at }}</div>
+                        class="date">{{ $beach->updated_at }}</div>
                     <div
-                        class="titleNews d-flex justify-content-center align-items-center">{{ $beach->name }}</div>
+                        class="titleNews ">{{ $beach->name }}</div>
                     <div
-                        class="textNews d-flex justify-content-center align-items-center">{{Str::limit($beach->description,300) }}</div>
+                        class="textNews ">{{ $beach->description }}</div>
                    </a>
                 </div>
             </div>

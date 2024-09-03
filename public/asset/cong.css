@@ -546,6 +546,12 @@ header .space {
     font-weight: 500;
     bottom: 12%;
     left: 10%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Số dòng bạn muốn hiển thị */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+
 }
 
 /* Responsive Design - Media Queries */
@@ -642,7 +648,7 @@ header .space {
 #BlogDetail .smallStrImg {
     border-radius: 1rem;
     overflow: hidden;
-    
+
 
 }
 /* Image hover effects */
