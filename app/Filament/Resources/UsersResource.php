@@ -6,6 +6,7 @@ use App\Filament\Resources\UsersResource\Pages;
 use App\Filament\Resources\UsersResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,6 +29,11 @@ class UsersResource extends Resource
                 TextInput::make('name'),
                 TextInput::make('email')
                 ->disabled(),
+                Select::make('role')
+                ->options([
+                    'admin' => 'Admin',
+                    'user' => 'User',
+                ]),
                 TextInput::make('created_at')->label('Registered')
                 ->disabled(),
             ]);
@@ -39,13 +45,7 @@ class UsersResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('email'),
-                TextColumn::make('role')
-                ->editable() // Cho phép chỉnh sửa role trực tiếp trong bảng
-                ->options([
-                    'admin' => 'Admin',
-                    'user' => 'User',
-                    'editor' => 'Editor',
-                ]),
+                TextColumn::make('role'),
                 TextColumn::make('status'),
                 TextColumn::make('created_at')->label('Registered'),
             ])
