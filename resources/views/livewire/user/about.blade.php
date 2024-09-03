@@ -150,7 +150,7 @@
                                 <div class="col-12 mt-4">
                                     <div class="formAvatar d-flex justify-content-center">
                                         <div class="avatarContainer">
-                                            <img src="./a1.jpg"
+                                            <img src="{{ Storage::url($section_4[0])}}"
                                                 class="img-fluid avatar"
                                                 alt="Jasper's Avatar">
                                         </div>
@@ -180,7 +180,7 @@
                                 <div class="col-12 mt-4">
                                     <div class="formAvatar d-flex justify-content-center">
                                         <div class="avatarContainer">
-                                            <img src="./a1.jpg"
+                                            <img src="{{ Storage::url($section_4[0])}}"
                                                 class="img-fluid avatar"
                                                 alt="Jasper's Avatar">
                                         </div>
@@ -210,7 +210,7 @@
                                 <div class="col-12 mt-4">
                                     <div class="formAvatar d-flex justify-content-center">
                                         <div class="avatarContainer">
-                                            <img src="./a1.jpg"
+                                            <img src="{{ Storage::url($section_4[0])}}"
                                                 class="img-fluid avatar"
                                                 alt="Jasper's Avatar">
                                         </div>
@@ -241,25 +241,25 @@
                     <div class="col-6">
                         <div class="smallStrImg hover">
                             <img src="{{ Storage::url($section_4[2])}}"
-                                class="img-fluid" alt>
+                                class="img-fluid h-100 w-100" alt>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="smallStrImg hover">
                             <img src="{{ Storage::url($section_4[3])}}"
-                                class="img-fluid" alt>
+                                class="img-fluid h-100 w-100" alt>
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="smallStrImg hover">
                             <img src="{{ Storage::url($section_4[4])}}"
-                                class="img-fluid" alt>
+                                class="img-fluid h-100 w-100" alt>
                         </div>
                     </div>
                     <div class="col-6 mt-4">
                         <div class="smallStrImg hover">
                             <img src="{{ Storage::url($section_4[5])}}"
-                                class="img-fluid" alt>
+                                class="img-fluid h-100 w-100" alt>
                         </div>
                     </div>
                 </div>
@@ -298,7 +298,7 @@
                     <div
                         class="titleNews d-flex justify-content-center align-items-center">{{ $beach->name }}</div>
                     <div
-                        class="textNews d-flex justify-content-center align-items-center">{{ $beach->description }}</div>
+                        class="textNews d-flex justify-content-center align-items-center">{{Str::limit($beach->description,300) }}</div>
                    </a>
                 </div>
             </div>
