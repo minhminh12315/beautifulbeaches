@@ -109,7 +109,7 @@ class Blogging extends Component
             'sections.*.title' => 'required',
             'sections.*.description' => 'required',
             'sections.*.images.*' => 'required',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'thumbnail' => 'required|image|max:2048',
         ], [
             'title.required' => 'The title field is required',
             'content.required' => 'The content field is required',
@@ -119,7 +119,6 @@ class Blogging extends Component
             'sections.*.images.*.required' => 'The section image field is required',
             'thumbnail.required' => 'The thumbnail field is required',
             'thumbnail.image' => 'The thumbnail must be an image',
-            'thumbnail.mimes' => 'The thumbnail must be a file of type: jpeg, png, jpg',
             'thumbnail.max' => 'The thumbnail file size must not exceed 2MB',
         ]);
         try {

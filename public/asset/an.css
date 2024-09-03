@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 4;
     transition: 0.3s ease-in;
 }
 
@@ -844,8 +844,8 @@
 
 #user_homepage .card_blog_horizontal .card_blog_img {
     flex-basis: 35%;
-    width: 35%;
     height: 100%;
+    width: 100%;
     border-radius: inherit;
     aspect-ratio: 4/3;
     mix-blend-mode: multiply;

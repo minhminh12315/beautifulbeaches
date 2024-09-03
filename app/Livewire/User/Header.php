@@ -31,13 +31,20 @@ class Header extends Component
         $this->search_result_beaches = [];
         $this->search_result_blogs = [];
     }
+    public function updatedSearch($value)
+{
+    if (empty($value)) {
+        $this->search_result_beaches = [];
+        $this->search_result_blogs = [];
+    } else {
+        // Thực hiện tìm kiếm và cập nhật kết quả ở đây
+        $this->search_result_beaches = Beaches::where('name', 'like', '%'.$this->search.'%')->get();
+        $this->search_result_blogs = Blogs::where('title', 'like', '%'.$this->search.'%')->get();
+    }
+}
 
     public function render()
     {
-        if($this->search >= 1){
-            $this->search_result_beaches = Beaches::where('name', 'like', '%'.$this->search.'%')->get();
-            $this->search_result_blogs = Blogs::where('title', 'like', '%'.$this->search.'%')->get();
-        }
         return view('livewire.user.header');
     }
 }
