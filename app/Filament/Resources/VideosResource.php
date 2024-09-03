@@ -26,8 +26,8 @@ class VideosResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('path')
-                    ->name('video') // Optional: set the input name to 'video' if needed
-                    ->directory('assets/videos') // Specify the directory for video storage
+                    ->name('video')
+                    ->directory('assets/videos')
                     ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                         return time() . '_' . $file->getClientOriginalName();
                     })

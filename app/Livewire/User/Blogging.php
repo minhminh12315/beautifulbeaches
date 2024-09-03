@@ -122,7 +122,7 @@ class Blogging extends Component
             'thumbnail.max' => 'The thumbnail file size must not exceed 2MB',
         ]);
         try {
-            $thumbnailName = time()  . '_' . $this->thumbnail->getClientOriginalName();
+            $thumbnailName = time() . '_' . $this->thumbnail->getClientOriginalName();
             $thumbnailPath = $this->thumbnail->storeAs('public/assets/images', $thumbnailName);
             Log::info('Thumbnail Path: ' . $thumbnailPath);
 
@@ -173,84 +173,107 @@ class Blogging extends Component
         }
     }
     public function updateBlog()
-{
-    Log::info('updated');
-    $this->validate([
-        'title' => ['required'],
-        'content' => ['required'],
-        'beach_id' => ['required'],
-        'thumbnailToEdit' => ['required']
-    ], [
-        'title.required' => 'The title field is required',
-        'content.required' => 'The content field is required',
-        'beach_id.required' => 'The beach field is required',
-        'thumbnailToEdit.required' => 'The thumbnail field is required',
-    ]);
+    {
+        Log::info('updated');
+        $this->validate([
+            'title' => ['required'],
+            'content' => ['required'],
+            'beach_id' => ['required'],
+            'thumbnailToEdit' => ['required']
+        ], [
+            'title.required' => 'The title field is required',
+            'content.required' => 'The content field is required',
+            'beach_id.required' => 'The beach field is required',
+            'thumbnailToEdit.required' => 'The thumbnail field is required',
+        ]);
 
-    try {
-        $blog = Blogs::find($this->blogIdToEdit);
-        if (!$blog) {
-            session()->flash('error', 'Blog not found');
-            return redirect()->route('user.blogs');
-        }
+        try {
+            $blog = Blogs::find($this->blogIdToEdit);
+            if (!$blog) {
+                session()->flash('error', 'Blog not found');
+                return redirect()->route('user.blogs');
+            }
 
-        // Cập nhật nội dung và beach_id của blog
-        $blog->title = $this->title;
-        $blog->content = $this->content;
-        $blog->beach_id = $this->beach_id;
+            // Cập nhật nội dung và beach_id của blog
+            $blog->title = $this->title;
+            $blog->content = $this->content;
+            $blog->beach_id = $this->beach_id;
 
-        // Cập nhật thumbnail của blog nếu có
-        if ($this->thumbnail) {
-            $thumbnailName = time() . '_' . $this->thumbnail->getClientOriginalName();
-            $thumbnailPath = $this->thumbnail->storeAs('public/assets/images', $thumbnailName);
-            $blog->image = $thumbnailPath;
-        }
+            // Cập nhật thumbnail của blog nếu có
+            if ($this->thumbnail) {
+                $thumbnailName = time() . '_' . $this->thumbnail->getClientOriginalName();
+                $thumbnailPath = $this->thumbnail->storeAs('public/assets/images', $thumbnailName);
+                $blog->image = $thumbnailPath;
+            }
 
-        $blog->save();
+            $blog->save();
 
-        // Xử lý các section hiện tại
-        $existingSectionIds = [];
-        foreach ($this->sections as $sectionIndex => $section) {
-            if (isset($section['id'])) {
-                // Cập nhật section hiện tại
-                $blogSection = BlogSection::find($section['id']);
-                if ($blogSection) {
-                    $blogSection->title = $section['title'];
-                    $blogSection->description = $section['description'];
-                    $blogSection->save();
-                    $existingSectionIds[] = $blogSection->id;
+            // Xử lý các section hiện tại
+            $existingSectionIds = [];
+            foreach ($this->sections as $sectionIndex => $section) {
+                if (isset($section['id'])) {
+                    // Cập nhật section hiện tại
+                    $blogSection = BlogSection::find($section['id']);
+                    if ($blogSection) {
+                        $blogSection->title = $section['title'];
+                        $blogSection->description = $section['description'];
+                        $blogSection->save();
+                        $existingSectionIds[] = $blogSection->id;
 
-                    if (isset($section['oldImage'])) {
-                        $existingImageIds = $blogSection->images->pluck('id')->toArray();
-                        $imageIdsToKeep = array_keys($section['oldImage']);
-                        $imageIdsToDelete = array_diff($existingImageIds, $imageIdsToKeep);
+                        if (isset($section['oldImage'])) {
+                            $existingImageIds = $blogSection->images->pluck('id')->toArray();
+                            $imageIdsToKeep = array_keys($section['oldImage']);
+                            $imageIdsToDelete = array_diff($existingImageIds, $imageIdsToKeep);
 
-                        // Xóa ảnh không còn cần thiết
-                        foreach ($imageIdsToDelete as $imageId) {
-                            $imageToDelete = BlogImage::find($imageId);
-                            if ($imageToDelete) {
-                                // Xóa tệp ảnh
-                                if (file_exists(storage_path('app/' . $imageToDelete->path))) {
-                                    unlink(storage_path('app/' . $imageToDelete->path));
+                            // Xóa ảnh không còn cần thiết
+                            foreach ($imageIdsToDelete as $imageId) {
+                                $imageToDelete = BlogImage::find($imageId);
+                                if ($imageToDelete) {
+                                    // Xóa tệp ảnh
+                                    if (file_exists(storage_path('app/' . $imageToDelete->path))) {
+                                        unlink(storage_path('app/' . $imageToDelete->path));
+                                    }
+                                    // Xóa bản ghi ảnh khỏi cơ sở dữ liệu
+                                    $imageToDelete->delete();
                                 }
-                                // Xóa bản ghi ảnh khỏi cơ sở dữ liệu
-                                $imageToDelete->delete();
+                            }
+
+                            foreach ($section['oldImage'] as $imageIndex => $image) {
+                                if (is_object($image)) {
+                                    // Nếu hình ảnh cũ bị thay đổi, xóa ảnh cũ và lưu ảnh mới
+                                    $existingImage = BlogImage::find($imageIndex);
+                                    if ($existingImage) {
+                                        $imageName = time() . '_' . $image->getClientOriginalName();
+                                        $imagePath = $image->storeAs('public/assets/images', $imageName);
+                                        $existingImage->path = $imagePath; // Cập nhật đường dẫn ảnh trong database
+                                        $existingImage->save(); // Lưu lại
+                                    }
+                                }
                             }
                         }
 
-                        foreach ($section['oldImage'] as $imageIndex => $image) {
-                            if (is_object($image)) {
-                                // Nếu hình ảnh cũ bị thay đổi, xóa ảnh cũ và lưu ảnh mới
-                                $existingImage = BlogImage::find($imageIndex);
-                                if ($existingImage) {
-                                    $imageName = time() . '_' . $image->getClientOriginalName();
-                                    $imagePath = $image->storeAs('public/assets/images', $imageName);
-                                    $existingImage->path = $imagePath; // Cập nhật đường dẫn ảnh trong database
-                                    $existingImage->save(); // Lưu lại
-                                }
+                        // Xử lý ảnh mới
+                        if (isset($section['images'])) {
+                            foreach ($section['images'] as $image) {
+                                $imageName = time() . '_' . $image->getClientOriginalName();
+                                $imagePath = $image->storeAs('public/assets/images', $imageName);
+
+                                BlogImage::create([
+                                    'blog_section_id' => $blogSection->id,
+                                    'path' => $imagePath,
+                                ]);
                             }
                         }
                     }
+                } else {
+                    // Thêm mới section
+                    $blogSection = new BlogSection();
+                    $blogSection->title = $section['title'];
+                    $blogSection->description = $section['description'];
+                    $blogSection->blog_id = $blog->id;
+                    $blogSection->save();
+
+                    $existingSectionIds[] = $blogSection->id;
 
                     // Xử lý ảnh mới
                     if (isset($section['images'])) {
@@ -265,49 +288,26 @@ class Blogging extends Component
                         }
                     }
                 }
-            } else {
-                // Thêm mới section
-                $blogSection = new BlogSection();
-                $blogSection->title = $section['title'];
-                $blogSection->description = $section['description'];
-                $blogSection->blog_id = $blog->id;
-                $blogSection->save();
-
-                $existingSectionIds[] = $blogSection->id;
-
-                // Xử lý ảnh mới
-                if (isset($section['images'])) {
-                    foreach ($section['images'] as $image) {
-                        $imageName = time() . '_' . $image->getClientOriginalName();
-                        $imagePath = $image->storeAs('public/assets/images', $imageName);
-
-                        BlogImage::create([
-                            'blog_section_id' => $blogSection->id,
-                            'path' => $imagePath,
-                        ]);
-                    }
-                }
             }
+
+            // Xóa các section không còn tồn tại nữa
+            $sectionsToDelete = BlogSection::where('blog_id', $blog->id)
+                ->whereNotIn('id', $existingSectionIds)
+                ->get();
+
+            foreach ($sectionsToDelete as $sectionToDelete) {
+                // Xóa các hình ảnh liên quan
+                BlogImage::where('blog_section_id', $sectionToDelete->id)->delete();
+                $sectionToDelete->delete();
+            }
+
+            session()->flash('message', 'Blog updated successfully');
+            return redirect()->route('user.blogs');
+        } catch (\Exception $e) {
+            Log::error('Error in update method', ['error' => $e->getMessage()]);
+            session()->flash('error', 'Something went wrong');
         }
-
-        // Xóa các section không còn tồn tại nữa
-        $sectionsToDelete = BlogSection::where('blog_id', $blog->id)
-            ->whereNotIn('id', $existingSectionIds)
-            ->get();
-
-        foreach ($sectionsToDelete as $sectionToDelete) {
-            // Xóa các hình ảnh liên quan
-            BlogImage::where('blog_section_id', $sectionToDelete->id)->delete();
-            $sectionToDelete->delete();
-        }
-
-        session()->flash('message', 'Blog updated successfully');
-        return redirect()->route('user.blogs');
-    } catch (\Exception $e) {
-        Log::error('Error in update method', ['error' => $e->getMessage()]);
-        session()->flash('error', 'Something went wrong');
     }
-}
 
     public function render()
     {

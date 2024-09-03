@@ -24,6 +24,10 @@ class Blogs extends Model
         return $this->hasMany(BlogSection::class, 'blog_id');
     }
 
+    public function blogImages(){
+        return $this->hasMany(BlogImage::class, 'blog_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
