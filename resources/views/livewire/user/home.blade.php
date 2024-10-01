@@ -4,7 +4,10 @@
     <!-- Video -->
     <div class="video_container">
         <video autoplay loop muted>
-            <source src="/asset/video/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4">
+            @if ($video_home)
+            <source src="{{Storage::url($video_home -> path)}}" >
+            @endif
+            <!-- <source src="/asset/video/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4"> -->
         </video>
         <div class="video_content">
             @if($textSection_1)

@@ -8,6 +8,7 @@ use App\Models\Regions;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use App\Models\Texts;
+use App\Models\Videos;
 
 class Home extends Component
 {
@@ -48,7 +49,7 @@ class Home extends Component
         ->first();
         $this->textSection_4_1 = Texts::where('type','Home_4_1')
         ->first();
-        // $this->video_home = Texts::where('type','Home_Video');
+        $this->video_home = Videos::where('type','Home_Video')->first();
     }
     public function render()
     {

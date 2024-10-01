@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
@@ -18,35 +19,30 @@ class SendPendingFeedbacks extends Command
 
     public function handle()
     {
-        // Lặp lại cho đến khi không còn phản hồi chưa gửi nào
-        while (true) {
-            // Lấy một lô phản hồi chưa gửi (giới hạn 100)
-            $feedbacks = PendingFeedback::where('is_sent', false)->take(100)->get();
+        $feedbacks = PendingFeedback::where('is_sent', false)->take(100)->get();
 
-            $pendingFeedbackCount = $feedbacks->count();
-            $this->info("Total pending feedbacks in this batch: $pendingFeedbackCount");
+        $pendingFeedbackCount = $feedbacks->count();
+        $this->info("Total pending feedbacks in this batch: $pendingFeedbackCount");
 
-            if ($pendingFeedbackCount === 0) {
-                $this->info('No pending feedbacks to send.');
-                break; // Dừng chương trình và đợi lịch trình tiếp theo
-            }
-
-            foreach ($feedbacks as $feedback) {
-                try {
-                    // Gửi email
-                    Mail::to($feedback->email)->send(new FeedbackReceived($feedback->name));
-
-                    // Xóa phản hồi khỏi bảng chờ sau khi gửi thành công
-                    $feedback->delete();
-
-                    $this->info("Feedback sent and deleted for: {$feedback->email}");
-                } catch (\Exception $e) {
-                    $this->error("Failed to send feedback to: {$feedback->email}. Error: " . $e->getMessage());
-                    // Có thể chọn đánh dấu phản hồi này là lỗi hoặc ghi log lỗi để xử lý sau
-                }
-            }
-
-            $this->info('Batch of pending feedbacks has been processed.');
+        if ($pendingFeedbackCount === 0) {
+            $this->info('No pending feedbacks to send.');
         }
+
+        foreach ($feedbacks as $feedback) {
+            try {
+                // Gửi email
+                Mail::to($feedback->email)->send(new FeedbackReceived($feedback->name));
+
+                // Xóa phản hồi khỏi bảng chờ sau khi gửi thành công
+                $feedback->delete();
+
+                $this->info("Feedback sent and deleted for: {$feedback->email}");
+            } catch (\Exception $e) {
+                $this->error("Failed to send feedback to: {$feedback->email}. Error: " . $e->getMessage());
+                // Có thể chọn đánh dấu phản hồi này là lỗi hoặc ghi log lỗi để xử lý sau
+            }
+        }
+
+        $this->info('Batch of pending feedbacks has been processed.');
     }
 }

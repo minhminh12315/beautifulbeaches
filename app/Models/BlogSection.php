@@ -19,7 +19,8 @@ class BlogSection extends Model
         return $this->belongsTo(Blogs::class, 'blog_id');
     }
 
-    public function images(){
+    public function blogImages(){
         return $this->hasMany(BlogImage::class);
     }
+    
 }

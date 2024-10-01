@@ -31,6 +31,7 @@ class VideosResource extends Resource
                     ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                         return time() . '_' . $file->getClientOriginalName();
                     })
+                    ->maxSize(2000000)
                     ->required(),
                 Forms\Components\TextInput::make('type')
                     ->required()

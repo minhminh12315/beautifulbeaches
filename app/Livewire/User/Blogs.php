@@ -22,13 +22,13 @@ class Blogs extends Component
     {
         $this->regions = Regions::all();
         $this->cities = Cities::all();
-        $this->blogs = ModelsBlogs::take($this->perpage)->with('beach')->get();
-        $this->totalsblogs = ModelsBlogs::count();
+        $this->blogs = ModelsBlogs::where('status', 'active')->take($this->perpage)->with('beach')->get();
+        $this->totalsblogs = ModelsBlogs::where('status','active')->count();
     }
 
     public function apply_filter()
     {
-        $query = ModelsBlogs::query();
+        $query = ModelsBlogs::where('status','active');
         foreach ($this->filters as $key => $value) {
             switch ($key) {
                 case 'region':

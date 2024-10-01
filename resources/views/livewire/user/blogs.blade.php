@@ -205,8 +205,8 @@
             @endforeach
             @endif
         </ul>
-        @if ($blogs)
-        @if($blogs->count() < $totalsblogs)
+        @if ($blogs -> isNotEmpty())
+            @if($blogs->count() < $totalsblogs)
             <div class="seeMoreRecord_wrapper">
             <button class="seeMoreRecords" wire:click="loadMore">
                 See more
@@ -214,7 +214,7 @@
             </button>
             </div>
             @endif
-            @endif
+        @endif
     </main>
 </section>
 @endsection
